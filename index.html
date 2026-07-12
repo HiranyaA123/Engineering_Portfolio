@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hiranya Agarwal - UNSW mechanical engineering student building robotics, autonomous systems, space hardware and practical software.">
+  <title>Hiranya Agarwal | Mechanical Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhancements.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Hiranya Agarwal home"><span class="brand-mark" aria-hidden="true">HA</span><span>Hiranya Agarwal</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#about">About</a>
+      <a href="Hiranya_Agarwal_Resume.pdf">Resume</a><a class="nav-cta" href="mailto:agarwalhiranya@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Mechanical engineering / robotics / autonomy</p>
+        <h1>I build machines that <em>sense, decide</em> and move.</h1>
+        <p class="hero-lede">Second-year Mechanical Engineering student at UNSW combining mechanical design, embedded systems and software - from CubeSat ground hardware and autonomous flight to championship robots and a live restaurant rostering system.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore my work <span aria-hidden="true">&searr;</span></a>
+          <a class="button secondary" href="Hiranya_Agarwal_Resume.pdf">View resume</a>
+        </div>
+        <ul class="hero-facts" aria-label="Highlights">
+          <li><strong>2x</strong><span>VEX national champion</span></li>
+          <li><strong>Lead</strong><span>BlueSat mechanical</span></li>
+          <li><strong>6</strong><span>active or field-tested builds</span></li>
+        </ul>
+      </div>
+      <div class="hero-visual reveal" aria-label="Abstract autonomous systems diagram">
+        <svg viewBox="0 0 620 620" role="img" aria-labelledby="visual-title visual-desc">
+          <title id="visual-title">Autonomous system architecture</title><desc id="visual-desc">A technical illustration connecting sensing, control, structure and motion.</desc>
+          <defs><linearGradient id="ring" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#64e6d9"/><stop offset="1" stop-color="#ffb357"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <g class="grid-lines"><path d="M70 160H550M70 310H550M70 460H550M160 70V550M310 70V550M460 70V550"/></g>
+          <g class="orbit orbit-one"><circle cx="310" cy="310" r="195"/><circle class="node" cx="483" cy="221" r="7"/></g><g class="orbit orbit-two"><circle cx="310" cy="310" r="130"/><circle class="node warm" cx="218" cy="402" r="7"/></g>
+          <g class="rotor"><path d="M310 188V432M188 310H432"/><circle cx="310" cy="310" r="76"/><circle cx="310" cy="310" r="28"/></g><g class="blades"><path d="M310 219C266 168 249 156 224 160c-16 38 8 74 86 92"/><path d="M401 310c51-44 63-61 59-86-38-16-74 8-92 86"/><path d="M310 401c44 51 61 63 86 59 16-38-8-74-86-92"/><path d="M219 310c-51 44-63 61-59 86 38 16 74-8 92-86"/></g>
+          <g class="label"><rect x="77" y="112" width="112" height="38" rx="19"/><text x="133" y="137">SENSING</text></g><g class="label"><rect x="430" y="457" width="112" height="38" rx="19"/><text x="486" y="482">CONTROL</text></g><g class="crosshair"><path d="M294 310h32M310 294v32"/></g>
+        </svg>
+        <div class="visual-caption"><span>System 01</span><strong>Mechanics x Intelligence</strong></div>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Capabilities"><span>SolidWorks</span><i></i><span>Fusion 360</span><i></i><span>C++</span><i></i><span>Python</span><i></i><span>TypeScript</span><i></i><span>Embedded systems</span></section>
+
+    <section class="section projects" id="projects">
+      <div class="section-intro reveal"><p class="kicker">Selected work / 01-06</p><h2>Engineering through <span>iteration.</span></h2><p>Select any project to open the full case study.</p></div>
+
+      <a class="project-card featured reveal" href="projects/bluesat-ground-station.html" aria-label="View BlueSat Ground Station case study">
+        <div class="project-copy">
+          <div class="project-meta"><span>01</span><span>Space systems / in development</span></div>
+          <h3>BlueSat Ground Station</h3>
+          <p>Leading mechanical design of the antenna-pointing mounts and bracketry for a student-built CubeSat ground station, while coordinating integration across mechanical, electrical and software teams.</p>
+          <ul class="tags"><li>SolidWorks</li><li>Structures</li><li>Systems integration</li><li>Team leadership</li></ul>
+          <div class="outcome"><span>Role</span><strong>Mechanical Lead / BlueSat UNSW</strong></div><span class="case-link">View case study &rarr;</span>
+        </div>
+        <div class="project-graphic groundstation-graphic" aria-hidden="true">
+          <div class="blueprint-label">POINT / TRACK / COMMUNICATE</div>
+          <svg viewBox="0 0 620 420" aria-hidden="true"><g class="draft"><path d="M78 355H542M310 355V272M262 355l48-83 48 83"/><path d="M224 118c48 88 122 122 211 98-31 92-153 128-235 20z"/><path d="M315 228l-5 44M239 142l-45-29M221 170l-58-3"/><circle cx="315" cy="228" r="9"/><path d="M446 97c31 10 54 31 67 59M453 72c44 13 78 42 96 84"/></g><g class="measure"><path d="M150 378h320"/><text x="235" y="401">ANTENNA POINTING ASSEMBLY</text></g></svg>
+        </div>
+      </a>
+
+      <div class="project-grid">
+        <a class="project-card reveal" href="projects/adam-drone.html" aria-label="View ADA2M autonomous drone case study"><div class="project-meta"><span>02</span><span>Autonomy / flight testing</span></div><div class="mini-orbit" aria-hidden="true"><span></span><span></span><span></span><b>ADA&sup2;M</b></div><h3>Autonomous Monitoring Drone</h3><p>Custom carbon-fibre airframe, F405 flight controller, long-range link and Jetson Nano inference for agricultural environmental monitoring.</p><ul class="tags"><li>SolidWorks</li><li>Jetson Nano</li><li>F405</li><li>C++ / Python</li></ul><span class="case-link">View case study &rarr;</span></a>
+        <a class="project-card reveal" href="projects/vex-over-under.html" aria-label="View VEX Over Under robot case study"><div class="project-meta"><span>03</span><span>Robotics / champion</span></div><div class="robot-mini" aria-hidden="true"><i></i><i></i><span>41103A</span></div><h3>VEX Over Under</h3><p>Autonomous C++ control, sensor fusion and pneumatic mechanisms built under competition pressure and led to back-to-back national titles.</p><ul class="tags"><li>C++</li><li>Pneumatics</li><li>Sensor fusion</li><li>Captaincy</li></ul><span class="case-link">View case study &rarr;</span></a>
+        <a class="project-card reveal" href="projects/primo-roster.html" aria-label="View Primo Roster case study"><div class="project-meta"><span>04</span><span>Operations software / pilot</span></div><div class="roster-graphic" aria-hidden="true"><span>MON</span><i></i><i></i><i></i><span>FRI</span></div><h3>Primo Roster</h3><p>Constraint-solver scheduling for a working restaurant using CP-SAT, an LLM feedback loop, FastAPI and React.</p><ul class="tags"><li>OR-Tools</li><li>FastAPI</li><li>React</li><li>LLM workflow</li></ul><span class="case-link">View case study &rarr;</span></a>
+        <a class="project-card reveal" href="projects/sculpt-showdown.html" aria-label="View Sculpt Showdown case study"><div class="project-meta"><span>05</span><span>Interactive software / playtest</span></div><div class="voxel-graphic" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><h3>Sculpt Showdown</h3><p>A real-time multiplayer voxel-sculpting game built in TypeScript and Three.js and deployed on Cloudflare Pages.</p><ul class="tags"><li>TypeScript</li><li>Three.js</li><li>Vite</li><li>Cloudflare</li></ul><span class="case-link">View case study &rarr;</span></a>
+        <a class="project-card reveal" href="projects/trading-platform.html" aria-label="View day-trading platform case study"><div class="project-meta"><span>06</span><span>Financial software / backtest</span></div><div class="chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h3>Day-Trading Platform</h3><p>Modular Python trading architecture on IBKR with backtesting, execution and hard risk limits before live deployment.</p><ul class="tags"><li>Python</li><li>IBKR API</li><li>Backtesting</li><li>Risk controls</li></ul><span class="case-link">View case study &rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience">
+      <div class="section-intro reveal"><p class="kicker">Experience / beyond the build</p><h2>Technical depth, <span>team momentum.</span></h2></div>
+      <div class="timeline">
+        <article class="timeline-row reveal"><time>2025-now</time><div><h3>Mechanical Lead</h3><p>BlueSat - UNSW CubeSat Program</p></div><p>Lead antenna-pointing mounts and bracketry; coordinate multidisciplinary integration toward launch milestones.</p></article>
+        <article class="timeline-row reveal"><time>2026-now</time><div><h3>VEX Robotics Mentor</h3><p>Barker College, Hornsby</p></div><p>Coach VEX IQ teams through design, build and programming cycles.</p></article>
+        <article class="timeline-row reveal"><time>2025-now</time><div><h3>Co-Founder</h3><p>Project Umbrella, UNSW</p></div><p>Run practical, build-focused engineering projects and workshops for undergraduates.</p></article>
+        <article class="timeline-row reveal"><time>2018-2024</time><div><h3>Captain & Lead Programmer</h3><p>VEX Robotics Team 41103A</p></div><p>Led seven teammates through design, build, code, strategy and two national championships.</p></article>
+      </div>
+    </section>
+
+    <section class="section about" id="about"><div class="about-grid"><div class="reveal"><p class="kicker">About / engineering mindset</p><h2>Curious enough to ask why. Practical enough to <span>build the answer.</span></h2></div><div class="about-copy reveal"><p>I am a second-year Bachelor of Engineering (Honours), Mechanical Engineering student at UNSW drawn to systems where mechanics, electronics and software have to work together.</p><p>Competition robotics taught me to design under pressure, test without ego and lead through setbacks. I now apply that mindset to autonomous flight, space hardware, embedded systems and software used by real operators.</p><div class="award"><span>2024</span><strong>Australian Defence Force<br>Future Innovators Award</strong></div></div></div></section>
+
+    <section class="contact-section"><p class="kicker">Available for 2026/27 vacation programs and internships.</p><h2>Looking for mechanical, mechatronics and systems engineering opportunities.</h2><div class="contact-links"><a href="mailto:agarwalhiranya@gmail.com">agarwalhiranya@gmail.com &nearr;</a><a href="https://github.com/HiranyaA123">GitHub &nearr;</a><a href="https://linkedin.com/in/hiranyaagarwal">LinkedIn &nearr;</a><a href="Hiranya_Agarwal_Resume.pdf">Resume &nearr;</a></div></section>
+  </main>
+  <footer><span>&copy; <span id="year"></span> Hiranya Agarwal</span><span>Sydney, Australia</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
