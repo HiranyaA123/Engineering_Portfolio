@@ -2,7 +2,7 @@
 .project-card:hover,.project-card:focus-visible{transform:translateY(-5px);box-shadow:0 20px 50px rgba(16,42,67,.13);border-color:var(--teal);outline:none}
 .case-link{display:inline-block;margin-top:auto;padding-top:1.2rem;color:var(--teal);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .project-copy .case-link{margin-top:1.4rem}
-.robot-mini,.roster-graphic,.voxel-graphic{height:160px;background:var(--navy);border-radius:9px;margin-bottom:1.8rem;position:relative;overflow:hidden}
+.robot-mini,.roster-graphic,.platform-graphic,.voxel-graphic{height:160px;background:var(--navy);border-radius:9px;margin-bottom:1.8rem;position:relative;overflow:hidden}
 .robot-mini:before{content:"";position:absolute;left:20%;right:20%;bottom:32px;height:64px;border:2px solid var(--mint);transform:skew(-9deg)}
 .robot-mini i{position:absolute;bottom:18px;width:46px;height:46px;border:5px solid var(--orange);border-radius:50%}
 .robot-mini i:first-child{left:24%}.robot-mini i:nth-child(2){right:24%}
@@ -11,6 +11,11 @@
 .roster-graphic span{color:#fff;font-size:.58rem;writing-mode:vertical-rl;letter-spacing:.12em}
 .roster-graphic i{height:88px;border-radius:4px;background:linear-gradient(to bottom,var(--mint) 0 28%,rgba(255,255,255,.12) 28% 38%,var(--orange) 38% 66%,rgba(255,255,255,.12) 66% 76%,var(--mint) 76%)}
 .roster-graphic i:nth-of-type(2){transform:translateY(10px)}
+.platform-graphic{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr;align-items:center;padding:24px;gap:4px}
+.platform-graphic span{display:grid;place-items:center;height:68px;border:1px solid rgba(100,230,217,.55);border-radius:7px;color:#fff;font-family:var(--display);font-size:.65rem;letter-spacing:.08em}
+.platform-graphic span:nth-of-type(2){border-color:var(--orange);color:var(--orange)}
+.platform-graphic i{height:1px;background:var(--mint);position:relative}
+.platform-graphic i:after{content:"";position:absolute;right:-1px;top:-3px;border-left:5px solid var(--mint);border-top:3px solid transparent;border-bottom:3px solid transparent}
 .voxel-graphic{display:grid;grid-template-columns:repeat(3,38px);grid-auto-rows:38px;gap:5px;place-content:center;transform-style:preserve-3d}
 .voxel-graphic i{background:var(--mint);box-shadow:5px 5px 0 rgba(255,179,87,.45)}
 .voxel-graphic i:nth-child(2),.voxel-graphic i:nth-child(5){background:var(--orange)}
