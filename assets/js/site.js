@@ -70,7 +70,14 @@
     full.src = img.dataset.full || img.currentSrc || img.src;
     full.alt = img.alt;
     stage.replaceChildren(full);
-    caption.innerHTML = label ? label.innerHTML : '';
+    if (label) {
+      var labelCopy = label.cloneNode(true);
+      var copiedZoom = labelCopy.querySelector('.zoom');
+      if (copiedZoom) copiedZoom.remove();
+      caption.innerHTML = labelCopy.innerHTML;
+    } else {
+      caption.textContent = '';
+    }
 
     opener = document.activeElement;
     dialog.showModal();

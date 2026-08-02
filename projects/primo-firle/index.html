@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cafe Primo Firle platform | Hiranya Agarwal</title>
+  <meta name="description" content="A production restaurant ordering and operations platform: customer checkout, live staff queue, admin portal, Stripe payments and thermal receipt printing. Case study by Hiranya Agarwal.">
+  <meta name="theme-color" content="#e7e8e3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141f2a" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cafe Primo Firle platform | Hiranya Agarwal">
+  <meta property="og:description" content="A production restaurant ordering and operations platform running in a working restaurant.">
+  <meta property="og:url" content="https://hiranyaa123.github.io/Engineering_Portfolio/projects/primo-firle/">
+  <meta property="og:image" content="https://hiranyaa123.github.io/Engineering_Portfolio/assets/img/vex/over-under-robot-1600.jpg">
+  <meta property="og:image:alt" content="The 41103A VEX competition robot in the pit.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hiranyaa123.github.io/Engineering_Portfolio/projects/primo-firle/">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/case.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../../">
+        <span class="brand-mark" aria-hidden="true">HA</span>
+        <span class="brand-text">Hiranya Agarwal</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../#work">Work</a>
+        <a href="../../#press">Press</a>
+        <a href="../../#experience">Experience</a>
+        <a href="../../#about">About</a>
+        <a href="../../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
+        <a class="nav-contact" href="../../#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="data">Sheet 01 of 06 / Full stack platform</p>
+        <h1>Cafe Primo Firle platform</h1>
+        <p class="lede">A restaurant that was running on four disconnected tools now runs on one system: online ordering, Stripe checkout, a live staff queue, owner administration, customer records and a receipt printer sitting on the counter. It has been in production since it launched.</p>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="shell">
+        <dl class="titleblock">
+          <div><dt>Context</dt><dd>A working restaurant</dd></div>
+          <div><dt>Architecture</dt><dd>Five connected applications</dd></div>
+          <div><dt>Backend</dt><dd>Railway and PostgreSQL</dd></div>
+          <div><dt>Status</dt><dd>Deployed in production</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="case-body shell">
+      <section class="case-section">
+        <h2 class="case-label">The brief</h2>
+        <div class="case-content">
+          <h3>Four groups of people, four different jobs, one source of truth.</h3>
+          <p>Customers browse a live menu and order for pickup. Counter and kitchen staff receive paid orders and move them through a queue. The owner manages menu data, trading hours, modifiers, promotions and customer records. A local service bridges cloud orders to printer hardware that has no idea the cloud exists. Each of those wants a different interface, and all of them have to agree about the same order.</p>
+          <dl class="facts">
+            <div><dt>Customer experience</dt><dd>Menu, cart, checkout and pickup</dd></div>
+            <div><dt>Operations</dt><dd>Live order queue and status flow</dd></div>
+            <div><dt>Administration</dt><dd>Menus, customers, hours and promotions</dd></div>
+            <div><dt>Hardware</dt><dd>ESC/POS thermal printing</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Interfaces</h2>
+        <div class="case-content">
+          <h3>Three purpose built front ends, one restaurant.</h3>
+          <p>These captures come from the real applications running locally against a development database. Customer and order identifying information was excluded from the images on purpose.</p>
+          <div class="photo-grid">
+            <figure class="photo wide" data-label="the customer ordering site">
+              <img src="../../assets/img/primo-firle/customer-site-1280.jpg"
+                   srcset="../../assets/img/primo-firle/customer-site-800.jpg 800w, ../../assets/img/primo-firle/customer-site-1280.jpg 1280w"
+                   sizes="(max-width: 900px) 100vw, 1000px"
+                   width="1280" height="720" loading="lazy" decoding="async"
+                   alt="The Cafe Primo Firle customer ordering website, showing the menu and the online ordering entry point.">
+              <figcaption><b>Customer ordering site</b><span>Public storefront for menu discovery, online ordering, pickup and reservations.</span></figcaption>
+            </figure>
+            <figure class="photo" data-label="the staff dashboard">
+              <img src="../../assets/img/primo-firle/staff-dashboard-1280.jpg"
+                   srcset="../../assets/img/primo-firle/staff-dashboard-800.jpg 800w, ../../assets/img/primo-firle/staff-dashboard-1280.jpg 1280w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1280" height="720" loading="lazy" decoding="async"
+                   alt="The staff dashboard item availability screen, with menu items toggled in and out of service.">
+              <figcaption><b>Staff dashboard</b><span>Tablet first availability controls for marking items in or out of service mid service.</span></figcaption>
+            </figure>
+            <figure class="photo" data-label="the admin portal">
+              <img src="../../assets/img/primo-firle/admin-portal-1280.jpg"
+                   srcset="../../assets/img/primo-firle/admin-portal-800.jpg 800w, ../../assets/img/primo-firle/admin-portal-1280.jpg 1280w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1280" height="720" loading="lazy" decoding="async"
+                   alt="The admin portal menu management screen, with category ordering and item editing controls.">
+              <figcaption><b>Admin portal</b><span>Owner facing menu management with category ordering, availability and editing.</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Architecture</h2>
+        <div class="case-content">
+          <h3>Specialised interfaces around one operational record.</h3>
+          <ol class="flow">
+            <li><b>Customer site</b><span>React and Vite storefront, Zustand cart, Stripe or cash checkout.</span></li>
+            <li><b>Backend API</b><span>Node, Express, JWT roles, business rules and Socket.io events.</span></li>
+            <li><b>PostgreSQL</b><span>Menus, modifiers, orders, customers, promotions and settings.</span></li>
+            <li><b>Staff and admin</b><span>Live order handling, menu control, analytics and customer operations.</span></li>
+          </ol>
+          <ol class="notes">
+            <li><b>Customer storefront.</b> React app covering menu discovery, cart state, dietary information, checkout and store status rules.</li>
+            <li><b>Admin portal.</b> A separate React interface for menu items, modifier groups, trading hours, special days, orders, customer segments, discounts and campaigns.</li>
+            <li><b>Staff dashboard.</b> Tablet first React app on Socket.io for live orders, also packaged as an Android app with Capacitor.</li>
+            <li><b>Printer bridge.</b> A small Node service that turns order data into ESC/POS receipts for the thermal printer on the counter.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Engineering decisions</h2>
+        <div class="case-content">
+          <h3>Design for payments, unreliable hardware boundaries and a busy Saturday.</h3>
+          <ol class="notes">
+            <li><b>Confirm payment through webhooks.</b> Stripe events move an order into the staff queue. The browser is never trusted to say the money arrived.</li>
+            <li><b>Use real time events where latency matters.</b> Socket.io pushes new orders, status changes and sold out updates across every interface at once.</li>
+            <li><b>Keep uploads off ephemeral compute.</b> Menu images stream to Cloudflare R2 instead of living on a Railway container that can be replaced.</li>
+            <li><b>Migrate before every deploy.</b> The production start command fails fast if the PostgreSQL schema cannot be updated safely, so a bad deploy stops before it serves traffic.</li>
+            <li><b>Split cloud and local responsibilities.</b> The hosted API owns orders. The printer service stays next to the hardware it drives.</li>
+          </ol>
+          <div class="callout on-slate">
+            <p class="data">Production footprint</p>
+            <p>The Express API and managed PostgreSQL database run on Railway, images sit in Cloudflare R2, and the three Vite front ends deploy as static applications. The system handles role based authentication, Australian GST, public holiday surcharges, discounts, customer records and receipt output.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Stack</h2>
+        <div class="case-content">
+          <h3>Web, cloud, data and hardware in one delivery.</h3>
+          <dl class="facts">
+            <div><dt>Frontend</dt><dd>React, Vite, Zustand, Capacitor</dd></div>
+            <div><dt>Backend</dt><dd>Node.js, Express, Socket.io</dd></div>
+            <div><dt>Data and payments</dt><dd>PostgreSQL, Stripe</dd></div>
+            <div><dt>Infrastructure</dt><dd>Railway, Cloudflare R2</dd></div>
+          </dl>
+          <p class="note">No credentials or internal administration links appear in this public case study.</p>
+        </div>
+      </section>
+    </div>
+
+    <nav class="case-nav" aria-label="Project sheets">
+      <div class="shell">
+        <a href="../../#work">
+          <span class="data">Back to</span>
+          <span class="case-nav-title">All six sheets</span>
+        </a>
+        <a href="../adam-drone/">
+          <span class="data">Next, sheet 02</span>
+          <span class="case-nav-title">ADA&sup2;M autonomous drone</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
+      <span><a href="mailto:agarwalhiranya@gmail.com">agarwalhiranya@gmail.com</a></span>
+      <span>Sydney, Australia</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

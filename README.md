@@ -10,14 +10,14 @@ No build step, no dependencies. Every page is hand written HTML and CSS with abo
 python -m http.server 8000
 ```
 
-Then open <http://localhost:8000>. Opening `index.html` directly from the file system also works, but the `404.html` root relative links will not.
+Then open <http://localhost:8000>. Use the local server rather than opening `index.html` directly, because the clean project routes resolve through their folders.
 
 ## Structure
 
 ```
 index.html                  landing page
 404.html                    error page
-projects/                   six case study sheets, 01 to 06
+projects/*/index.html       six case studies with clean, extension-free URLs
 assets/css/base.css         design tokens, typography, shared components
 assets/css/home.css         landing page layout
 assets/css/case.css         case study layout
@@ -58,3 +58,5 @@ python -c "from PIL import Image; im=Image.open('new.jpg').convert('RGB'); [im.r
 ## Social previews
 
 Canonical URLs and social preview images use the GitHub Pages production URL. If the site moves to a custom domain, update those values and the URLs in `robots.txt` and `sitemap.xml` together.
+
+The legacy `projects/*.html` files are redirect shims for existing links and search results. New navigation and indexing use the clean `/projects/project-name/` routes.

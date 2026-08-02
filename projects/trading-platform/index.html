@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Day trading platform | Hiranya Agarwal</title>
+  <meta name="description" content="A modular Python trading and backtesting architecture on the Interactive Brokers API, with risk controls built into the core workflow. Case study by Hiranya Agarwal.">
+  <meta name="theme-color" content="#e7e8e3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141f2a" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Day trading platform | Hiranya Agarwal">
+  <meta property="og:description" content="A modular Python trading and backtesting architecture with risk controls in the core workflow.">
+  <meta property="og:url" content="https://hiranyaa123.github.io/Engineering_Portfolio/projects/trading-platform/">
+  <meta property="og:image" content="https://hiranyaa123.github.io/Engineering_Portfolio/assets/img/vex/over-under-robot-1600.jpg">
+  <meta property="og:image:alt" content="The 41103A VEX competition robot in the pit.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hiranyaa123.github.io/Engineering_Portfolio/projects/trading-platform/">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/case.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../../">
+        <span class="brand-mark" aria-hidden="true">HA</span>
+        <span class="brand-text">Hiranya Agarwal</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../#work">Work</a>
+        <a href="../../#press">Press</a>
+        <a href="../../#experience">Experience</a>
+        <a href="../../#about">About</a>
+        <a href="../../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
+        <a class="nav-contact" href="../../#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="data">Sheet 06 of 06 / Financial software</p>
+        <h1>Day trading platform</h1>
+        <p class="lede">A modular Python system for market data, order execution and portfolio state, built so that a strategy has to prove itself against history before it can reach any capital.</p>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="shell">
+        <dl class="titleblock">
+          <div><dt>Language</dt><dd>Python</dd></div>
+          <div><dt>Broker interface</dt><dd>Interactive Brokers</dd></div>
+          <div><dt>Period</dt><dd>2025 to now</dd></div>
+          <div><dt>Status</dt><dd>Backtesting</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="case-body shell">
+      <section class="case-section">
+        <h2 class="case-label">The brief</h2>
+        <div class="case-content">
+          <h3>Make a strategy earn its way to live capital.</h3>
+          <p>The interesting engineering in a trading system is not the strategy. It is the separation between market data, strategy logic, risk management, execution and portfolio state, and the discipline that stops a promising backtest from becoming a live position before anyone has checked it.</p>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Architecture</h2>
+        <div class="case-content">
+          <h3>Risk is a component, not a note in the readme.</h3>
+          <ol class="flow">
+            <li><b>Market data</b><span>Real time and historical feeds through the IBKR API.</span></li>
+            <li><b>Strategy</b><span>Modular logic evaluated against incoming data.</span></li>
+            <li><b>Risk controls</b><span>Position sizing, stop loss logic and drawdown caps.</span></li>
+            <li><b>Execution</b><span>Order management and portfolio state updates.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Engineering decisions</h2>
+        <div class="case-content">
+          <h3>Design for validation and containment.</h3>
+          <ol class="notes">
+            <li><b>Keep the parts independent.</b> Data, strategies, risk and execution can each change without dragging the others with them.</li>
+            <li><b>Make risk explicit.</b> Position sizing, stops and drawdown limits sit in the core workflow, so a strategy cannot opt out of them.</li>
+            <li><b>Backtest first.</b> Historical validation gates any move toward live capital.</li>
+            <li><b>Use a production broker interface.</b> IBKR supplies real market data and a real execution path, so the test conditions resemble the live ones.</li>
+          </ol>
+          <div class="callout on-slate">
+            <p class="data">Current status</p>
+            <p>In backtesting and validation. No live performance claim is made and none should be read into this page. Test methodology and results will be published once they are solid enough to defend.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="case-nav" aria-label="Project sheets">
+      <div class="shell">
+        <a href="../sculpt-showdown/">
+          <span class="data">Previous, sheet 05</span>
+          <span class="case-nav-title">Sculpt Showdown</span>
+        </a>
+        <a href="../../#work">
+          <span class="data">Back to</span>
+          <span class="case-nav-title">All six sheets</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
+      <span><a href="mailto:agarwalhiranya@gmail.com">agarwalhiranya@gmail.com</a></span>
+      <span>Sydney, Australia</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
