@@ -24,7 +24,10 @@ assets/css/case.css         case study layout
 assets/js/site.js           current year, active nav section, photo lightbox
 assets/img/vex/             robot and team photographs (600 / 1000 / 1600 wide)
 assets/img/primo-firle/     real product screenshots (800 / 1280 wide)
+assets/img/favicon.svg      portfolio browser icon
 assets/docs/                the public resume PDF
+robots.txt                  crawler rules and sitemap location
+sitemap.xml                 public pages submitted for indexing
 _local/                     not deployed, not tracked (see .gitignore)
 DESIGN-RULES.md             the ruleset the site is built against
 DESIGN-NOTES.md             decisions made under those rules
@@ -54,4 +57,4 @@ python -c "from PIL import Image; im=Image.open('new.jpg').convert('RGB'); [im.r
 
 ## Social previews
 
-`og:image` is set to a relative path on every page. Once the site has a final domain, switch those to absolute URLs, since some link scrapers will not resolve a relative one.
+Canonical URLs and social preview images use the GitHub Pages production URL. If the site moves to a custom domain, update those values and the URLs in `robots.txt` and `sitemap.xml` together.

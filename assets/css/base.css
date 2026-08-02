@@ -629,6 +629,12 @@ a:hover { color: var(--oxide-deep); }
   overflow: auto;
 }
 
+/* Author styles override the browser's default closed-dialog rule in some
+   engines. Keep the modal completely out of layout until showModal() adds
+   the open attribute, otherwise this full-screen layer blocks every link on
+   a case-study page. */
+.lightbox:not([open]) { display: none; }
+
 .lightbox::backdrop { background: rgba(16, 20, 22, .94); }
 
 .lightbox-stage {
