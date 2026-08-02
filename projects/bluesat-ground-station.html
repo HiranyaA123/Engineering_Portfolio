@@ -1,8 +1,168 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="BlueSat Ground Station mechanical design case study by Hiranya Agarwal."><title>BlueSat Ground Station | Hiranya Agarwal</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="project.css"></head><body>
-<header class="case-header"><a href="../index.html"><span class="brand-mark">HA</span>Hiranya Agarwal</a><a href="../index.html#projects">All projects</a></header>
-<main><section class="case-hero"><p class="kicker">Project 01 / Space systems</p><h1>BlueSat Ground Station</h1><p class="lead">Mechanical design of an antenna-pointing system for communication with a student-built CubeSat in low Earth orbit.</p></section>
-<section class="case-meta"><div><span>Role</span><strong>Mechanical Lead</strong></div><div><span>Team</span><strong>BlueSat UNSW</strong></div><div><span>Timeline</span><strong>2025 - present</strong></div><div><span>Status</span><strong>In development</strong></div></section>
-<div class="case-main"><section class="case-section"><div class="case-label">The brief</div><div class="case-content"><h2>Turn orbital communication requirements into buildable hardware.</h2><p>The ground station needs mechanical hardware that supports antenna pointing while integrating with electrical control and software. My responsibility is the mounts and bracketry around that pointing assembly, together with cross-team mechanical coordination.</p><div class="fact-grid"><div class="fact"><span>Primary tool</span><strong>SolidWorks</strong></div><div class="fact"><span>Engineering context</span><strong>Multidisciplinary space system</strong></div></div></div></section>
-<section class="case-section"><div class="case-label">System view</div><div class="case-content"><h2>Mechanical design sits inside a larger control loop.</h2><div class="system-flow"><div><b>Satellite pass</b><span>Orbital target creates pointing demand.</span></div><div><b>Control</b><span>Software and electrical systems command motion.</span></div><div><b>Pointing hardware</b><span>Mounts and brackets carry and locate the antenna.</span></div><div><b>Communication</b><span>The antenna links with the student CubeSat.</span></div></div></div></section>
-<section class="case-section"><div class="case-label">My contribution</div><div class="case-content"><h2>Design, iterate and integrate.</h2><ul class="decision-list"><li><b>Own the mechanical package.</b> Lead mount and bracket design for the antenna pointing assembly.</li><li><b>Iterate in CAD.</b> Develop and refine geometry in SolidWorks as system requirements evolve.</li><li><b>Coordinate interfaces.</b> Work across electrical, software and mechanical subteams toward shared launch milestones.</li><li><b>Support the team beyond CAD.</b> Help run outreach events promoting space engineering at UNSW.</li></ul><div class="status-callout"><span>Current status</span><p>The ground-station system remains in development. The current focus is mechanical iteration and multidisciplinary integration; performance results will be added after testing.</p></div></div></section></div></main>
-<nav class="case-nav"><a href="../index.html#projects"><span>&larr; Portfolio</span><span>All projects</span></a><a href="adam-drone.html"><span>Next project</span><span>ADA&sup2;M &rarr;</span></a></nav></body></html>
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BlueSat ground station | Hiranya Agarwal</title>
+  <meta name="description" content="Mechanical design of the antenna pointing mounts and bracketry for the BlueSat UNSW CubeSat ground station. Case study by Hiranya Agarwal.">
+  <meta name="theme-color" content="#e7e8e3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b2226" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BlueSat ground station | Hiranya Agarwal">
+  <meta property="og:description" content="Mechanical design of the antenna pointing mounts and bracketry for the BlueSat UNSW CubeSat ground station.">
+  <meta property="og:image" content="../assets/img/vex/over-under-robot-1600.jpg">
+  <meta property="og:image:alt" content="The 41103A VEX competition robot in the pit.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/case.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">HA</span>
+        <span class="brand-text">Hiranya Agarwal</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#press">Press</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
+        <a class="nav-contact" href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="data">Sheet 01 of 06 / Space systems</p>
+        <h1>BlueSat ground station</h1>
+        <p class="lede">Mechanical design of an antenna pointing system that has to talk to a student built CubeSat in low Earth orbit, on a pass that lasts a few minutes.</p>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="shell">
+        <dl class="titleblock">
+          <div><dt>Role</dt><dd>Mechanical lead</dd></div>
+          <div><dt>Team</dt><dd>BlueSat, UNSW</dd></div>
+          <div><dt>Period</dt><dd>2025 to now</dd></div>
+          <div><dt>Status</dt><dd>In development</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="case-body shell">
+      <section class="case-section">
+        <h2 class="case-label">The brief</h2>
+        <div class="case-content">
+          <h3>Turn an orbital communication requirement into hardware somebody can actually build.</h3>
+          <p>A ground station only works if the antenna is where the software thinks it is. My responsibility is the mounts and bracketry around the pointing assembly: the parts that carry the antenna load, hold alignment through motion, and give the electrical and software teams a predictable mechanical interface to command.</p>
+          <div class="case-plate">
+            <svg class="drawing" viewBox="0 0 480 380" role="img" aria-labelledby="bs-title bs-desc">
+              <title id="bs-title">Detail drawing of an antenna mount bracket plate</title>
+              <desc id="bs-desc">A bracket plate with four bolt holes, a central bearing bore, sectioned ribs shown with hatching, and dimension lines labelled bolt circle and plate.</desc>
+              <g class="outline">
+                <path d="M96 78h288a16 16 0 0 1 16 16v168a16 16 0 0 1-16 16H96a16 16 0 0 1-16-16V94a16 16 0 0 1 16-16z"/>
+                <circle cx="240" cy="178" r="58"/>
+                <path d="M176 78v200M304 78v200"/>
+              </g>
+              <g class="thin">
+                <circle cx="240" cy="178" r="46"/>
+                <circle cx="118" cy="116" r="9"/><circle cx="362" cy="116" r="9"/>
+                <circle cx="118" cy="240" r="9"/><circle cx="362" cy="240" r="9"/>
+                <path d="M109 116h18M118 107v18M353 116h18M362 107v18M109 240h18M118 231v18M353 240h18M362 231v18"/>
+              </g>
+              <g class="hatch">
+                <path d="M180 96l-4 12M192 96l-12 34M204 96l-12 34M216 96l-12 34M228 96l-12 34M240 96l-12 34M252 96l-12 34M264 96l-12 34M276 96l-12 34M288 96l-12 34M300 96l-4 12"/>
+                <path d="M180 226l-4 12M192 226l-12 34M204 226l-12 34M216 226l-12 34M228 226l-12 34M240 226l-12 34M252 226l-12 34M264 226l-12 34M276 226l-12 34M288 226l-12 34M300 226l-4 12"/>
+              </g>
+              <g class="centre"><path d="M240 60v236M62 178h356"/></g>
+              <g class="dim">
+                <path d="M118 316h244M118 310v12M362 310v12"/>
+                <path d="M46 116v124M40 116h12M40 240h12"/>
+              </g>
+              <text x="196" y="340">BOLT CIRCLE</text>
+              <text x="18" y="186" transform="rotate(-90 18 186)">PLATE</text>
+              <text class="lead-note" x="300" y="52">SECTION A-A</text>
+              <g class="thin"><path d="M296 58 262 96"/></g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">System view</h2>
+        <div class="case-content">
+          <h3>The mechanical design sits inside a loop it does not control.</h3>
+          <p>Everything upstream of the bracket is a schedule and a command. Everything downstream is a link budget. The mechanical package has to be honest about both.</p>
+          <ol class="flow">
+            <li><b>Satellite pass</b><span>An orbital track creates a pointing demand with a hard time window.</span></li>
+            <li><b>Control</b><span>Software and electrical systems command azimuth and elevation motion.</span></li>
+            <li><b>Pointing hardware</b><span>Mounts and brackets carry the antenna and hold its alignment.</span></li>
+            <li><b>Link</b><span>The antenna closes the link with the CubeSat.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">My contribution</h2>
+        <div class="case-content">
+          <h3>Design, iterate, integrate.</h3>
+          <ol class="notes">
+            <li><b>Own the mechanical package.</b> Lead the mount and bracket design for the antenna pointing assembly.</li>
+            <li><b>Iterate in CAD.</b> Develop and revise the geometry in SolidWorks as system requirements move.</li>
+            <li><b>Hold the interfaces.</b> Work across the electrical, software and mechanical subteams so the parts still fit when the requirements change.</li>
+            <li><b>Support the team beyond CAD.</b> Help run BlueSat outreach events promoting space engineering at UNSW.</li>
+          </ol>
+          <dl class="facts">
+            <div><dt>Primary tool</dt><dd>SolidWorks</dd></div>
+            <div><dt>Context</dt><dd>Multidisciplinary space system</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Status</h2>
+        <div class="case-content">
+          <h3>Still in development, and the numbers are not in yet.</h3>
+          <div class="callout on-slate">
+            <p class="data">Current status</p>
+            <p>The ground station remains in development. Current work is mechanical iteration and multidisciplinary integration. Pointing accuracy, load and link results will go on this page once the hardware has been tested, not before.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="case-nav" aria-label="Project sheets">
+      <div class="shell">
+        <a href="../index.html#work">
+          <span class="data">Back to</span>
+          <span class="case-nav-title">All six sheets</span>
+        </a>
+        <a href="adam-drone.html">
+          <span class="data">Next, sheet 02</span>
+          <span class="case-nav-title">ADA&sup2;M autonomous drone</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
+      <span><a href="mailto:agarwalhiranya@gmail.com">agarwalhiranya@gmail.com</a></span>
+      <span>Sydney, Australia</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js" defer></script>
+</body>
+</html>

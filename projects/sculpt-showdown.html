@@ -1,5 +1,127 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Sculpt Showdown browser game case study by Hiranya Agarwal."><title>Sculpt Showdown | Hiranya Agarwal</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="project.css"></head><body>
-<header class="case-header"><a href="../index.html"><span class="brand-mark">HA</span>Hiranya Agarwal</a><a href="../index.html#projects">All projects</a></header><main><section class="case-hero"><p class="kicker">Project 05 / Interactive software</p><h1>Sculpt Showdown</h1><p class="lead">A real-time multiplayer voxel-sculpting game that runs in the browser, built with custom voxel tooling and a modern TypeScript stack.</p></section><section class="case-meta"><div><span>Medium</span><strong>Browser game</strong></div><div><span>Rendering</span><strong>Three.js</strong></div><div><span>Timeline</span><strong>2026 - present</strong></div><div><span>Status</span><strong>Visual polish</strong></div></section>
-<div class="case-main"><section class="case-section"><div class="case-label">The product</div><div class="case-content"><h2>Make 3D creation immediate, competitive and shareable.</h2><p>Sculpt Showdown is a multiplayer browser experience built around voxel sculpting. The project combines a real-time interaction model with custom tooling for creating and manipulating block-based forms.</p></div></section>
-<section class="case-section"><div class="case-label">Technical stack</div><div class="case-content"><h2>A lightweight path from code to public playtest.</h2><div class="system-flow"><div><b>TypeScript</b><span>Application logic with typed interfaces.</span></div><div><b>Three.js</b><span>Browser-based 3D scene and rendering.</span></div><div><b>Vite</b><span>Development and production build pipeline.</span></div><div><b>Cloudflare Pages</b><span>Deployed web delivery.</span></div></div><a class="external-link" href="https://github.com/HiranyaA123/build_battle" rel="noopener">View source on GitHub &nearr;</a></div></section>
-<section class="case-section"><div class="case-label">Engineering focus</div><div class="case-content"><h2>Build the tooling beneath the experience.</h2><ul class="decision-list"><li><b>Use a browser-native 3D stack.</b> Three.js keeps the experience accessible without a desktop install.</li><li><b>Create custom voxel tooling.</b> The interaction model is built around the product rather than a generic editor.</li><li><b>Ship continuously.</b> Vite and Cloudflare Pages support a tight build-and-deploy loop.</li><li><b>Polish before scale.</b> Current work is focused on visual quality ahead of public playtesting.</li></ul><div class="status-callout"><span>Current status</span><p>The project is deployed and undergoing visual polish. Player-count, session and playtest results will be added when public testing begins.</p></div></div></section></div></main><nav class="case-nav"><a href="primo-firle.html"><span>&larr; Previous</span><span>Cafe Primo Firle</span></a><a href="trading-platform.html"><span>Next project</span><span>Trading platform &rarr;</span></a></nav></body></html>
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sculpt Showdown | Hiranya Agarwal</title>
+  <meta name="description" content="Sculpt Showdown, a real time multiplayer voxel sculpting game in TypeScript and Three.js. Case study by Hiranya Agarwal.">
+  <meta name="theme-color" content="#e7e8e3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b2226" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sculpt Showdown | Hiranya Agarwal">
+  <meta property="og:description" content="A real time multiplayer voxel sculpting game in TypeScript and Three.js.">
+  <meta property="og:image" content="../assets/img/vex/over-under-robot-1600.jpg">
+  <meta property="og:image:alt" content="The 41103A VEX competition robot in the pit.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/case.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">HA</span>
+        <span class="brand-text">Hiranya Agarwal</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#press">Press</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
+        <a class="nav-contact" href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="data">Sheet 05 of 06 / Interactive software</p>
+        <h1>Sculpt Showdown</h1>
+        <p class="lede">A multiplayer voxel sculpting game that runs in a browser tab, with sculpting tools written for this game rather than borrowed from a general purpose editor.</p>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="shell">
+        <dl class="titleblock">
+          <div><dt>Medium</dt><dd>Browser game</dd></div>
+          <div><dt>Rendering</dt><dd>Three.js</dd></div>
+          <div><dt>Period</dt><dd>2026 to now</dd></div>
+          <div><dt>Status</dt><dd>Visual polish</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="case-body shell">
+      <section class="case-section">
+        <h2 class="case-label">The product</h2>
+        <div class="case-content">
+          <h3>Make 3D creation immediate, competitive and shareable.</h3>
+          <p>Most 3D tools ask for an install, an account and an afternoon before anything appears on screen. Sculpt Showdown puts several people in the same voxel scene from a link, with a short round and a shared result at the end. The interaction model is the product, so it is the part I built from scratch.</p>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Technical stack</h2>
+        <div class="case-content">
+          <h3>A short path from code to public playtest.</h3>
+          <ol class="flow">
+            <li><b>TypeScript</b><span>Application and game logic with typed interfaces.</span></li>
+            <li><b>Three.js</b><span>Browser based 3D scene and rendering.</span></li>
+            <li><b>Vite</b><span>Development server and production build pipeline.</span></li>
+            <li><b>Cloudflare Pages</b><span>Deployment and web delivery.</span></li>
+          </ol>
+          <p class="note"><a class="text-link" href="https://github.com/HiranyaA123/build_battle" rel="noopener">Read the source on GitHub <span aria-hidden="true">&#8599;</span></a></p>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Engineering focus</h2>
+        <div class="case-content">
+          <h3>Build the tooling underneath the experience.</h3>
+          <ol class="notes">
+            <li><b>Stay browser native.</b> Three.js keeps the game one link away, which is the whole point of a short competitive round.</li>
+            <li><b>Write the voxel tools for this game.</b> The sculpting model is built around how a round actually plays rather than around a generic editor.</li>
+            <li><b>Ship continuously.</b> Vite and Cloudflare Pages keep the build and deploy loop short enough to test an idea the same day.</li>
+            <li><b>Polish before scale.</b> Visual quality comes first, so the first public playtest is judged on the game rather than on the rendering.</li>
+          </ol>
+          <div class="callout on-slate">
+            <p class="data">Current status</p>
+            <p>Deployed and in visual polish. Player counts, session length and playtest findings will go here once public testing starts.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="case-nav" aria-label="Project sheets">
+      <div class="shell">
+        <a href="primo-firle.html">
+          <span class="data">Previous, sheet 04</span>
+          <span class="case-nav-title">Cafe Primo Firle platform</span>
+        </a>
+        <a href="trading-platform.html">
+          <span class="data">Next, sheet 06</span>
+          <span class="case-nav-title">Day trading platform</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
+      <span><a href="mailto:agarwalhiranya@gmail.com">agarwalhiranya@gmail.com</a></span>
+      <span>Sydney, Australia</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,718 @@
+/* ==========================================================================
+   Hiranya Agarwal / engineering portfolio
+   Direction     Technical drawing sheet
+   Palette       Drafting paper, graphite, oxide (three active hues)
+   Type          Archivo display / Source Serif 4 body / IBM Plex Mono data
+   Signature     The drawing title block, carried on every sheet
+   ========================================================================== */
+
+:root {
+  /* Colour. One dominant surface, one neutral, one accent. */
+  --paper: #e7e8e3;
+  --paper-raised: #eff0ec;
+  --paper-sunk: #dcded7;
+  --rule: #b7bcaf;
+  --rule-soft: #d0d3c9;
+
+  --graphite: #14181a;
+  --graphite-mid: #3c464b;
+  --graphite-soft: #525e64;
+
+  --slate: #1b2226;
+  --slate-raised: #232c31;
+  --slate-rule: #3b464c;
+  --on-slate: #c3cbcf;
+  --on-slate-quiet: #8d999f;
+
+  --oxide: #a63a17;
+  --oxide-deep: #8e2f11;
+  --oxide-lift: #e0703f;
+
+  /* Type */
+  --display: "Archivo", "Arial Narrow", sans-serif;
+  --body: "Source Serif 4", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+
+  /* Scale, ratio 1.25 from an 18px body */
+  --t-micro: 0.6875rem;   /* 11px, title block fields only */
+  --t-data: 0.75rem;      /* 12px, mono labels */
+  --t-meta: 0.875rem;     /* 14px */
+  --t-body: 1.125rem;     /* 18px */
+  --t-lede: 1.375rem;     /* 22px */
+  --t-h3: 1.5rem;
+  --t-h2: clamp(1.75rem, 1.05rem + 2.6vw, 3.25rem);
+  --t-h1: clamp(2rem, 1.1rem + 4.6vw, 5.25rem);
+
+  /* Space, 8px grid with a 4px half step */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 48px;
+  --s-7: 64px;
+  --s-8: 96px;
+  --s-9: 128px;
+  --s-10: 160px;
+
+  /* Radius, scaled by element size */
+  --r-xs: 2px;   /* tags, chips */
+  --r-sm: 4px;   /* buttons, inputs, small media */
+  --r-md: 8px;   /* panels */
+  --r-lg: 12px;  /* full sheets */
+
+  /* Elevation. Tinted with the surface, reserved for things that move. */
+  --lift-1: 0 2px 6px rgba(20, 24, 26, .05), 0 8px 20px rgba(20, 24, 26, .05);
+  --lift-2: 0 4px 10px rgba(20, 24, 26, .06), 0 18px 44px rgba(20, 24, 26, .09);
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .7, .3, 1);
+  --t-fast: 140ms;
+  --t-mid: 220ms;
+
+  --shell: 1280px;
+  --gutter: clamp(20px, 4vw, 48px);
+
+  --cross: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='13' height='13'><path d='M6.5 0v13M0 6.5h13' stroke='%23b7bcaf' stroke-width='1'/></svg>");
+  --cross-light: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='13' height='13'><path d='M6.5 0v13M0 6.5h13' stroke='%23566268' stroke-width='1'/></svg>");
+}
+
+/* --------------------------------------------------------- reset + shell */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+html:focus-within { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--graphite);
+  font-family: var(--body);
+  font-size: var(--t-body);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  overflow-x: hidden;
+}
+
+/* The substrate. A drawing sits on gridded stock, so the page does too. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(20, 24, 26, .05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 24, 26, .05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(20, 24, 26, .025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 24, 26, .025) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+}
+
+img { max-width: 100%; height: auto; }
+
+.shell {
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* --------------------------------------------------------- typography */
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 112%;
+  color: var(--graphite);
+  margin: 0 0 var(--s-3);
+  text-wrap: balance;
+  /* Display type at narrow widths: break a word rather than push the page
+     sideways. Only ever fires when the word genuinely cannot fit. */
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: var(--t-h1);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+
+h2 {
+  font-size: var(--t-h2);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+
+h3 {
+  font-size: var(--t-h3);
+  line-height: 1.2;
+  letter-spacing: -.015em;
+}
+
+p { margin: 0 0 var(--s-3); max-width: 68ch; }
+
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 600; }
+
+/* Mono is reserved for measured data: labels, counts, dates, revisions. */
+.data {
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--graphite-soft);
+}
+
+.data-accent { color: var(--oxide); }
+
+.lede {
+  font-size: var(--t-lede);
+  line-height: 1.5;
+  color: var(--graphite-mid);
+  max-width: 60ch;
+}
+
+.note { color: var(--graphite-soft); max-width: 62ch; }
+
+/* --------------------------------------------------------- focus + links */
+
+:focus-visible {
+  outline: 2px solid var(--oxide);
+  outline-offset: 3px;
+  border-radius: var(--r-xs);
+}
+
+.on-slate :focus-visible,
+.on-slate:focus-visible { outline-color: var(--oxide-lift); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 20;
+}
+
+.skip-link:focus-visible {
+  left: var(--gutter);
+  top: var(--s-2);
+  background: var(--graphite);
+  color: var(--paper);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-sm);
+  font-family: var(--mono);
+  font-size: var(--t-meta);
+}
+
+a { color: var(--oxide); }
+
+a:hover { color: var(--oxide-deep); }
+
+.text-link {
+  color: var(--oxide);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+  transition: color var(--t-fast) var(--ease);
+}
+
+/* --------------------------------------------------------- corner ticks */
+
+.ticks {
+  background-image: var(--cross), var(--cross), var(--cross), var(--cross);
+  background-repeat: no-repeat;
+  background-position:
+    left 10px top 10px, right 10px top 10px,
+    left 10px bottom 10px, right 10px bottom 10px;
+  background-size: 13px 13px;
+}
+
+.on-slate.ticks,
+.ticks.on-slate {
+  background-image: var(--cross-light), var(--cross-light), var(--cross-light), var(--cross-light);
+}
+
+/* --------------------------------------------------------- title block */
+/* The signature element. Real fields, real values, on every sheet. */
+
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+
+.titleblock > div {
+  background: var(--paper);
+  padding: var(--s-2) var(--s-3) 12px;
+  min-width: 0;
+}
+
+.titleblock dt {
+  font-family: var(--mono);
+  font-size: var(--t-micro);
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--graphite-soft);
+}
+
+.titleblock dd {
+  margin: var(--s-1) 0 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 100%;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  letter-spacing: -.005em;
+}
+
+.on-slate .titleblock,
+.titleblock.on-slate {
+  background: var(--slate-rule);
+  border-color: var(--slate-rule);
+}
+
+.on-slate .titleblock > div,
+.titleblock.on-slate > div { background: var(--slate); }
+
+.on-slate .titleblock dt,
+.titleblock.on-slate dt { color: var(--on-slate-quiet); }
+
+.on-slate .titleblock dd,
+.titleblock.on-slate dd { color: #fff; }
+
+/* --------------------------------------------------------- buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  padding: 0 var(--s-4);
+  border: 1px solid var(--graphite);
+  border-radius: var(--r-sm);
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 105%;
+  font-size: 1rem;
+  letter-spacing: -.005em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
+}
+
+.btn-primary {
+  background: var(--graphite);
+  border-color: var(--graphite);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--oxide-deep);
+  border-color: var(--oxide-deep);
+  color: #fff;
+}
+
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-quiet {
+  background: transparent;
+  color: var(--graphite);
+}
+
+.btn-quiet:hover {
+  background: var(--paper-sunk);
+  border-color: var(--graphite);
+  color: var(--graphite);
+}
+
+.btn-quiet:active { transform: translateY(1px); }
+
+.btn .arrow { font-family: var(--mono); font-size: 0.9em; }
+
+/* --------------------------------------------------------- tag list */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tags li {
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  letter-spacing: .04em;
+  color: var(--graphite-mid);
+  background: var(--paper-sunk);
+  border-radius: var(--r-xs);
+  padding: var(--s-1) var(--s-2);
+}
+
+/* --------------------------------------------------------- header */
+
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header .shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+  padding-block: var(--s-2);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  color: var(--graphite);
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 108%;
+  letter-spacing: -.01em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--graphite);
+  border-radius: var(--r-xs);
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  font-weight: 600;
+  letter-spacing: .04em;
+  flex: none;
+}
+
+.brand:hover .brand-mark {
+  background: var(--graphite);
+  color: var(--paper);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-2);
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--s-3);
+  border-radius: var(--r-sm);
+  color: var(--graphite-mid);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+
+.site-nav a:hover {
+  color: var(--graphite);
+  background: var(--paper-sunk);
+}
+
+.site-nav a[aria-current="page"],
+.site-nav a.is-current {
+  color: var(--oxide);
+  box-shadow: inset 0 -2px 0 var(--oxide);
+}
+
+.site-nav .nav-contact {
+  border: 1px solid var(--graphite);
+  color: var(--graphite);
+}
+
+.site-nav .nav-contact:hover {
+  background: var(--graphite);
+  color: var(--paper);
+}
+
+/* --------------------------------------------------------- footer */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: var(--s-8);
+}
+
+.site-footer .shell {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-block: var(--s-5);
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--graphite-soft);
+}
+
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--graphite-soft);
+  text-decoration: none;
+}
+
+.site-footer a:hover { color: var(--oxide); text-decoration: underline; }
+
+/* --------------------------------------------------------- photographs */
+/* Real photographs of real hardware. Sized responsively so a phone never
+   pulls a desktop file. */
+
+.photo {
+  margin: 0;
+  background: var(--paper-raised);
+  border-radius: var(--r-md);
+  padding: var(--s-2);
+  box-shadow: var(--lift-1);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* concentric: outer 8px minus 8px padding leaves the inner corner at the
+     smallest step on the scale rather than a sharp one */
+  border-radius: var(--r-xs);
+  background: var(--paper-sunk);
+}
+
+.photo figcaption { padding: var(--s-3) var(--s-2) var(--s-2); }
+
+.photo figcaption b {
+  display: block;
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 104%;
+  font-size: 1.0625rem;
+  letter-spacing: -.01em;
+  margin-bottom: var(--s-1);
+}
+
+.photo figcaption span { font-size: 0.9375rem; color: var(--graphite-soft); }
+
+.photo-grid {
+  display: grid;
+  /* min() keeps the track from forcing a 280px floor on a 320px screen */
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--s-3);
+  margin: var(--s-5) 0 0;
+}
+
+.photo-grid .wide { grid-column: 1 / -1; }
+
+/* Enlarge control. Only shown once the lightbox script has taken over, so a
+   dead button never ships. */
+.photo .zoom { display: none; }
+
+.js-lightbox .photo img { cursor: zoom-in; }
+
+.js-lightbox .photo .zoom {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  margin-top: var(--s-1);
+  padding: 0 var(--s-2) 0 0;
+  background: none;
+  border: 0;
+  color: var(--oxide);
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: zoom-in;
+  transition: color var(--t-fast) var(--ease), gap var(--t-fast) var(--ease);
+}
+
+.js-lightbox .photo .zoom:hover { color: var(--oxide-deep); gap: var(--s-3); }
+
+/* --------------------------------------------------------- lightbox */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: var(--s-3);
+  padding: clamp(16px, 3vw, 40px);
+  background: rgba(16, 20, 22, .94);
+  border: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.lightbox::backdrop { background: rgba(16, 20, 22, .94); }
+
+.lightbox-stage {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+}
+
+.lightbox-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: var(--r-sm);
+  object-fit: contain;
+}
+
+.lightbox-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  color: var(--on-slate);
+}
+
+.lightbox-caption {
+  font-size: 1rem;
+  max-width: 70ch;
+  margin: 0;
+}
+
+.lightbox-caption b {
+  display: block;
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 104%;
+  color: #fff;
+}
+
+.lightbox-close {
+  min-height: 44px;
+  padding: 0 var(--s-3);
+  background: none;
+  border: 1px solid var(--slate-rule);
+  border-radius: var(--r-sm);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex: none;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+
+.lightbox-close:hover { background: var(--slate-raised); border-color: var(--on-slate-quiet); }
+
+.lightbox :focus-visible { outline-color: var(--oxide-lift); }
+
+/* --------------------------------------------------------- drawing svg */
+
+.drawing { display: block; width: 100%; height: auto; }
+.drawing .frame { fill: none; stroke: var(--slate-rule); stroke-width: 1; }
+.drawing .outline { fill: none; stroke: #e4eaec; stroke-width: 1.6; stroke-linejoin: round; }
+.drawing .thin { fill: none; stroke: #96a5ab; stroke-width: .9; }
+.drawing .centre { fill: none; stroke: var(--oxide-lift); stroke-width: .9; stroke-dasharray: 14 4 3 4; }
+.drawing .dim { fill: none; stroke: #7f8f96; stroke-width: .8; }
+.drawing .hatch { fill: none; stroke: #61717a; stroke-width: .8; }
+.drawing .fill-soft { fill: rgba(228, 234, 236, .07); stroke: none; }
+.drawing text {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  fill: var(--on-slate-quiet);
+}
+.drawing text.lead-note { fill: var(--oxide-lift); }
+
+/* --------------------------------------------------------- motion */
+/* Budget: one moment. The hero sheet plots itself, once. Nothing else moves
+   on scroll. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .plot .outline,
+  .plot .thin,
+  .plot .dim,
+  .plot .hatch,
+  .plot .frame {
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: plot 1100ms var(--ease) forwards;
+  }
+  .plot .thin { animation-delay: 180ms; }
+  .plot .hatch { animation-delay: 300ms; }
+  .plot .dim { animation-delay: 420ms; }
+  .plot .centre { opacity: 0; animation: ink 500ms var(--ease) 700ms forwards; }
+  .plot text { opacity: 0; animation: ink 400ms var(--ease) 860ms forwards; }
+}
+
+@keyframes plot { to { stroke-dashoffset: 0; } }
+@keyframes ink { to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* --------------------------------------------------------- small screens */
+
+@media (max-width: 720px) {
+  .site-header { position: static; }
+  .site-header .shell { justify-content: flex-start; }
+  .site-nav { width: 100%; }
+  .site-nav a { padding-inline: var(--s-2); }
+}
+
+@media (max-width: 380px) {
+  .brand-text { display: none; }
+}

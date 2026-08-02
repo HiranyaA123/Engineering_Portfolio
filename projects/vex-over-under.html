@@ -1,5 +1,236 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="VEX Over Under national-championship robot case study by Hiranya Agarwal."><title>VEX Over Under | Hiranya Agarwal</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="project.css"></head><body>
-<header class="case-header"><a href="../index.html"><span class="brand-mark">HA</span>Hiranya Agarwal</a><a href="../index.html#projects">All projects</a></header><main><section class="case-hero"><p class="kicker">Project 03 / Competition robotics</p><h1>VEX Over Under</h1><p class="lead">A competition robot and team program that converted mechanical versatility, autonomous control and disciplined preparation into back-to-back Australian titles.</p></section><section class="case-meta"><div><span>Role</span><strong>Captain + lead programmer</strong></div><div><span>Team</span><strong>7 people / 41103A</strong></div><div><span>Timeline</span><strong>2018 - 2024</strong></div><div><span>Result</span><strong>2x national champion</strong></div></section>
-<div class="case-main"><section class="case-section"><div class="case-label">The challenge</div><div class="case-content"><h2>Build a robot that could score, traverse and climb - reliably.</h2><p>The Over Under game demanded triball handling, movement across a central barrier and an end-game elevation climb. The robot needed mechanical flexibility and predictable autonomous positioning under competition conditions.</p></div></section>
-<section class="case-section"><div class="case-label">Control stack</div><div class="case-content"><h2>Fuse multiple sensors into repeatable field positioning.</h2><div class="system-flow"><div><b>IMU</b><span>Heading feedback for turns and orientation.</span></div><div><b>Encoders</b><span>Motor and drivetrain movement feedback.</span></div><div><b>Colour sensor</b><span>Additional field-state input.</span></div><div><b>C++ control</b><span>Autonomous and driver-control behaviour.</span></div></div></div></section>
-<section class="case-section"><div class="case-label">My contribution</div><div class="case-content"><h2>Own the code, shape the mechanism and lead the team.</h2><ul class="decision-list"><li><b>Program the full control stack.</b> Wrote autonomous and driver-control code in C++.</li><li><b>Design pneumatic mechanisms.</b> Developed intake, scoring and elevation-climb systems.</li><li><b>Lead competition execution.</b> Managed strategy, driver training and preparation for a seven-person team.</li><li><b>Build capability around the team.</b> Mentored junior teams and helped organise the 2022 Australian National VEX Championship.</li></ul><div class="fact-grid"><div class="fact"><span>National result</span><strong>Back-to-back championships</strong></div><div class="fact"><span>International result</span><strong>2x Worlds qualification</strong></div><div class="fact"><span>Worlds 2024</span><strong>Sportsmanship Award</strong></div><div class="fact"><span>Location</span><strong>Dallas, Texas</strong></div></div></div></section></div></main><nav class="case-nav"><a href="adam-drone.html"><span>&larr; Previous</span><span>ADA&sup2;M</span></a><a href="primo-firle.html"><span>Next project</span><span>Cafe Primo Firle &rarr;</span></a></nav></body></html>
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VEX Over Under | Hiranya Agarwal</title>
+  <meta name="description" content="VEX Over Under competition robot and team programme. Two Australian national titles and the 2024 World Championship Sportsmanship Award. Case study by Hiranya Agarwal.">
+  <meta name="theme-color" content="#e7e8e3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b2226" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VEX Over Under | Hiranya Agarwal">
+  <meta property="og:description" content="Two Australian national titles and the 2024 VEX World Championship Sportsmanship Award, with team 41103A NextGen.">
+  <meta property="og:image" content="../assets/img/vex/over-under-robot-1600.jpg">
+  <meta property="og:image:alt" content="The 41103A VEX competition robot in the pit.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/case.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">HA</span>
+        <span class="brand-text">Hiranya Agarwal</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#press">Press</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
+        <a class="nav-contact" href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="data">Sheet 03 of 06 / Competition robotics</p>
+        <h1>VEX Over Under</h1>
+        <p class="lede">Seven years of competition robotics, ending with a robot that had to score, cross a barrier and climb, and a team that had to do it twice on the same day.</p>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="shell">
+        <dl class="titleblock">
+          <div><dt>Role</dt><dd>Captain and lead programmer</dd></div>
+          <div><dt>Team</dt><dd>41103A NextGen, seven people</dd></div>
+          <div><dt>Period</dt><dd>2018 to 2024</dd></div>
+          <div><dt>Result</dt><dd>Two time national champion</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="case-body shell">
+      <section class="case-section">
+        <h2 class="case-label">The challenge</h2>
+        <div class="case-content">
+          <h3>Build one robot that scores, traverses and climbs, and does it the same way every match.</h3>
+          <p>Over Under asked for triball handling, movement across a central barrier and an end game elevation climb. Any one of those is a mechanism. All three at once is a packaging argument, and the autonomous routine only works if the robot ends up in the same place it did in practice.</p>
+          <div class="case-plate">
+            <svg class="drawing" viewBox="0 0 480 314" role="img" aria-labelledby="vx-title vx-desc">
+              <title id="vx-title">Side elevation drawing of the competition robot</title>
+              <desc id="vx-desc">A side view of the robot chassis on two drive wheels, with an intake arm reaching forward, a pneumatic cylinder at the rear, centre lines through the wheels and a hatched ground line.</desc>
+              <g class="hatch"><path d="M56 246h368M62 246l-11 13M90 246l-11 13M118 246l-11 13M146 246l-11 13M174 246l-11 13M202 246l-11 13M230 246l-11 13M258 246l-11 13M286 246l-11 13M314 246l-11 13M342 246l-11 13M370 246l-11 13M398 246l-11 13"/></g>
+              <g class="outline">
+                <path d="M124 206h232v-64H124z"/>
+                <circle cx="150" cy="218" r="30"/><circle cx="330" cy="218" r="30"/>
+                <path d="M172 142 138 78h38l32 64"/>
+                <path d="M138 78h108"/>
+                <path d="M280 142h48v-28h-48z"/>
+              </g>
+              <g class="thin">
+                <circle cx="150" cy="218" r="11"/><circle cx="330" cy="218" r="11"/>
+                <path d="M246 78l26 24M268 98h32v10h-32z"/>
+                <path d="M140 124h56M140 106h38M140 160h180M140 178h180"/>
+              </g>
+              <g class="centre"><path d="M150 258v-64M330 258v-64"/></g>
+              <g class="dim"><path d="M124 284h232M124 278v12M356 278v12"/></g>
+              <text x="204" y="300">WHEELBASE</text>
+              <text class="lead-note" x="336" y="90">PNEUMATIC</text>
+              <g class="thin"><path d="M334 86 306 114"/></g>
+              <text class="lead-note" x="86" y="70">INTAKE</text>
+              <g class="thin"><path d="M120 66 146 82"/></g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">The build</h2>
+        <div class="case-content">
+          <h3>The robot, the pit and the seven people who ran it.</h3>
+          <p>Photographs from the 2023/24 Over Under season, at the Australian national championship and at the world championship in Dallas.</p>
+          <div class="photo-grid">
+            <figure class="photo wide" data-label="the Over Under robot in the pit">
+              <img src="../assets/img/vex/over-under-robot-1000.jpg"
+                   srcset="../assets/img/vex/over-under-robot-600.jpg 600w, ../assets/img/vex/over-under-robot-1000.jpg 1000w, ../assets/img/vex/over-under-robot-1600.jpg 1600w"
+                   sizes="(max-width: 900px) 100vw, 1000px"
+                   width="1600" height="1067" loading="lazy" decoding="async"
+                   data-full="../assets/img/vex/over-under-robot-1600.jpg"
+                   alt="The 41103A competition robot on its case in the pit, showing the intake rollers, the drivetrain and the folding wings, with the team number plate mounted on the frame.">
+              <figcaption><b>41103A in the pit</b><span>The competition robot between matches. The intake sits at the front, the pneumatic wings fold along each side, and the number plate rides on the frame.</span></figcaption>
+            </figure>
+            <figure class="photo" data-label="the team with the national championship trophies">
+              <img src="../assets/img/vex/nationals-team-1000.jpg"
+                   srcset="../assets/img/vex/nationals-team-600.jpg 600w, ../assets/img/vex/nationals-team-1000.jpg 1000w, ../assets/img/vex/nationals-team-1600.jpg 1600w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1600" height="1067" loading="lazy" decoding="async"
+                   data-full="../assets/img/vex/nationals-team-1600.jpg"
+                   alt="The seven person team seated around a table with the robot and two VEX Robotics Competition trophies, in front of a national championship banner.">
+              <figcaption><b>The seven</b><span>The full team with the robot and the national championship trophies. Everyone here owned a part of the build.</span></figcaption>
+            </figure>
+            <figure class="photo" data-label="the team pit at the world championship">
+              <img src="../assets/img/vex/worlds-pit-1000.jpg"
+                   srcset="../assets/img/vex/worlds-pit-600.jpg 600w, ../assets/img/vex/worlds-pit-1000.jpg 1000w, ../assets/img/vex/worlds-pit-1600.jpg 1600w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1600" height="2133" loading="lazy" decoding="async"
+                   data-full="../assets/img/vex/worlds-pit-1600.jpg"
+                   alt="Team members in the pit area at the VEX World Championship in Dallas, standing beside the 41103A pit banner among hundreds of other team stands.">
+              <figcaption><b>Pit floor, Dallas</b><span>The world championship pit. Roughly 820 teams from more than 70 countries, and every one of them within walking distance of your bench.</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Control stack</h2>
+        <div class="case-content">
+          <h3>Fuse several imperfect sensors into one repeatable field position.</h3>
+          <p>No single sensor on a VEX robot is trustworthy on its own. Encoders drift when a wheel slips, the inertial sensor drifts over a match, and neither of them knows where the field is. Combining them is what makes an autonomous routine survive contact.</p>
+          <ol class="flow">
+            <li><b>Inertial sensor</b><span>Heading feedback for turns and orientation.</span></li>
+            <li><b>Encoders</b><span>Drivetrain and mechanism movement feedback.</span></li>
+            <li><b>Colour sensor</b><span>Field state input the odometry cannot infer.</span></li>
+            <li><b>C++ control</b><span>Autonomous routines and driver control behaviour.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">My contribution</h2>
+        <div class="case-content">
+          <h3>Own the code, shape the mechanisms, run the team.</h3>
+          <ol class="notes">
+            <li><b>Program the full control stack.</b> Wrote the autonomous and driver control code in C++, including the sensor fusion the routines depend on.</li>
+            <li><b>Design the pneumatic mechanisms.</b> Developed the intake, scoring and elevation climb systems and the packaging that let all three coexist.</li>
+            <li><b>Lead competition execution.</b> Ran strategy, driver training and event preparation for a seven person team.</li>
+            <li><b>Build capability around the team.</b> Mentored junior teams and helped organise the 2022 Australian National VEX Championship.</li>
+          </ol>
+          <dl class="facts">
+            <div><dt>National result</dt><dd>Back to back Australian titles</dd></div>
+            <div><dt>International result</dt><dd>Two world championship qualifications</dd></div>
+            <div><dt>Worlds 2024</dt><dd>Sportsmanship Award, high school engineering division</dd></div>
+            <div><dt>Venue</dt><dd>Dallas, Texas</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Previous builds</h2>
+        <div class="case-content">
+          <h3>Over Under was the last robot, not the first.</h3>
+          <p>Six seasons came before it. Each game changed the scoring objects and the field, so each year the mechanisms were designed again from nothing, and each year the code and the drivetrain carried a little more of what the last one taught us. These two are earlier season robots from the same programme.</p>
+          <div class="photo-grid">
+            <figure class="photo" data-label="an earlier season robot">
+              <img src="../assets/img/vex/previous-build-flywheel-1000.jpg"
+                   srcset="../assets/img/vex/previous-build-flywheel-600.jpg 600w, ../assets/img/vex/previous-build-flywheel-1000.jpg 1000w, ../assets/img/vex/previous-build-flywheel-1600.jpg 1600w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1600" height="2134" loading="lazy" decoding="async"
+                   data-full="../assets/img/vex/previous-build-flywheel-1600.jpg"
+                   alt="An earlier season robot lit with coloured light, showing the flywheel, the gear train, the drive motors and a NextGen name plate across the front of the chassis.">
+              <figcaption><b>Earlier season robot</b><span>A previous year's build. Flywheel and gear train on the upper deck, drive motors underneath, and the team plate across the front.</span></figcaption>
+            </figure>
+            <figure class="photo" data-label="an earlier robot on the home practice field">
+              <img src="../assets/img/vex/previous-build-testing-1000.jpg"
+                   srcset="../assets/img/vex/previous-build-testing-600.jpg 600w, ../assets/img/vex/previous-build-testing-1000.jpg 1000w, ../assets/img/vex/previous-build-testing-1600.jpg 1600w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1600" height="1067" loading="lazy" decoding="async"
+                   data-full="../assets/img/vex/previous-build-testing-1600.jpg"
+                   alt="An earlier robot beside a home practice field, with pneumatic cylinders and a folding arm visible and scoring discs stacked on the floor nearby.">
+              <figcaption><b>Home practice field</b><span>An earlier build next to the practice field it was tuned on. Most of the driving hours happened here rather than at events.</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Coverage</h2>
+        <div class="case-content">
+          <h3>What other people wrote about it.</h3>
+          <p>Team 41103A, competing as NextGen out of Pedare Christian College, was the only South Australian team to qualify for the 2024 world championship. Two pieces of coverage from that season:</p>
+          <div class="callout on-slate">
+            <p class="data">Press</p>
+            <p><a class="text-link" href="https://glamadelaide.com.au/sa-vex-robotics-team-makes-history-at-the-world-championship-in-texas/" rel="noopener">SA VEX robotics team makes history at the World Championship in Texas <span aria-hidden="true">&#8599;</span></a><br>
+            Glam Adelaide, 5 May 2024. The event drew roughly 117,000 competitors from more than 70 countries.</p>
+            <p class="data next">Radio</p>
+            <p><a class="text-link" href="https://www.abc.net.au/listen/programs/adelaide-mornings/pedare-robot/103794686" rel="noopener">The Pedare robot, Adelaide Mornings <span aria-hidden="true">&#8599;</span></a><br>
+            ABC Radio Adelaide. The team on air about the robot we took to Dallas.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="case-nav" aria-label="Project sheets">
+      <div class="shell">
+        <a href="adam-drone.html">
+          <span class="data">Previous, sheet 02</span>
+          <span class="case-nav-title">ADA&sup2;M autonomous drone</span>
+        </a>
+        <a href="primo-firle.html">
+          <span class="data">Next, sheet 04</span>
+          <span class="case-nav-title">Cafe Primo Firle platform</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
+      <span><a href="mailto:agarwalhiranya@gmail.com">agarwalhiranya@gmail.com</a></span>
+      <span>Sydney, Australia</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js" defer></script>
+</body>
+</html>
