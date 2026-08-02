@@ -23,7 +23,7 @@ Constraints:             Static HTML and CSS, GitHub Pages, no build step,
 
 ## Palette
 
-Three active hues. Dominant surface, neutral ink, one accent.
+Dominant surface, neutral ink, and two accents with separate jobs. See the departure note below.
 
 | Token | Hex | Role |
 |---|---|---|
@@ -31,11 +31,21 @@ Three active hues. Dominant surface, neutral ink, one accent.
 | `--paper-raised` / `--paper-sunk` | `#eff0ec` / `#dcded7` | 3 to 5 percent lightness shifts, used instead of borders. |
 | `--graphite` | `#14181a` | Ink. 14.5:1 on paper. |
 | `--graphite-mid` / `--graphite-soft` | `#3c464b` / `#525e64` | 7.9:1 and 5.4:1 on paper. |
-| `--slate` | `#1b2226` | Inverted panels and drawing plates. |
-| `--oxide` | `#a63a17` | The accent. 5.3:1 on paper, so it can carry small text. |
-| `--oxide-lift` | `#e0703f` | Accent on slate only. 5.0:1 there, 2.6:1 on paper. Never use it on paper. |
+| `--slate` | `#141f2a` | Inverted panels and plates. Blue cast, not neutral grey. |
+| `--oxide` | `#a63a17` | Accent one. 5.3:1 on paper, white on it is 6.5:1. |
+| `--oxide-lift` | `#e0703f` | Oxide on slate only. 5.2:1 there, 2.6:1 on paper. Never use it on paper. |
+| `--oxide-wash` | `#f2e2da` | Tinted surface. Marks the featured sheet. |
+| `--blueprint` | `#1b4e7d` | Accent two. 7.0:1 on paper, white on it is 8.6:1. |
+| `--blueprint-wash` | `#dde5ea` | Tinted surface for tags and the title block band. |
 
 No pure black or white on any large surface. No gradient anywhere in the system.
+
+**Deliberate departure: two accents, not one.** Rules section 4 asks for a single sharp accent. The first build followed that and read as monochrome: the accent was so sparingly applied that nothing on the page was highlighted. Hiranya asked for more colour, so there are now two accents with separate jobs, and neither is decorative:
+
+- **Oxide** marks *his* things: sheet numbers, the primary button, the brand mark, section rules, the featured sheet's surface, live status, links.
+- **Blueprint** marks *technical* things: navigation, data labels, field names, tags, register numbers, step numbers, the title block band.
+
+The split is what keeps it from reading as decoration. If a mark is a number or a piece of metadata it is blue; if it is a call to action or a status it is oxide. Do not mix the two roles.
 
 **Deliberate near-miss on rules section 3.** The banned default is cream near `#F4F1EA`, a high contrast serif display face, and terracotta near `#D97757`. This palette holds an oxide accent, which is adjacent to that family. It clears the tell on the other two axes: the ground is a cool grey-green rather than cream, and the display face is a wide grotesque rather than a serif. Oxide is also true to the subject, being the colour of steel primer and competition field hardware. If this ever starts to read as the default, move the accent toward a deeper drafting blue rather than diluting it.
 
@@ -86,7 +96,8 @@ The lightbox is interaction, not decoration: photographs of hardware reward a cl
 
 - **Section rhythm varies on purpose.** Tall asymmetric hero, then a thin edge to edge band, then a deep work section, then a shallow reference list, then a register, then a full bleed inverted about, then a left anchored contact. Vertical padding is not uniform.
 - **The six projects are presented three different ways**, because they do not deserve equal weight: sheet 01 as a large split panel, sheets 02 and 03 as a pair, sheets 04 to 06 as register rows. This also avoids the row of three equal cards.
-- **Numbering encodes something true.** Sheets are ordered by how much of the mechanical work was Hiranya's, which is stated in the section intro. `Sheet 04 of 06` is a real position in a real set.
+- **Numbering encodes something true.** Sheets are ordered by how much of each project is actually running: production first, then flying, then finished, then handed on, then still being proved. Stated in the section intro. `Sheet 04 of 06` is a real position in a real set.
+- **The h1 is capped for its column, not the page.** The hero copy column is about 620px, not the full 1280px shell. A 5.25rem ceiling pushed the headline to six lines. 3.5rem settles it at three or four.
 - **No card borders.** Separation is space first, then a 3 to 5 percent background shift, then soft elevation. Elevation appears only on things that move on hover.
 - **Radius scales with element size**: 2px chips, 4px buttons and small media, 8px panels, 12px full sheets. The hero sheet uses the concentric formula, 12px outer minus 8px padding gives a 4px inner radius.
 
@@ -105,3 +116,11 @@ The lightbox is interaction, not decoration: photographs of hardware reward a cl
 - Do not put `--oxide-lift` on the paper surface. It fails contrast there.
 - Do not add a hamburger menu. Six nav links wrap fine down to 320px.
 - Do not add invented metrics to make the sheets look fuller.
+
+## Revision, August 2026
+
+- Hiranya left BlueSat at the end of 2025. Every reference is past tense with a closed date, the case study says the work was handed on before any test results existed, and the role moved down the Experience list. The hero drawing is still the antenna assembly, captioned as 2025 work, because it remains the best artefact on the site.
+- Cafe Primo Firle took over sheet 01 and the featured panel. It leads with a real screenshot rather than a drawing.
+- Sheet order is now 01 Primo Firle, 02 ADA2M, 03 VEX, 04 BlueSat, 05 Sculpt Showdown, 06 trading platform.
+- Life FM was added to Press as a static row, since there is no public link for it. `.ref-static` keeps the register rhythm without pretending to be clickable.
+- The technical drawings are placeholders. They are due to be replaced with photographs, so do not invest further in them. `.sheet-plate.is-photo`, `.plate.is-photo` and `.case-plate` are the slots.

@@ -1,7 +1,7 @@
 /* ==========================================================================
    Hiranya Agarwal / engineering portfolio
    Direction     Technical drawing sheet
-   Palette       Drafting paper, graphite, oxide (three active hues)
+   Palette       Drafting paper, graphite, oxide accent, blueprint accent
    Type          Archivo display / Source Serif 4 body / IBM Plex Mono data
    Signature     The drawing title block, carried on every sheet
    ========================================================================== */
@@ -18,15 +18,28 @@
   --graphite-mid: #3c464b;
   --graphite-soft: #525e64;
 
-  --slate: #1b2226;
-  --slate-raised: #232c31;
-  --slate-rule: #3b464c;
+  /* Slate carries a blue cast now, so a drawing on it reads as a print
+     rather than as grey line art. */
+  --slate: #141f2a;
+  --slate-raised: #1d2b38;
+  --slate-rule: #2e4356;
   --on-slate: #c3cbcf;
   --on-slate-quiet: #8d999f;
 
+  /* Accent one: oxide. Primary marks, links, live status. 5.3:1 on paper. */
   --oxide: #a63a17;
   --oxide-deep: #8e2f11;
   --oxide-lift: #e0703f;
+  --oxide-wash: #f2e2da;
+
+  /* Accent two: blueprint. Technical marks, drawings, data. 7.0:1 on paper. */
+  --blueprint: #1b4e7d;
+  --blueprint-deep: #12395c;
+  --blueprint-lift: #6fb6e8;
+  --blueprint-line: #a8d8f5;
+  --blueprint-mid: #5f93b4;
+  --blueprint-quiet: #47708c;
+  --blueprint-wash: #dde5ea;
 
   /* Type */
   --display: "Archivo", "Arial Narrow", sans-serif;
@@ -41,7 +54,9 @@
   --t-lede: 1.375rem;     /* 22px */
   --t-h3: 1.5rem;
   --t-h2: clamp(1.75rem, 1.05rem + 2.6vw, 3.25rem);
-  --t-h1: clamp(2rem, 1.1rem + 4.6vw, 5.25rem);
+  /* Capped for the hero's 620px copy column, not for the full page width.
+     A larger ceiling pushed the headline to six lines. */
+  --t-h1: clamp(1.875rem, 1.15rem + 3vw, 3.5rem);
 
   /* Space, 8px grid with a 4px half step */
   --s-1: 4px;
@@ -166,10 +181,30 @@ strong { font-weight: 600; }
   font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--graphite-soft);
+  color: var(--blueprint);
 }
 
 .data-accent { color: var(--oxide); }
+
+/* A filled marker for anything that carries a number: sheet counts, indices,
+   revisions. This is where most of the colour on the page lives. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--r-xs);
+  background: var(--oxide);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: var(--t-data);
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.chip-blue { background: var(--blueprint); }
+.chip-quiet { background: var(--blueprint-wash); color: var(--blueprint-deep); }
 
 .lede {
   font-size: var(--t-lede);
@@ -273,7 +308,7 @@ a:hover { color: var(--oxide-deep); }
   font-size: var(--t-micro);
   letter-spacing: .13em;
   text-transform: uppercase;
-  color: var(--graphite-soft);
+  color: var(--blueprint);
 }
 
 .titleblock dd {
@@ -325,28 +360,28 @@ a:hover { color: var(--oxide-deep); }
 }
 
 .btn-primary {
-  background: var(--graphite);
-  border-color: var(--graphite);
-  color: var(--paper);
+  background: var(--oxide);
+  border-color: var(--oxide);
+  color: #fff;
 }
 
 .btn-primary:hover {
   background: var(--oxide-deep);
   border-color: var(--oxide-deep);
-  color: #fff;
 }
 
 .btn-primary:active { transform: translateY(1px); }
 
 .btn-quiet {
   background: transparent;
-  color: var(--graphite);
+  border-color: var(--blueprint);
+  color: var(--blueprint);
 }
 
 .btn-quiet:hover {
-  background: var(--paper-sunk);
-  border-color: var(--graphite);
-  color: var(--graphite);
+  background: var(--blueprint-wash);
+  border-color: var(--blueprint-deep);
+  color: var(--blueprint-deep);
 }
 
 .btn-quiet:active { transform: translateY(1px); }
@@ -368,8 +403,8 @@ a:hover { color: var(--oxide-deep); }
   font-family: var(--mono);
   font-size: var(--t-data);
   letter-spacing: .04em;
-  color: var(--graphite-mid);
-  background: var(--paper-sunk);
+  color: var(--blueprint-deep);
+  background: var(--blueprint-wash);
   border-radius: var(--r-xs);
   padding: var(--s-1) var(--s-2);
 }
@@ -412,7 +447,9 @@ a:hover { color: var(--oxide-deep); }
   place-items: center;
   width: 32px;
   height: 32px;
-  border: 1px solid var(--graphite);
+  background: var(--oxide);
+  color: #fff;
+  border: 1px solid var(--oxide);
   border-radius: var(--r-xs);
   font-family: var(--mono);
   font-size: var(--t-data);
@@ -422,8 +459,8 @@ a:hover { color: var(--oxide-deep); }
 }
 
 .brand:hover .brand-mark {
-  background: var(--graphite);
-  color: var(--paper);
+  background: var(--oxide-deep);
+  border-color: var(--oxide-deep);
 }
 
 .site-nav {
@@ -439,7 +476,7 @@ a:hover { color: var(--oxide-deep); }
   min-height: 44px;
   padding: 0 var(--s-3);
   border-radius: var(--r-sm);
-  color: var(--graphite-mid);
+  color: var(--blueprint);
   text-decoration: none;
   font-family: var(--mono);
   font-size: var(--t-data);
@@ -449,8 +486,8 @@ a:hover { color: var(--oxide-deep); }
 }
 
 .site-nav a:hover {
-  color: var(--graphite);
-  background: var(--paper-sunk);
+  color: var(--blueprint-deep);
+  background: var(--blueprint-wash);
 }
 
 .site-nav a[aria-current="page"],
@@ -460,13 +497,14 @@ a:hover { color: var(--oxide-deep); }
 }
 
 .site-nav .nav-contact {
-  border: 1px solid var(--graphite);
-  color: var(--graphite);
+  border: 1px solid var(--oxide);
+  color: var(--oxide);
 }
 
 .site-nav .nav-contact:hover {
-  background: var(--graphite);
-  color: var(--paper);
+  background: var(--oxide);
+  border-color: var(--oxide);
+  color: #fff;
 }
 
 /* --------------------------------------------------------- footer */
@@ -493,7 +531,7 @@ a:hover { color: var(--oxide-deep); }
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--graphite-soft);
+  color: var(--blueprint);
   text-decoration: none;
 }
 
@@ -524,6 +562,7 @@ a:hover { color: var(--oxide-deep); }
 .photo figcaption { padding: var(--s-3) var(--s-2) var(--s-2); }
 
 .photo figcaption b {
+  color: var(--blueprint-deep);
   display: block;
   font-family: var(--display);
   font-weight: 600;
