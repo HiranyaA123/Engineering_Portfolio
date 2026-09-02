@@ -51,7 +51,7 @@ def footer(draw):
 
 def headline(draw, sheet, category, title, subtitle):
     draw.rounded_rectangle((70, 68, 205, 112), radius=4, fill="#c4301c")
-    draw.text((88, 79), f"SHEET {sheet}", font=MONO_SMALL, fill=INK)
+    draw.text((88, 79), f"PROJECT {sheet}", font=MONO_SMALL, fill=INK)
     draw.text((238, 80), category.upper(), font=MONO_SMALL, fill=BLUE)
 
     y = 154
@@ -79,42 +79,14 @@ def photo_card(filename, source, sheet, category, title, subtitle, focal=(0.5, 0
     image.save(OUT / filename, "JPEG", quality=88, optimize=True, progressive=True)
 
 
-def technical_card(filename, sheet, category, title, subtitle, motif):
+def technical_card(filename, sheet, category, title, subtitle, motif=None):
+    """Typographic card for projects with no photograph yet: a large index
+    number on the right, nothing pretending to be a drawing."""
     image, draw = base()
-    if motif == "drone":
-        cx, cy = 935, 310
-        for dx, dy in [(-125, -100), (125, -100), (-125, 100), (125, 100)]:
-            draw.ellipse((cx + dx - 58, cy + dy - 58, cx + dx + 58, cy + dy + 58), outline="#688397", width=3)
-            draw.ellipse((cx + dx - 13, cy + dy - 13, cx + dx + 13, cy + dy + 13), outline=INK, width=3)
-            draw.line((cx, cy, cx + dx, cy + dy), fill=INK, width=5)
-        draw.rounded_rectangle((cx - 70, cy - 46, cx + 70, cy + 46), radius=8, outline=INK, width=4)
-        draw.line((cx, 120, cx, 500), fill=OXIDE, width=2)
-        draw.line((760, cy, 1110, cy), fill=OXIDE, width=2)
-    elif motif == "antenna":
-        cx, cy = 940, 315
-        draw.ellipse((cx - 125, cy - 125, cx + 125, cy + 125), outline="#688397", width=3)
-        draw.line((cx, cy, cx + 105, cy - 65), fill=INK, width=6)
-        draw.line((cx, 150, cx, 500), fill=OXIDE, width=2)
-        draw.line((770, cy, 1110, cy), fill=OXIDE, width=2)
-        draw.rectangle((cx - 80, cy - 48, cx + 80, cy + 48), outline=INK, width=4)
-        for px, py in [(cx - 55, cy - 25), (cx + 55, cy - 25), (cx - 55, cy + 25), (cx + 55, cy + 25)]:
-            draw.ellipse((px - 8, py - 8, px + 8, py + 8), outline=BLUE, width=3)
-    elif motif == "voxels":
-        for row in range(4):
-            for col in range(4):
-                x = 790 + col * 78 + (row % 2) * 16
-                y = 165 + row * 82
-                colour = [BLUE, OXIDE, "#c3cbcf", "#47708c"][(row + col) % 4]
-                draw.rectangle((x, y, x + 60, y + 60), fill=colour, outline=SLATE, width=4)
-    elif motif == "trading":
-        points = [(760, 440), (810, 390), (860, 418), (915, 310), (970, 330), (1030, 225), (1110, 175)]
-        draw.line(points, fill=BLUE, width=7, joint="curve")
-        limit_y = 475
-        draw.line((735, limit_y, 1130, limit_y), fill=OXIDE, width=3)
-        draw.text((745, limit_y + 12), "DRAWDOWN LIMIT", font=MONO_SMALL, fill=OXIDE)
-        for x, y in points:
-            draw.ellipse((x - 6, y - 6, x + 6, y + 6), fill=INK)
-
+    index = sheet.split("/")[0]
+    big = font("display", 300)
+    width = draw.textlength(index, font=big)
+    draw.text((W - 80 - width, 200), index, font=big, fill=OXIDE)
     headline(draw, sheet, category, title, subtitle)
     footer(draw)
     image.save(OUT / filename, "JPEG", quality=88, optimize=True, progressive=True)

@@ -178,6 +178,8 @@
 .spread-media {
   display: block;
   position: relative;
+  color: inherit;
+  text-decoration: none;
   overflow: hidden;
   border-radius: var(--r-lg);
   background: var(--bone-2);
@@ -192,14 +194,52 @@
   transition: transform var(--t-mid) var(--ease);
 }
 
-.spread-media.is-drawing {
+/* A spec plate stands in where there is no photograph yet. It says so. */
+.spread-media.is-plate {
   background: var(--navy);
-  display: grid;
-  place-items: center;
-  padding: clamp(24px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: clamp(64px, 6vw, 88px) clamp(24px, 3.5vw, 48px) clamp(24px, 3vw, 40px);
+  line-height: 1.4;
+  aspect-ratio: auto;
+  min-height: 100%;
 }
 
-.spread-media.is-drawing .drawing { width: 100%; height: 100%; }
+.plate-spec {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-3) var(--s-4);
+  margin: 0;
+}
+
+.plate-spec dt {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: var(--t-meta);
+  color: var(--red-lift);
+  margin-bottom: 2px;
+}
+
+.plate-spec dd {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1rem, .9rem + .5vw, 1.25rem);
+  letter-spacing: -.015em;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.plate-note {
+  margin: 0;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--navy-rule);
+  font-size: var(--t-meta);
+  color: var(--on-navy-quiet);
+  max-width: none;
+}
 
 .spread-media .badge {
   position: absolute;

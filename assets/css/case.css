@@ -204,17 +204,12 @@
 
 .callout .text-link:hover { color: var(--red-lift); }
 
-/* Case plate, for pages that lead with a drawing instead of a photo. */
-.case-plate {
-  background: var(--navy);
-  border-radius: var(--r-md);
-  padding: clamp(16px, 2vw, 28px);
-  margin: var(--s-5) 0 0;
-}
+/* Lead photograph under the facts strip. */
+.case-lead { margin-top: var(--s-6); }
 
-.case-plate .drawing { border-radius: var(--r-xs); }
+.case-lead img { aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 45%; }
 
-/* --------------------------------------------------------- sheet nav */
+/* --------------------------------------------------------- project nav */
 
 .case-nav {
   border-top: 2px solid var(--ink);

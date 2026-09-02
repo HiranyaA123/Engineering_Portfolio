@@ -767,24 +767,6 @@ a.btn-primary:hover,
 
 .lightbox :focus-visible { outline-color: var(--red-lift); }
 
-/* --------------------------------------------------------- drawing svg */
-/* Line drawings stand in where no photograph exists yet. */
-
-.drawing { display: block; width: 100%; height: auto; }
-.drawing .frame { fill: none; stroke: var(--navy-rule); stroke-width: 1; }
-.drawing .outline { fill: none; stroke: #e6ebf1; stroke-width: 1.6; stroke-linejoin: round; }
-.drawing .thin { fill: none; stroke: #8e98a6; stroke-width: .9; }
-.drawing .centre { fill: none; stroke: var(--red-lift); stroke-width: .9; stroke-dasharray: 14 4 3 4; }
-.drawing .dim { fill: none; stroke: #7a8594; stroke-width: .8; }
-.drawing .hatch { fill: none; stroke: #5b6675; stroke-width: .8; }
-.drawing text {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  fill: var(--on-navy-quiet);
-}
-.drawing text.lead-note { fill: var(--red-lift); }
-
 /* --------------------------------------------------------- motion */
 
 @media (prefers-reduced-motion: reduce) {

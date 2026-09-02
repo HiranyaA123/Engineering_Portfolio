@@ -89,7 +89,7 @@ One moment. The five hero markers pop onto the photograph in sequence 500ms afte
 
 ## Photographs
 
-The same five VEX photographs and three CentralPass screenshots as before, all at three widths with `srcset`. The hero eagerly loads the robot at 1000 or 1600 wide with a preload hint; everything else is lazy. The drone, BlueSat, Sculpt Showdown and trading pages still have no photograph. The drone spread on the landing page says so on the drawing itself.
+The same five VEX photographs and three CentralPass screenshots as before, all at three widths with `srcset`. The hero eagerly loads the robot at 1000 or 1600 wide with a preload hint; everything else is lazy. The VEX case study leads with the robot photograph under its facts strip. The drone, BlueSat, Sculpt Showdown and trading pages have no photograph. The old placeholder line drawings were removed in September 2026 at Hiranya's request: where there is no photograph the page shows a spec plate (`.spread-media.is-plate`) that lists the real hardware and says a photograph will follow, and the social cards for those projects are typographic. Do not draw stand-in diagrams again.
 
 ## Rules from Hiranya, September 2026
 
@@ -101,7 +101,7 @@ The same five VEX photographs and three CentralPass screenshots as before, all a
 ## Things to add when the material exists
 
 - A photograph of Hiranya. There is a slot for it in the About section (left column, under the headline) and it is the single biggest remaining gap.
-- A photograph or short clip of ADA2M in the air. Replace `.spread-media.is-drawing` on the landing page and `.case-plate` on the drone page.
+- A photograph or short clip of ADA2M in the air. Replace the `.spread-media.is-plate` block on the landing page and add a `.case-lead` figure to the drone page.
 - Callouts on the CentralPass screenshots and the drone photograph, using `.annotated`.
 
 ## Things not to do next time
