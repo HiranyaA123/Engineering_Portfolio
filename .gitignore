@@ -4,6 +4,9 @@ tmp/
 __pycache__/
 *.pyc
 
+# Local tooling
+.claude/
+
 # OS and editor noise
 .DS_Store
 Thumbs.db

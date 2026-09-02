@@ -5,122 +5,110 @@ Running record of design decisions, as `DESIGN-RULES.md` section 14 asks for. Re
 ## The brief
 
 ```
-Subject:                 Portfolio for a second year UNSW mechanical engineering student.
-                         Real hardware: CubeSat ground station mounts, an autonomous
-                         agricultural drone, competition robots, plus shipped software.
+Subject:                 Portfolio for a second year UNSW mechanical engineering student
+                         who co-founded a hospitality software company. Real hardware:
+                         competition robots, an autonomous agricultural drone, CubeSat
+                         ground station mounts, plus software in production.
 Audience:                Graduate recruiters and engineering managers screening for
                          2026/27 vacation programs. They skim, and they have seen
                          several hundred student portfolios.
 The page's single job:   Prove that this person has built physical things that work,
-                         and make it trivial to contact them.
-Tone:                    Measured, specific, unembellished.
-Aesthetic direction:     Technical / instrumentation (section 3).
-Signature element:       The drawing title block, carried on every sheet.
+                         show who he is in under a minute, and make it trivial to
+                         contact him.
+Tone:                    Direct, warm, a little dry.
+Aesthetic direction:     Print magazine (section 3), engineering edition.
+Signature element:       Numbered callouts pinned to real photographs of the hardware.
 Locale:                  en-AU.
 Constraints:             Static HTML and CSS, GitHub Pages, no build step,
                          no framework, no dependencies.
 ```
 
-## Palette
+## Why the September 2026 rebuild happened
 
-Dominant surface, neutral ink, and two accents with separate jobs. See the departure note below.
+The previous build (technical drawing sheet direction: grey-green drafting paper, mono labels on everything, line drawings, a title block on every page) was consistent and rule-abiding, and Hiranya's verdict was that it looked like a generic AI portfolio. He was right. The tells were:
+
+- Mono uppercase labels on every section, which is the single most common LLM portfolio habit.
+- Abstract line drawings standing in front of real photographs that already existed.
+- A hero that described the person instead of showing anything.
+- No person anywhere on the page. No voice in the copy. A recruiter could not have said one specific thing about him after reading it.
+- A muted palette with the accent used so sparingly that nothing on the page was highlighted.
+
+A survey of portfolios that recruiters and design juries actually remember (Bruno Simon, Raphael Chang, Thanh Tran, the Awwwards and Muzli portfolio lists, hardware portfolio directories) turned up the same handful of devices: open with the real thing at full size; big type with a first person voice; one memorable interactive device; honest, specific copy including what is not finished; a timeline or story; and a contact section that is impossible to miss. The rebuild uses all six.
+
+## Palette
 
 | Token | Hex | Role |
 |---|---|---|
-| `--paper` | `#e7e8e3` | Dominant surface. Cool grey-green drafting stock. |
-| `--paper-raised` / `--paper-sunk` | `#eff0ec` / `#dcded7` | 3 to 5 percent lightness shifts, used instead of borders. |
-| `--graphite` | `#14181a` | Ink. 14.5:1 on paper. |
-| `--graphite-mid` / `--graphite-soft` | `#3c464b` / `#525e64` | 7.9:1 and 5.4:1 on paper. |
-| `--slate` | `#141f2a` | Inverted panels and plates. Blue cast, not neutral grey. |
-| `--oxide` | `#a63a17` | Accent one. 5.3:1 on paper, white on it is 6.5:1. |
-| `--oxide-lift` | `#e0703f` | Oxide on slate only. 5.2:1 there, 2.6:1 on paper. Never use it on paper. |
-| `--oxide-wash` | `#f2e2da` | Tinted surface. Marks the featured sheet. |
-| `--blueprint` | `#1b4e7d` | Accent two. 7.0:1 on paper, white on it is 8.6:1. |
-| `--blueprint-wash` | `#dde5ea` | Tinted surface for tags and the title block band. |
+| `--bone` | `#efede7` | Ground. Warm bone, not cream. |
+| `--bone-2` / `--bone-3` | `#e5e2da` / `#d6d2c7` | Lightness shifts for photo mats and list panels. |
+| `--ink` / `--ink-2` / `--ink-3` | `#15171a` / `#3e4247` / `#5c6167` | Text. 15.1:1, 9.4:1, 5.2:1 on bone. |
+| `--red` | `#c4301c` | The accent. The colour of the 41103A number plate. 5.9:1 on bone; white on it 5.1:1. |
+| `--red-deep` | `#9e2414` | Hover state of red. |
+| `--navy` | `#0e1b2e` | Inverted panels (Now, About, callouts, drawing plates). The Pedare uniform. |
+| `--red-lift` | `#ff6b4e` | Red on navy only. 6.0:1 there. Never on bone. |
 
-No pure black or white on any large surface. No gradient anywhere in the system.
+Three hues: bone, ink/navy, red. No gradients. No pure white or black surfaces.
 
-**Deliberate departure: two accents, not one.** Rules section 4 asks for a single sharp accent. The first build followed that and read as monochrome: the accent was so sparingly applied that nothing on the page was highlighted. Hiranya asked for more colour, so there are now two accents with separate jobs, and neither is decorative:
-
-- **Oxide** marks *his* things: sheet numbers, the primary button, the brand mark, section rules, the featured sheet's surface, live status, links.
-- **Blueprint** marks *technical* things: navigation, data labels, field names, tags, register numbers, step numbers, the title block band.
-
-The split is what keeps it from reading as decoration. If a mark is a number or a piece of metadata it is blue; if it is a call to action or a status it is oxide. Do not mix the two roles.
-
-**Deliberate near-miss on rules section 3.** The banned default is cream near `#F4F1EA`, a high contrast serif display face, and terracotta near `#D97757`. This palette holds an oxide accent, which is adjacent to that family. It clears the tell on the other two axes: the ground is a cool grey-green rather than cream, and the display face is a wide grotesque rather than a serif. Oxide is also true to the subject, being the colour of steel primer and competition field hardware. If this ever starts to read as the default, move the accent toward a deeper drafting blue rather than diluting it.
+**Rules section 3 check.** The banned reflex is cream near `#F4F1EA` with a serif display and terracotta near `#D97757`. This build has a bone ground that is greyer and cooler than that cream, a heavy grotesque display face, and a true competition red rather than terracotta. The red is derived from the subject: it is on the robot's number plate, the VEX branding and the high strength gears.
 
 ## Type
 
-Three families, which is the ceiling.
+- **Display: Bricolage Grotesque**, weight 800, `wdth` 78 to 92, `opsz` 96. Heavy, slightly eccentric, not on the banned list and not yet a tell. Used for every heading, the index numerals, the timeline years, the email address, buttons, tags and navigation, so the page has one loud voice.
+- **Body: Source Serif 4** at 18px, line height 1.6. Kept from the previous build. A serif body under a heavy grotesque is what stops the page reading as a SaaS template.
+- **Mono: IBM Plex Mono**, now confined to the callout numbers and the `Sheet 03 of 06` lines on case studies. Everywhere else the mono labels were replaced with the display face in sentence case.
 
-- **Display: Archivo** (variable, `wdth` 100 to 125). Wide grotesque, signage flavoured. Used at 100 to 112 percent width so headings read as stencilled rather than condensed.
-- **Body: Source Serif 4** at 18px, line height 1.6, measure capped at 68ch. A serif body against a wide grotesque display gives hierarchy without a third voice.
-- **Data: IBM Plex Mono** at 11 to 14px. Reserved for measured things only: labels, sheet numbers, dates, revisions, status. Never used as decoration.
-
-Scale ratio 1.25 from an 18px body. None of the banned display faces appear, and the previous build's Space Grotesk was removed for that reason.
+Scale ratio 1.333 from an 18px body. The h1 runs to 7.5rem on a wide screen.
 
 ## Signature element
 
-The drawing title block. A ruled strip of real fields with real values, appearing four times in the system:
-
-1. Under the hero copy: discipline, current role, location, set size.
-2. Inside the hero drawing itself, as the sheet's own title block.
-3. Directly under every case study `h1`, in its own band.
-4. As `Sheet NN/06` markers on every project entry.
-
-Supporting the same idea: a fine 24px and 96px graph substrate fixed behind the page, corner registration crosses available as `.ticks`, and drawings that use real drafting conventions (centre lines as dash-dot, section hatching, dimension lines with tick terminators, numbered leader notes).
+Numbered callouts pinned to a real photograph. The hero photograph of the Over Under robot carries five markers (intake rollers, the 41103A plate, the gear train, pneumatics and wiring, the drivetrain). Each marker is a real `<button>` with `aria-expanded`, so it works on keyboard and touch. Hover and focus reveal the note through CSS alone; a tap toggles it through 40 lines of script. A legend under the photograph repeats the five notes so nobody has to hover to read them. The component is `.annotated` in `base.css` and is reusable on case study pages.
 
 ## The one aesthetic risk
 
-The hero is a two view orthographic drawing of the antenna pointing assembly, complete with its own title block, rather than a photograph or an abstract diagram. Justification: this person's actual output is engineering drawings, so the page opens with the artefact instead of a description of it. Dimension lines carry **labels rather than numbers**, because inventing dimensions would be a fabricated stat.
-
-## Photographs
-
-Rules section 9 says one real image beats six illustrations, so where a real photograph exists it wins over a drawing. The VEX sheet carries five: the robot in the pit, the seven person team with the national trophies, the world championship pit floor, and two earlier season builds under a **Previous builds** section. The VEX card on the landing page now leads with the robot photograph instead of its drawing.
-
-Drawings stay where there is no photograph (BlueSat, the drone, and the VEX side elevation on its own sheet). They are honest stand-ins, not decoration, and the design notes above still govern them.
-
-Every photograph ships at three widths (600, 1000, 1600) with `srcset` and `sizes`. A 390px phone pulls the 600w file, 55 to 113KB. The 1600w file is only fetched when someone opens the lightbox. Product screenshots use the same component at 800 and 1280.
-
-Both plates in the paired cards hold a 3:2 aspect so the two cards stay in step whether the sheet leads with a drawing or a photograph.
-
-## Motion budget
-
-One moment. The hero drawing plots itself on load: outlines, then section hatching, then dimension lines, then the annotation inks in. Roughly 1.5 seconds, once, never repeated.
-
-Everything else is interaction state only, 140 to 220ms, eased. There is deliberately **no scroll-triggered fade** anywhere. The previous build faded in every block on scroll, which is the pattern rules section 8 names.
-
-The lightbox is interaction, not decoration: photographs of hardware reward a closer look. It is progressive enhancement built on `<dialog>`, and the **Enlarge** control stays hidden unless the script has run and the browser supports `showModal`, so a dead button never ships. Cleanup (clearing the image, returning focus to the control that opened it) is driven explicitly rather than from the dialog `close` event, which does not fire reliably in every engine. Clicking the image itself is a pointer convenience layered on top of the real button, never instead of it.
-
-## Layout decisions worth keeping
-
-- **Section rhythm varies on purpose.** Tall asymmetric hero, then a thin edge to edge band, then a deep work section, then a shallow reference list, then a register, then a full bleed inverted about, then a left anchored contact. Vertical padding is not uniform.
-- **The six projects are presented three different ways**, because they do not deserve equal weight: sheet 01 as a large split panel, sheets 02 and 03 as a pair, sheets 04 to 06 as register rows. This also avoids the row of three equal cards.
-- **Numbering encodes something true.** Sheets are ordered by how much of each project is actually running: production first, then flying, then finished, then handed on, then still being proved. Stated in the section intro. `Sheet 04 of 06` is a real position in a real set.
-- **The h1 is capped for its column, not the page.** The hero copy column is about 620px, not the full 1280px shell. A 5.25rem ceiling pushed the headline to six lines. 3.5rem settles it at three or four.
-- **No card borders.** Separation is space first, then a 3 to 5 percent background shift, then soft elevation. Elevation appears only on things that move on hover.
-- **Radius scales with element size**: 2px chips, 4px buttons and small media, 8px panels, 12px full sheets. The hero sheet uses the concentric formula, 12px outer minus 8px padding gives a 4px inner radius.
+The hero headline is a first person sentence with a coloured phrase in it ("I build things that have to work on the day"), sitting over a full width photograph of a robot on a pit table. Both halves are risks by the rules: coloured words in a headline are close to the italic-serif-word tell, and a hero that is one photograph can read as a stock template. Justification: the phrase is the thesis of the whole page (competition, a live venue, a flight test), and the photograph is his robot with his team's number plate on it, annotated with what he built. Neither could be swapped onto someone else's portfolio.
 
 ## Copy rules applied
 
-- No em dashes or en dashes anywhere, and none of the hyphen-as-dash workaround the previous build used.
-- No emoji. Arrows are HTML entities inside `aria-hidden` spans.
-- en-AU spelling and conventions.
-- Every number on the site is real. Where a project has no measured result yet, the page says so explicitly instead of filling the gap. This appears on four of the six sheets.
-- The hero names the person, the institution, the three concrete artefacts and the thing being asked for, so swapping in another name breaks it.
+- First person throughout. The hero, the Right now band, the story and the About section are all in his voice.
+- Every claim on the page is something already established elsewhere on the site or in the resume. No invented anecdotes, no invented numbers. Where a project has no measured result the page says so.
+- Personality comes from specifics rather than jokes: "one drone that is currently being talked into flying straight", "Bugs get found during service, not in a sprint review", the Ask me about list.
+- No em dashes or en dashes. No emoji. en-AU spelling.
+
+## Layout decisions worth keeping
+
+- **Rhythm varies down the page**: tall hero with a full width photograph; a thin navy band; deep work section with three alternating spreads and a short ruled list; a year by year story register; a navy About panel; a contact section with a headline sized email address.
+- **Six projects, three treatments.** Spreads for the three that are running (CentralPass, VEX, the drone), a ruled list for the three that are finished or being proved. The index numerals encode a real order.
+- **The story section is the personality.** Eight rows, 2018 to 2026, with the two earlier robot photographs and the Dallas pit photograph. It is the section a recruiter will remember.
+- **No mono labels on section heads.** Eyebrows use `.kicker` in the display face with a short red rule.
+- **Pill radius for buttons and tags, 20px for large photographs, 14px for panels, 3px for chips.** Concentric maths on `.photo` (14 outer minus 8 padding).
+- **No card borders.** Photo mats are a lightness shift. Tags use a hairline because they are the only element small enough to need one.
+
+## Motion budget
+
+One moment. The five hero markers pop onto the photograph in sequence 500ms after load, once. Everything else is interaction state at 160ms to 320ms. No scroll reveal, and none should be added.
+
+## Photographs
+
+The same five VEX photographs and three CentralPass screenshots as before, all at three widths with `srcset`. The hero eagerly loads the robot at 1000 or 1600 wide with a preload hint; everything else is lazy. The drone, BlueSat, Sculpt Showdown and trading pages still have no photograph. The drone spread on the landing page says so on the drawing itself.
+
+## Rules from Hiranya, September 2026
+
+- No GitHub link anywhere on the site or the resume. LinkedIn, CentralPass and the resume PDF are the only outbound contact links.
+- He is based in Sydney and Adelaide and moves between them. Do not write "Sydney" alone.
+- CentralPass is proprietary software he wrote himself over several months, built so venues can replace Uber Eats with direct ordering. The copy must make clear it is hand built, not a template, a no-code tool or a wrapper. The case study's "Built by hand" section lists the subsystems for that reason.
+- Every link worth copying (email, LinkedIn, CentralPass, resume) carries `data-copy` and gets a Copy button from `site.js`. The button only appears when the clipboard API exists.
+
+## Things to add when the material exists
+
+- A photograph of Hiranya. There is a slot for it in the About section (left column, under the headline) and it is the single biggest remaining gap.
+- A photograph or short clip of ADA2M in the air. Replace `.spread-media.is-drawing` on the landing page and `.case-plate` on the drone page.
+- Callouts on the CentralPass screenshots and the drone photograph, using `.annotated`.
 
 ## Things not to do next time
 
-- Do not add a scroll reveal. It was removed on purpose.
-- Do not add a fourth hue. Extend with tints of the existing three.
-- Do not put `--oxide-lift` on the paper surface. It fails contrast there.
-- Do not add a hamburger menu. Six nav links wrap fine down to 320px.
-- Do not add invented metrics to make the sheets look fuller.
-
-## Revision, August 2026
-
-- Hiranya left BlueSat at the end of 2025. Every reference is past tense with a closed date, the case study says the work was handed on before any test results existed, and the role moved down the Experience list. The hero drawing is still the antenna assembly, captioned as 2025 work, because it remains the best artefact on the site.
-- Cafe Primo Firle took over sheet 01 and the featured panel. It leads with a real screenshot rather than a drawing.
-- Sheet order is now 01 Primo Firle, 02 ADA2M, 03 VEX, 04 BlueSat, 05 Sculpt Showdown, 06 trading platform.
-- Life FM was added to Press as a static row, since there is no public link for it. `.ref-static` keeps the register rhythm without pretending to be clickable.
-- The technical drawings are placeholders. They are due to be replaced with photographs, so do not invest further in them. `.sheet-plate.is-photo`, `.plate.is-photo` and `.case-plate` are the slots.
+- Do not add a scroll reveal.
+- Do not put mono uppercase labels back on section heads.
+- Do not add a fourth hue. Extend with tints of bone, ink and red.
+- Do not put `--red-lift` on the bone surface. It fails contrast there.
+- Do not add a hamburger menu. Five links wrap fine at 320px.
+- Do not add invented metrics, anecdotes or quotes to fill space.

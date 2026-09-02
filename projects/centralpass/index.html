@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CentralPass hospitality platform | Hiranya Agarwal</title>
+  <meta name="description" content="CentralPass case study: proprietary direct ordering and operations software Hiranya Agarwal built over several months so venues can replace Uber Eats.">
+  <meta name="theme-color" content="#efede7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1b2e" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hiranya Agarwal engineering portfolio">
+  <meta property="og:title" content="CentralPass hospitality platform | Hiranya Agarwal">
+  <meta property="og:description" content="Proprietary direct ordering and operations software, built by hand over several months, live at its first venue.">
+  <meta property="og:url" content="https://hiranyaa123.github.io/Engineering_Portfolio/projects/centralpass/">
+  <meta property="og:image" content="https://hiranyaa123.github.io/Engineering_Portfolio/assets/img/social/centralpass.jpg">
+  <meta property="og:image:alt" content="CentralPass shown through the customer ordering interface of its first live venue deployment.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hiranyaa123.github.io/Engineering_Portfolio/projects/centralpass/">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/case.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "@id": "https://hiranyaa123.github.io/Engineering_Portfolio/projects/centralpass/#project",
+        "name": "CentralPass hospitality platform",
+        "description": "Proprietary direct ordering and operations software for hospitality venues, built over several months and live at its first venue.",
+        "url": "https://hiranyaa123.github.io/Engineering_Portfolio/projects/centralpass/",
+        "image": "https://hiranyaa123.github.io/Engineering_Portfolio/assets/img/social/centralpass.jpg",
+        "author": { "@type": "Person", "name": "Hiranya Agarwal" },
+        "about": { "@type": "Organization", "name": "CentralPass", "url": "https://www.centralpass.au/" },
+        "keywords": ["hospitality software", "online ordering", "restaurant operations", "React", "Node.js", "PostgreSQL", "Stripe", "Socket.io"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Portfolio", "item": "https://hiranyaa123.github.io/Engineering_Portfolio/" },
+          { "@type": "ListItem", "position": 2, "name": "CentralPass", "item": "https://hiranyaa123.github.io/Engineering_Portfolio/projects/centralpass/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../../">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Hiranya Agarwal</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../#work">Work</a>
+        <a href="../../#story">Story</a>
+        <a href="../../#about">About</a>
+        <a href="../../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
+        <a class="nav-contact" href="../../#contact">Say hello</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-hero">
+      <div class="shell">
+        <p class="data">Sheet 01 of 06 / Hospitality software</p>
+        <h1>CentralPass</h1>
+        <p class="lede">Proprietary software I built so a venue can take its own orders instead of handing them, and a cut of every sale, to Uber Eats. I co-founded the company and wrote the platform: ordering, payments, a live staff queue, an owner portal, customer records and receipt printing. It took several months and it is live at Caffe Primo Firle.</p>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="shell">
+        <dl class="titleblock">
+          <div><dt>Role</dt><dd>Co-founder, wrote the software</dd></div>
+          <div><dt>Build time</dt><dd>Several months, alongside a full time degree</dd></div>
+          <div><dt>Delivery</dt><dd>Isolated deployment per venue</dd></div>
+          <div><dt>Status</dt><dd>First venue live in production</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="case-body shell">
+      <section class="case-section">
+        <h2 class="case-label">The problem</h2>
+        <div class="case-content">
+          <h3>Marketplace apps own the customer, the data and a slice of every order.</h3>
+          <p>A cafe on Uber Eats gets orders, but it also gets a commission taken off each one, a customer it never learns the name of, and a menu it does not fully control. CentralPass exists to give the venue those three things back. Each venue gets a website under its own brand and domain, payments into its own Stripe account and its own customer records, while the operational core underneath (API, owner portal, staff dashboard, printer bridge) is the product I built and reuse.</p>
+          <dl class="facts">
+            <div><dt>Customer journey</dt><dd>Website, menu, ordering, checkout and bookings</dd></div>
+            <div><dt>Operations</dt><dd>Live order queue, status flow and availability</dd></div>
+            <div><dt>Administration</dt><dd>Menus, hours, offers, customers and reporting</dd></div>
+            <div><dt>Venue boundary</dt><dd>Separate deployment, database and configuration</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Live deployment</h2>
+        <div class="case-content">
+          <h3>Caffe Primo Firle is the first production proof.</h3>
+          <p>These interfaces are from the CentralPass deployment built for Caffe Primo Firle. Customer and order identifying information was excluded from the images on purpose.</p>
+          <div class="photo-grid">
+            <figure class="photo wide" data-label="the live venue customer site">
+              <img src="../../assets/img/primo-firle/customer-site-1280.jpg"
+                   srcset="../../assets/img/primo-firle/customer-site-800.jpg 800w, ../../assets/img/primo-firle/customer-site-1280.jpg 1280w"
+                   sizes="(max-width: 900px) 100vw, 1000px"
+                   width="1280" height="720" loading="lazy" decoding="async"
+                   alt="The Caffe Primo Firle customer ordering website, the first live venue deployment of CentralPass.">
+              <figcaption><b>Bespoke customer site</b><span>Venue branded menu discovery, pickup ordering, checkout and bookings.</span></figcaption>
+            </figure>
+            <figure class="photo" data-label="the live staff dashboard">
+              <img src="../../assets/img/primo-firle/staff-dashboard-1280.jpg"
+                   srcset="../../assets/img/primo-firle/staff-dashboard-800.jpg 800w, ../../assets/img/primo-firle/staff-dashboard-1280.jpg 1280w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1280" height="720" loading="lazy" decoding="async"
+                   alt="The CentralPass staff dashboard item availability screen for Caffe Primo Firle.">
+              <figcaption><b>Staff dashboard</b><span>Tablet-first live orders and availability controls for service.</span></figcaption>
+            </figure>
+            <figure class="photo" data-label="the live owner portal">
+              <img src="../../assets/img/primo-firle/admin-portal-1280.jpg"
+                   srcset="../../assets/img/primo-firle/admin-portal-800.jpg 800w, ../../assets/img/primo-firle/admin-portal-1280.jpg 1280w"
+                   sizes="(max-width: 900px) 100vw, 50vw"
+                   width="1280" height="720" loading="lazy" decoding="async"
+                   alt="The CentralPass owner portal menu management screen for Caffe Primo Firle.">
+              <figcaption><b>Owner portal</b><span>Menu, hours, offers, customer and operational controls.</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Built by hand</h2>
+        <div class="case-content">
+          <h3>What several months of building actually consisted of.</h3>
+          <p>None of this is a template, a no-code tool or a wrapper around someone else's ordering product. Each piece below is a system I designed, wrote, tested against a real service and deployed, and each one had to keep working when the piece next to it changed.</p>
+          <ol class="notes">
+            <li><b>The storefront.</b> A React and Vite site per venue, with menu browsing, modifiers, pickup ordering, checkout and bookings, built to the venue's brand rather than to a CentralPass look.</li>
+            <li><b>The API and data model.</b> Node and Express on PostgreSQL: menus, modifiers, orders, customers, offers, opening hours, venue settings and role based access, with schema migrations that run before every deploy.</li>
+            <li><b>Payments.</b> Stripe checkout with the payment confirmed server side by webhook before an order is allowed into the staff queue. The browser is never trusted to say that money arrived.</li>
+            <li><b>The staff queue.</b> A tablet first dashboard, packaged with Capacitor, that receives new orders over Socket.io, moves them through preparation and marks items sold out for every other screen in real time.</li>
+            <li><b>The printer bridge.</b> A small Node service that lives beside the thermal receipt printer at the counter, takes jobs from the hosted API and prints them, so a cloud outage or a flaky cafe network degrades gracefully instead of silently losing tickets.</li>
+            <li><b>The owner portal.</b> Menus, hours, offers, customer records, reporting and time clock workflows, so the owner can run the venue without calling me.</li>
+            <li><b>Per venue infrastructure.</b> Each venue gets its own Railway project, database, R2 storage and configuration. Onboarding a new venue is a repeatable deployment, not a fork.</li>
+          </ol>
+          <h3 class="case-subhead">How the pieces connect.</h3>
+          <ol class="flow">
+            <li><b>Venue storefront</b><span>React and Vite experience adapted to each brand and customer journey.</span></li>
+            <li><b>Platform API</b><span>Node, Express, role-based access, business rules, webhooks and Socket.io events.</span></li>
+            <li><b>PostgreSQL</b><span>Menus, modifiers, orders, customers, offers, hours and venue settings.</span></li>
+            <li><b>Operations</b><span>Staff queue, owner administration and the local receipt-printer bridge.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Engineering decisions</h2>
+        <div class="case-content">
+          <h3>Decisions made for a busy service, not for a demo.</h3>
+          <ol class="notes">
+            <li><b>Use real-time events where latency matters.</b> Socket.io pushes new orders, status changes and sold-out updates across customer, staff and owner interfaces.</li>
+            <li><b>Keep uploads off ephemeral compute.</b> Menu images stream to Cloudflare R2 instead of living on a Railway container that can be replaced.</li>
+            <li><b>Migrate before every deploy.</b> The production start path fails fast if the PostgreSQL schema cannot be updated safely.</li>
+            <li><b>Protect venue ownership.</b> Each client retains its domain and Stripe account, while credentials remain outside public front ends and source control.</li>
+          </ol>
+          <div class="callout on-slate">
+            <p class="data">Current scope</p>
+            <p>CentralPass is built and operating at its first venue. It covers direct ordering and payments, live staff order management, owner controls, customer and offer workflows, straightforward bookings, basic time clock workflows and receipt printing. It replaces the ordering and customer side of a marketplace app. It is not presented here as a full POS, payroll, advanced rostering or delivery logistics replacement.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-label">Stack and links</h2>
+        <div class="case-content">
+          <h3>Web, cloud, data and hardware in one product.</h3>
+          <dl class="facts">
+            <div><dt>Frontend</dt><dd>React, Vite, Zustand, Capacitor</dd></div>
+            <div><dt>Backend</dt><dd>Node.js, Express, Socket.io</dd></div>
+            <div><dt>Data and payments</dt><dd>PostgreSQL, Stripe</dd></div>
+            <div><dt>Infrastructure</dt><dd>Railway, Cloudflare R2</dd></div>
+          </dl>
+          <div class="callout on-slate">
+            <p class="data">Public links</p>
+            <p><a class="text-link" href="https://www.centralpass.au/" rel="noopener">CentralPass <span aria-hidden="true">&#8599;</span></a><br>
+            Product and venue-partnership website.</p>
+            <p class="data next">First live venue</p>
+            <p><a class="text-link" href="https://caffeprimofirle.com.au/" rel="noopener">Caffe Primo Firle <span aria-hidden="true">&#8599;</span></a><br>
+            The first venue deployment of the CentralPass platform.</p>
+          </div>
+          <p class="note">No credentials or internal administration links appear in this public case study.</p>
+        </div>
+      </section>
+    </div>
+
+    <nav class="case-nav" aria-label="Project sheets">
+      <div class="shell">
+        <a href="../../#work">
+          <span class="data">Back to</span>
+          <span class="case-nav-title">All six sheets</span>
+        </a>
+        <a href="../adam-drone/">
+          <span class="data">Next, sheet 02</span>
+          <span class="case-nav-title">ADA&sup2;M autonomous drone</span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
+      <span><a href="mailto:agarwalhiranya@gmail.com" data-copy="agarwalhiranya@gmail.com" data-copy-label="email address">agarwalhiranya@gmail.com</a></span>
+      <span>Sydney and Adelaide, Australia</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

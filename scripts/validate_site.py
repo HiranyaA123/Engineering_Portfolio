@@ -9,7 +9,10 @@ import xml.etree.ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC_HTML = [ROOT / "index.html", ROOT / "404.html"] + sorted((ROOT / "projects").glob("*/index.html"))
+FOLDER_REDIRECTS = [ROOT / "projects" / "primo-firle" / "index.html"]
+PUBLIC_HTML = [ROOT / "index.html", ROOT / "404.html"] + [
+    page for page in sorted((ROOT / "projects").glob("*/index.html")) if page not in FOLDER_REDIRECTS
+]
 
 
 class AuditParser(HTMLParser):
@@ -76,6 +79,7 @@ def resolve_local(page, ref):
 
 
 errors = []
+canonical_urls = []
 for page in PUBLIC_HTML:
     parser = AuditParser()
     parser.feed(page.read_text(encoding="utf-8"))
@@ -87,6 +91,8 @@ for page in PUBLIC_HTML:
         errors.append(f"{label}: duplicate id values")
     if page.name == "index.html" and len(parser.canonical) != 1:
         errors.append(f"{label}: expected one canonical URL")
+    if page != ROOT / "404.html" and len(parser.canonical) == 1:
+        canonical_urls.append(parser.canonical[0])
     if page.name == "index.html" and len(parser.description) != 1:
         errors.append(f"{label}: expected one meta description")
     if parser.description and len(parser.description[0]) > 160:
@@ -124,6 +130,8 @@ try:
         errors.append(f"sitemap.xml: expected 7 public URLs, found {len(locations)}")
     if len(modified) != len(locations):
         errors.append("sitemap.xml: every URL must include lastmod")
+    if set(locations) != set(canonical_urls):
+        errors.append("sitemap.xml: URLs do not match public page canonicals")
     for value in modified:
         try:
             date.fromisoformat(value)
@@ -132,7 +140,7 @@ try:
 except (ET.ParseError, OSError) as exc:
     errors.append(f"sitemap.xml: {exc}")
 
-legacy = sorted((ROOT / "projects").glob("*.html"))
+legacy = sorted((ROOT / "projects").glob("*.html")) + FOLDER_REDIRECTS
 for page in legacy:
     text = page.read_text(encoding="utf-8")
     if 'name="robots" content="noindex"' not in text or 'rel="canonical"' not in text or "location.replace" not in text:

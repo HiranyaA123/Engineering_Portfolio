@@ -1,64 +1,56 @@
 /* ==========================================================================
    Hiranya Agarwal / engineering portfolio
-   Direction     Technical drawing sheet
-   Palette       Drafting paper, graphite, oxide accent, blueprint accent
-   Type          Archivo display / Source Serif 4 body / IBM Plex Mono data
-   Signature     The drawing title block, carried on every sheet
+   Direction     Print magazine, engineering edition. Big photographs of real
+                 hardware, big type with a voice, numbered callouts on the
+                 photographs the way a build log annotates a picture.
+   Palette       Bone ground, ink, competition red, navy for inverted panels
+   Type          Bricolage Grotesque display / Source Serif 4 body /
+                 IBM Plex Mono for the callout numbers and data only
+   Signature     Numbered callouts pinned to real photographs
    ========================================================================== */
 
 :root {
-  /* Colour. One dominant surface, one neutral, one accent. */
-  --paper: #e7e8e3;
-  --paper-raised: #eff0ec;
-  --paper-sunk: #dcded7;
-  --rule: #b7bcaf;
-  --rule-soft: #d0d3c9;
+  /* Ground and its lightness shifts. No pure white anywhere. */
+  --bone: #efede7;
+  --bone-2: #e5e2da;
+  --bone-3: #d6d2c7;
+  --rule: #c9c4b8;
 
-  --graphite: #14181a;
-  --graphite-mid: #3c464b;
-  --graphite-soft: #525e64;
+  /* Ink. 15.1:1, 9.4:1 and 5.2:1 on bone. */
+  --ink: #15171a;
+  --ink-2: #3e4247;
+  --ink-3: #5c6167;
 
-  /* Slate carries a blue cast now, so a drawing on it reads as a print
-     rather than as grey line art. */
-  --slate: #141f2a;
-  --slate-raised: #1d2b38;
-  --slate-rule: #2e4356;
-  --on-slate: #c3cbcf;
-  --on-slate-quiet: #8d999f;
+  /* Competition red. The 41103A number plate. 5.9:1 on bone, white on it 5.1:1. */
+  --red: #c4301c;
+  --red-deep: #9e2414;
+  --red-wash: #f3ddd7;
 
-  /* Accent one: oxide. Primary marks, links, live status. 5.3:1 on paper. */
-  --oxide: #a63a17;
-  --oxide-deep: #8e2f11;
-  --oxide-lift: #e0703f;
-  --oxide-wash: #f2e2da;
-
-  /* Accent two: blueprint. Technical marks, drawings, data. 7.0:1 on paper. */
-  --blueprint: #1b4e7d;
-  --blueprint-deep: #12395c;
-  --blueprint-lift: #6fb6e8;
-  --blueprint-line: #a8d8f5;
-  --blueprint-mid: #5f93b4;
-  --blueprint-quiet: #47708c;
-  --blueprint-wash: #dde5ea;
+  /* Navy for inverted panels. Pedare uniform, not neutral grey. */
+  --navy: #0e1b2e;
+  --navy-2: #16273f;
+  --navy-rule: #2a3d58;
+  --on-navy: #d5d9df;
+  --on-navy-quiet: #8e98a6;
+  --red-lift: #ff6b4e; /* red on navy only, 6.0:1 there. Never on bone. */
 
   /* Type */
-  --display: "Archivo", "Arial Narrow", sans-serif;
+  --display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
   --body: "Source Serif 4", Georgia, serif;
   --mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
 
-  /* Scale, ratio 1.25 from an 18px body */
-  --t-micro: 0.75rem;     /* 12px, title block fields only */
-  --t-data: 0.8125rem;    /* 13px, mono labels */
-  --t-meta: 0.875rem;     /* 14px */
-  --t-body: 1.125rem;     /* 18px */
-  --t-lede: 1.375rem;     /* 22px */
-  --t-h3: 1.5rem;
-  --t-h2: clamp(1.75rem, 1.05rem + 2.6vw, 3.25rem);
-  /* Capped for the hero's 620px copy column, not for the full page width.
-     A larger ceiling pushed the headline to six lines. */
-  --t-h1: clamp(1.875rem, 1.15rem + 3vw, 3.5rem);
+  /* Scale, ratio 1.333 from an 18px body (editorial) */
+  --t-micro: 0.75rem;
+  --t-data: 0.8125rem;
+  --t-meta: 0.9375rem;
+  --t-body: 1.125rem;
+  --t-lede: 1.5rem;
+  --t-h3: 2rem;
+  --t-h2: clamp(2.5rem, 1.6rem + 3.4vw, 4.75rem);
+  --t-h1: clamp(2.75rem, 1.4rem + 6vw, 7.5rem);
+  --t-giant: clamp(5rem, 2rem + 14vw, 16rem);
 
-  /* Space, 8px grid with a 4px half step */
+  /* Space, 8px grid */
   --s-1: 4px;
   --s-2: 8px;
   --s-3: 16px;
@@ -68,28 +60,24 @@
   --s-7: 64px;
   --s-8: 96px;
   --s-9: 128px;
-  --s-10: 160px;
+  --s-10: 192px;
 
   /* Radius, scaled by element size */
-  --r-xs: 2px;   /* tags, chips */
-  --r-sm: 4px;   /* buttons, inputs, small media */
-  --r-md: 8px;   /* panels */
-  --r-lg: 12px;  /* full sheets */
+  --r-xs: 3px;    /* chips */
+  --r-sm: 8px;    /* buttons, small media */
+  --r-md: 14px;   /* panels */
+  --r-lg: 20px;   /* large photographs */
+  --r-full: 999px;
 
-  /* Elevation. Tinted with the surface, reserved for things that move. */
-  --lift-1: 0 2px 6px rgba(20, 24, 26, .05), 0 8px 20px rgba(20, 24, 26, .05);
-  --lift-2: 0 4px 10px rgba(20, 24, 26, .06), 0 18px 44px rgba(20, 24, 26, .09);
+  --lift-1: 0 2px 6px rgba(21, 23, 26, .06), 0 10px 28px rgba(21, 23, 26, .08);
+  --lift-2: 0 6px 14px rgba(21, 23, 26, .08), 0 24px 56px rgba(21, 23, 26, .14);
 
-  /* Motion */
-  --ease: cubic-bezier(.2, .7, .3, 1);
-  --t-fast: 140ms;
-  --t-mid: 220ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --t-fast: 160ms;
+  --t-mid: 320ms;
 
-  --shell: 1280px;
-  --gutter: clamp(20px, 4vw, 48px);
-
-  --cross: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='13' height='13'><path d='M6.5 0v13M0 6.5h13' stroke='%23b7bcaf' stroke-width='1'/></svg>");
-  --cross-light: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='13' height='13'><path d='M6.5 0v13M0 6.5h13' stroke='%23566268' stroke-width='1'/></svg>");
+  --shell: 1360px;
+  --gutter: clamp(20px, 4vw, 56px);
 }
 
 /* --------------------------------------------------------- reset + shell */
@@ -104,28 +92,13 @@ html:focus-within { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--graphite);
+  background: var(--bone);
+  color: var(--ink);
   font-family: var(--body);
   font-size: var(--t-body);
   line-height: 1.6;
   font-optical-sizing: auto;
   overflow-x: hidden;
-}
-
-/* The substrate. A drawing sits on gridded stock, so the page does too. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, rgba(20, 24, 26, .05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(20, 24, 26, .05) 1px, transparent 1px),
-    linear-gradient(to right, rgba(20, 24, 26, .025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(20, 24, 26, .025) 1px, transparent 1px);
-  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
 }
 
 img { max-width: 100%; height: auto; }
@@ -140,91 +113,94 @@ img { max-width: 100%; height: auto; }
 
 h1, h2, h3, h4 {
   font-family: var(--display);
-  font-weight: 700;
-  font-stretch: 112%;
-  color: var(--graphite);
+  font-weight: 800;
+  font-variation-settings: "opsz" 96, "wdth" 88;
+  color: var(--ink);
   margin: 0 0 var(--s-3);
   text-wrap: balance;
-  /* Display type at narrow widths: break a word rather than push the page
-     sideways. Only ever fires when the word genuinely cannot fit. */
   overflow-wrap: break-word;
 }
 
 h1 {
   font-size: var(--t-h1);
-  line-height: 1.02;
+  line-height: .96;
   letter-spacing: -.035em;
 }
 
 h2 {
   font-size: var(--t-h2);
-  line-height: 1.08;
-  letter-spacing: -.025em;
+  line-height: .98;
+  letter-spacing: -.03em;
 }
 
 h3 {
   font-size: var(--t-h3);
-  line-height: 1.2;
-  letter-spacing: -.015em;
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  font-variation-settings: "opsz" 96, "wdth" 92;
 }
 
-p { margin: 0 0 var(--s-3); max-width: 68ch; }
+p { margin: 0 0 var(--s-3); max-width: 66ch; }
 
 p:last-child { margin-bottom: 0; }
 
 strong { font-weight: 600; }
 
-/* Mono is reserved for measured data: labels, counts, dates, revisions. */
+.lede {
+  font-size: var(--t-lede);
+  line-height: 1.4;
+  color: var(--ink-2);
+  max-width: 44ch;
+}
+
+.note { color: var(--ink-3); max-width: 60ch; }
+
+/* Small mono for measured things only. */
 .data {
   font-family: var(--mono);
   font-size: var(--t-data);
   font-weight: 500;
-  letter-spacing: .1em;
+  letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--blueprint);
+  color: var(--red);
 }
 
-.data-accent { color: var(--oxide); }
-
-/* A filled marker for anything that carries a number: sheet counts, indices,
-   revisions. This is where most of the colour on the page lives. */
-.chip {
-  display: inline-flex;
+/* Eyebrow above a section title. Display face, not mono, so the page does
+   not read as a wall of code labels. */
+.kicker {
+  display: flex;
   align-items: center;
-  gap: var(--s-1);
-  padding: var(--s-1) var(--s-2);
-  border-radius: var(--r-xs);
-  background: var(--oxide);
-  color: #fff;
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  gap: var(--s-3);
+  margin: 0 0 var(--s-4);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: var(--t-meta);
+  letter-spacing: -.005em;
+  color: var(--red);
 }
 
-.chip-blue { background: var(--blueprint); }
-.chip-quiet { background: var(--blueprint-wash); color: var(--blueprint-deep); }
-
-.lede {
-  font-size: var(--t-lede);
-  line-height: 1.5;
-  color: var(--graphite-mid);
-  max-width: 60ch;
+.kicker::before {
+  content: "";
+  width: 28px;
+  height: 3px;
+  background: var(--red);
+  border-radius: var(--r-full);
+  flex: none;
 }
 
-.note { color: var(--graphite-soft); max-width: 62ch; }
+.on-navy .kicker { color: var(--red-lift); }
+.on-navy .kicker::before { background: var(--red-lift); }
 
 /* --------------------------------------------------------- focus + links */
 
 :focus-visible {
-  outline: 2px solid var(--oxide);
+  outline: 3px solid var(--red);
   outline-offset: 3px;
   border-radius: var(--r-xs);
 }
 
-.on-slate :focus-visible,
-.on-slate:focus-visible { outline-color: var(--oxide-lift); }
+.on-navy :focus-visible,
+.on-navy:focus-visible { outline-color: var(--red-lift); }
 
 .sr-only {
   position: absolute;
@@ -248,93 +224,37 @@ strong { font-weight: 600; }
 .skip-link:focus-visible {
   left: var(--gutter);
   top: var(--s-2);
-  background: var(--graphite);
-  color: var(--paper);
+  background: var(--ink);
+  color: var(--bone);
   padding: var(--s-2) var(--s-3);
   border-radius: var(--r-sm);
-  font-family: var(--mono);
-  font-size: var(--t-meta);
-}
-
-a { color: var(--oxide); }
-
-a:hover { color: var(--oxide-deep); }
-
-.text-link {
-  color: var(--oxide);
-  text-decoration-thickness: 1px;
-  text-underline-offset: .22em;
-  transition: color var(--t-fast) var(--ease);
-}
-
-/* --------------------------------------------------------- corner ticks */
-
-.ticks {
-  background-image: var(--cross), var(--cross), var(--cross), var(--cross);
-  background-repeat: no-repeat;
-  background-position:
-    left 10px top 10px, right 10px top 10px,
-    left 10px bottom 10px, right 10px bottom 10px;
-  background-size: 13px 13px;
-}
-
-.on-slate.ticks,
-.ticks.on-slate {
-  background-image: var(--cross-light), var(--cross-light), var(--cross-light), var(--cross-light);
-}
-
-/* --------------------------------------------------------- title block */
-/* The signature element. Real fields, real values, on every sheet. */
-
-.titleblock {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1px;
-  margin: 0;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: var(--r-sm);
-  overflow: hidden;
-}
-
-.titleblock > div {
-  background: var(--paper);
-  padding: var(--s-2) var(--s-3) 12px;
-  min-width: 0;
-}
-
-.titleblock dt {
-  font-family: var(--mono);
-  font-size: var(--t-micro);
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: var(--blueprint);
-}
-
-.titleblock dd {
-  margin: var(--s-1) 0 0;
   font-family: var(--display);
   font-weight: 600;
-  font-stretch: 100%;
-  font-size: 0.9375rem;
-  line-height: 1.3;
-  letter-spacing: -.005em;
 }
 
-.on-slate .titleblock,
-.titleblock.on-slate {
-  background: var(--slate-rule);
-  border-color: var(--slate-rule);
+a { color: var(--red); }
+
+a:hover { color: var(--red-deep); }
+
+.text-link {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--red);
+  text-underline-offset: .18em;
+  transition: color var(--t-fast) var(--ease), text-decoration-color var(--t-fast) var(--ease);
 }
 
-.on-slate .titleblock > div,
-.titleblock.on-slate > div { background: var(--slate); }
+.text-link:hover { color: var(--red); }
 
-.on-slate .titleblock dt,
-.titleblock.on-slate dt { color: var(--on-slate-quiet); }
+.on-navy .text-link { color: #fff; text-decoration-color: var(--red-lift); }
+.on-navy .text-link:hover { color: var(--red-lift); }
 
-.on-slate .titleblock dd,
-.titleblock.on-slate dd { color: #fff; }
+.on-navy { background: var(--navy); color: var(--on-navy); }
+.on-navy h1, .on-navy h2, .on-navy h3 { color: #fff; }
+.on-navy p { color: var(--on-navy); }
+.on-navy .note { color: var(--on-navy-quiet); }
+.on-navy .data { color: var(--red-lift); }
 
 /* --------------------------------------------------------- buttons */
 
@@ -342,15 +262,14 @@ a:hover { color: var(--oxide-deep); }
   display: inline-flex;
   align-items: center;
   gap: var(--s-2);
-  min-height: 48px;
+  min-height: 52px;
   padding: 0 var(--s-4);
-  border: 1px solid var(--graphite);
-  border-radius: var(--r-sm);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-full);
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 105%;
-  font-size: 1rem;
-  letter-spacing: -.005em;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -.01em;
   text-decoration: none;
   cursor: pointer;
   transition: background var(--t-fast) var(--ease),
@@ -362,67 +281,98 @@ a:hover { color: var(--oxide-deep); }
 a.btn-primary,
 a.btn-primary:visited,
 .btn-primary {
-  background: var(--oxide);
-  border-color: var(--oxide);
-  color: #fff;
-  -webkit-text-fill-color: #fff;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bone);
 }
 
 a.btn-primary:hover,
 .btn-primary:hover {
-  background: var(--oxide-deep);
-  border-color: var(--oxide-deep);
+  background: var(--red);
+  border-color: var(--red);
   color: #fff;
 }
 
-.btn-primary:active { transform: translateY(1px); }
+.btn-quiet { background: transparent; color: var(--ink); }
 
-.btn-quiet {
+.btn-quiet:hover { background: var(--ink); color: var(--bone); }
+
+.btn:active { transform: translateY(1px); }
+
+.on-navy .btn-quiet { border-color: #fff; color: #fff; }
+.on-navy .btn-quiet:hover { background: #fff; color: var(--navy); }
+
+/* --------------------------------------------------------- copy button */
+/* Inserted by site.js next to anything carrying data-copy, so a dead button
+   never ships when the clipboard is unavailable. */
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  margin-left: var(--s-2);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--r-full);
   background: transparent;
-  border-color: var(--blueprint);
-  color: var(--blueprint);
+  color: var(--ink-2);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: var(--t-data);
+  letter-spacing: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
-.btn-quiet:hover {
-  background: var(--blueprint-wash);
-  border-color: var(--blueprint-deep);
-  color: var(--blueprint-deep);
-}
+.copy-btn svg { width: 14px; height: 14px; flex: none; }
 
-.btn-quiet:active { transform: translateY(1px); }
+.copy-btn:hover { background: var(--ink); border-color: var(--ink); color: var(--bone); }
 
-.btn .arrow { font-family: var(--mono); font-size: 0.9em; }
+.copy-btn.is-done { background: var(--red); border-color: var(--red); color: #fff; }
 
-/* --------------------------------------------------------- tag list */
+.on-navy .copy-btn,
+.site-footer .copy-btn { border-color: var(--navy-rule); color: var(--on-navy); }
+
+.site-footer .copy-btn { border-color: var(--rule); color: var(--ink-2); min-height: 32px; }
+
+.on-navy .copy-btn:hover { background: #fff; border-color: #fff; color: var(--navy); }
+
+.copy-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+/* --------------------------------------------------------- tags */
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-1) var(--s-2);
+  gap: var(--s-2);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .tags li {
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  letter-spacing: .04em;
-  color: var(--blueprint-deep);
-  background: var(--blueprint-wash);
-  border-radius: var(--r-xs);
-  padding: var(--s-1) var(--s-2);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: var(--t-meta);
+  letter-spacing: -.005em;
+  color: var(--ink-2);
+  border: 1.5px solid var(--rule);
+  border-radius: var(--r-full);
+  padding: 3px 12px;
 }
+
+.on-navy .tags li { color: var(--on-navy); border-color: var(--navy-rule); }
 
 /* --------------------------------------------------------- header */
 
 .site-header {
-  border-bottom: 1px solid var(--rule);
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 10;
+  background: var(--bone);
+  border-bottom: 1px solid var(--rule);
 }
 
 .site-header .shell {
@@ -430,158 +380,284 @@ a.btn-primary:hover,
   align-items: center;
   justify-content: space-between;
   gap: var(--s-4);
-  flex-wrap: wrap;
-  padding-block: var(--s-2);
+  min-height: 64px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--s-2);
+  gap: 10px;
   min-height: 44px;
-  color: var(--graphite);
+  color: var(--ink);
   text-decoration: none;
   font-family: var(--display);
-  font-weight: 700;
-  font-stretch: 108%;
-  letter-spacing: -.01em;
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: -.02em;
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  background: var(--oxide);
-  color: #fff;
-  border: 1px solid var(--oxide);
-  border-radius: var(--r-xs);
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  font-weight: 600;
-  letter-spacing: .04em;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--r-full);
+  background: var(--red);
   flex: none;
+  transition: transform var(--t-fast) var(--ease);
 }
 
-.brand:hover .brand-mark {
-  background: var(--oxide-deep);
-  border-color: var(--oxide-deep);
-}
+.brand:hover .brand-mark { transform: scale(1.35); }
 
 .site-nav {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--s-1) var(--s-2);
+  gap: var(--s-1);
 }
 
 .site-nav a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 var(--s-3);
-  border-radius: var(--r-sm);
-  color: var(--blueprint);
+  padding: 0 12px;
+  border-radius: var(--r-full);
+  color: var(--ink-2);
   text-decoration: none;
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -.005em;
   transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
 
-.site-nav a:hover {
-  color: var(--blueprint-deep);
-  background: var(--blueprint-wash);
-}
+.site-nav a:hover { color: var(--ink); background: var(--bone-2); }
 
-.site-nav a[aria-current="page"],
-.site-nav a.is-current {
-  color: var(--oxide);
-  box-shadow: inset 0 -2px 0 var(--oxide);
-}
+.site-nav a.is-current { color: var(--red); }
 
 .site-nav .nav-contact {
-  border: 1px solid var(--oxide);
-  color: var(--oxide);
+  margin-left: var(--s-2);
+  background: var(--ink);
+  color: var(--bone);
+  padding: 0 18px;
 }
 
-.site-nav .nav-contact:hover {
-  background: var(--oxide);
-  border-color: var(--oxide);
-  color: #fff;
-}
+.site-nav .nav-contact:hover { background: var(--red); color: #fff; }
 
 /* --------------------------------------------------------- footer */
 
-.site-footer {
-  border-top: 1px solid var(--rule);
-  margin-top: var(--s-8);
-}
+.site-footer { border-top: 1px solid var(--rule); }
 
 .site-footer .shell {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: var(--s-3);
+  gap: var(--s-3) var(--s-5);
   padding-block: var(--s-5);
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--graphite-soft);
+  font-size: var(--t-meta);
+  color: var(--ink-3);
 }
 
 .site-footer a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--blueprint);
+  color: var(--ink-2);
   text-decoration: none;
 }
 
-.site-footer a:hover { color: var(--oxide); text-decoration: underline; }
+.site-footer a:hover { color: var(--red); text-decoration: underline; }
+
+/* --------------------------------------------------------- annotated photo */
+/* The signature. A real photograph with numbered markers pinned to the real
+   parts. Each marker is a button, so it works on keyboard and touch; the
+   legend underneath repeats the notes so nobody has to hover to read them. */
+
+.annotated {
+  position: relative;
+  margin: 0;
+}
+
+.annotated .frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: var(--bone-2);
+  line-height: 0;
+}
+
+.annotated .frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mark {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.mark button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--r-full);
+}
+
+.mark button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-full);
+  border: 2px solid rgba(255, 255, 255, .55);
+  transition: transform var(--t-mid) var(--ease), opacity var(--t-mid) var(--ease);
+  opacity: 0;
+  transform: scale(.6);
+}
+
+.mark button span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-full);
+  background: var(--red);
+  color: #fff;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: var(--t-data);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .85), 0 4px 14px rgba(0, 0, 0, .35);
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+
+.mark:hover button span,
+.mark.is-open button span,
+.mark button:focus-visible span { transform: scale(1.12); background: var(--red-deep); }
+
+.mark:hover button::before,
+.mark.is-open button::before { opacity: 1; transform: scale(1); }
+
+.mark .tip {
+  position: absolute;
+  left: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  width: max-content;
+  max-width: min(260px, 60vw);
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--body);
+  font-size: var(--t-meta);
+  line-height: 1.4;
+  box-shadow: var(--lift-2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+.mark .tip b {
+  display: block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.mark.flip .tip {
+  left: auto;
+  right: calc(100% + 6px);
+  transform: translateY(-50%) translateX(6px);
+}
+
+.mark:hover .tip,
+.mark:focus-within .tip,
+.mark.is-open .tip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  list-style: none;
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  font-size: var(--t-meta);
+  color: var(--ink-3);
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.legend i {
+  font-style: normal;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: var(--t-micro);
+  color: var(--red);
+}
+
+.annotated figcaption {
+  margin-top: var(--s-3);
+  font-size: var(--t-meta);
+  color: var(--ink-3);
+}
+
+.annotated figcaption b { color: var(--ink); font-weight: 600; }
 
 /* --------------------------------------------------------- photographs */
-/* Real photographs of real hardware. Sized responsively so a phone never
-   pulls a desktop file. */
 
 .photo {
   margin: 0;
-  background: var(--paper-raised);
+  background: var(--bone-2);
   border-radius: var(--r-md);
   padding: var(--s-2);
-  box-shadow: var(--lift-1);
 }
 
 .photo img {
   display: block;
   width: 100%;
   height: auto;
-  /* concentric: outer 8px minus 8px padding leaves the inner corner at the
-     smallest step on the scale rather than a sharp one */
-  border-radius: var(--r-xs);
-  background: var(--paper-sunk);
+  /* concentric: 14 outer minus 8 padding */
+  border-radius: calc(var(--r-md) - var(--s-2));
+  background: var(--bone-3);
 }
 
 .photo figcaption { padding: var(--s-3) var(--s-2) var(--s-2); }
 
 .photo figcaption b {
-  color: var(--blueprint-deep);
   display: block;
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 104%;
+  font-weight: 700;
   font-size: 1.0625rem;
   letter-spacing: -.01em;
-  margin-bottom: var(--s-1);
+  margin-bottom: 2px;
 }
 
-.photo figcaption span { font-size: 0.9375rem; color: var(--graphite-soft); }
+.photo figcaption span { display: block; font-size: var(--t-meta); color: var(--ink-3); }
 
 .photo-grid {
   display: grid;
-  /* min() keeps the track from forcing a 280px floor on a 320px screen */
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: var(--s-3);
   margin: var(--s-5) 0 0;
@@ -589,8 +665,6 @@ a.btn-primary:hover,
 
 .photo-grid .wide { grid-column: 1 / -1; }
 
-/* Enlarge control. Only shown once the lightbox script has taken over, so a
-   dead button never ships. */
 .photo .zoom { display: none; }
 
 .js-lightbox .photo img { cursor: zoom-in; }
@@ -601,19 +675,18 @@ a.btn-primary:hover,
   gap: var(--s-2);
   min-height: 44px;
   margin-top: var(--s-1);
-  padding: 0 var(--s-2) 0 0;
+  padding: 0;
   background: none;
   border: 0;
-  color: var(--oxide);
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  color: var(--red);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: var(--t-meta);
   cursor: zoom-in;
   transition: color var(--t-fast) var(--ease), gap var(--t-fast) var(--ease);
 }
 
-.js-lightbox .photo .zoom:hover { color: var(--oxide-deep); gap: var(--s-3); }
+.js-lightbox .photo .zoom:hover { color: var(--red-deep); gap: var(--s-3); }
 
 /* --------------------------------------------------------- lightbox */
 
@@ -625,7 +698,7 @@ a.btn-primary:hover,
   grid-template-rows: minmax(0, 1fr) auto;
   gap: var(--s-3);
   padding: clamp(16px, 3vw, 40px);
-  background: rgba(16, 20, 22, .94);
+  background: rgba(14, 27, 46, .95);
   border: 0;
   max-width: none;
   max-height: none;
@@ -634,13 +707,9 @@ a.btn-primary:hover,
   overflow: hidden;
 }
 
-/* Author styles override the browser's default closed-dialog rule in some
-   engines. Keep the modal completely out of layout until showModal() adds
-   the open attribute, otherwise this full-screen layer blocks every link on
-   a case-study page. */
 .lightbox:not([open]) { display: none; }
 
-.lightbox::backdrop { background: rgba(16, 20, 22, .94); }
+.lightbox::backdrop { background: rgba(14, 27, 46, .95); }
 
 .lightbox-stage {
   display: grid;
@@ -665,87 +734,58 @@ a.btn-primary:hover,
   justify-content: space-between;
   gap: var(--s-2) var(--s-4);
   padding: var(--s-3);
-  background: var(--slate);
-  border-top: 1px solid var(--slate-rule);
+  background: var(--navy-2);
   border-radius: var(--r-sm);
-  color: var(--on-slate);
+  color: var(--on-navy);
 }
 
-.lightbox-caption {
-  font-size: 1rem;
-  max-width: 70ch;
-  margin: 0;
-}
+.lightbox-caption { font-size: 1rem; max-width: 70ch; margin: 0; }
 
 .lightbox-caption b {
   display: block;
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 104%;
+  font-weight: 700;
   color: #fff;
 }
 
 .lightbox-close {
   min-height: 44px;
-  padding: 0 var(--s-3);
+  padding: 0 var(--s-4);
   background: none;
-  border: 1px solid var(--slate-rule);
-  border-radius: var(--r-sm);
+  border: 2px solid var(--navy-rule);
+  border-radius: var(--r-full);
   color: #fff;
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
   flex: none;
   transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
-.lightbox-close:hover { background: var(--slate-raised); border-color: var(--on-slate-quiet); }
+.lightbox-close:hover { background: var(--navy); border-color: var(--on-navy-quiet); }
 
-.lightbox :focus-visible { outline-color: var(--oxide-lift); }
+.lightbox :focus-visible { outline-color: var(--red-lift); }
 
 /* --------------------------------------------------------- drawing svg */
+/* Line drawings stand in where no photograph exists yet. */
 
 .drawing { display: block; width: 100%; height: auto; }
-.drawing .frame { fill: none; stroke: var(--slate-rule); stroke-width: 1; }
-.drawing .outline { fill: none; stroke: #e4eaec; stroke-width: 1.6; stroke-linejoin: round; }
-.drawing .thin { fill: none; stroke: #96a5ab; stroke-width: .9; }
-.drawing .centre { fill: none; stroke: var(--oxide-lift); stroke-width: .9; stroke-dasharray: 14 4 3 4; }
-.drawing .dim { fill: none; stroke: #7f8f96; stroke-width: .8; }
-.drawing .hatch { fill: none; stroke: #61717a; stroke-width: .8; }
-.drawing .fill-soft { fill: rgba(228, 234, 236, .07); stroke: none; }
+.drawing .frame { fill: none; stroke: var(--navy-rule); stroke-width: 1; }
+.drawing .outline { fill: none; stroke: #e6ebf1; stroke-width: 1.6; stroke-linejoin: round; }
+.drawing .thin { fill: none; stroke: #8e98a6; stroke-width: .9; }
+.drawing .centre { fill: none; stroke: var(--red-lift); stroke-width: .9; stroke-dasharray: 14 4 3 4; }
+.drawing .dim { fill: none; stroke: #7a8594; stroke-width: .8; }
+.drawing .hatch { fill: none; stroke: #5b6675; stroke-width: .8; }
 .drawing text {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .08em;
-  fill: var(--on-slate-quiet);
+  fill: var(--on-navy-quiet);
 }
-.drawing text.lead-note { fill: var(--oxide-lift); }
+.drawing text.lead-note { fill: var(--red-lift); }
 
 /* --------------------------------------------------------- motion */
-/* Budget: one moment. The hero sheet plots itself, once. Nothing else moves
-   on scroll. */
-
-@media (prefers-reduced-motion: no-preference) {
-  .plot .outline,
-  .plot .thin,
-  .plot .dim,
-  .plot .hatch,
-  .plot .frame {
-    stroke-dasharray: 1400;
-    stroke-dashoffset: 1400;
-    animation: plot 1100ms var(--ease) forwards;
-  }
-  .plot .thin { animation-delay: 180ms; }
-  .plot .hatch { animation-delay: 300ms; }
-  .plot .dim { animation-delay: 420ms; }
-  .plot .centre { opacity: 0; animation: ink 500ms var(--ease) 700ms forwards; }
-  .plot text { opacity: 0; animation: ink 400ms var(--ease) 860ms forwards; }
-}
-
-@keyframes plot { to { stroke-dashoffset: 0; } }
-@keyframes ink { to { opacity: 1; } }
 
 @media (prefers-reduced-motion: reduce) {
   html:focus-within { scroll-behavior: auto; }
@@ -760,46 +800,26 @@ a.btn-primary:hover,
 
 /* --------------------------------------------------------- small screens */
 
-@media (max-width: 1200px) {
-  .site-header .shell {
-    align-items: flex-start;
-    gap: var(--s-1);
-  }
-
-  .site-nav {
-    width: 100%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: var(--s-1);
-    scrollbar-width: thin;
-  }
-
-  .site-nav a { flex: none; }
+@media (max-width: 900px) {
+  .site-nav a { padding: 0 10px; font-size: var(--t-meta); }
+  .site-nav .nav-contact { padding: 0 14px; }
 }
 
 @media (max-width: 720px) {
   .site-header { position: static; }
-  .site-header .shell { justify-content: flex-start; }
-  .site-nav {
+  .site-header .shell {
     flex-wrap: wrap;
-    overflow-x: visible;
-    padding-bottom: 0;
+    padding-block: var(--s-2);
   }
-  .site-nav a {
-    min-height: 44px;
-    padding-inline: var(--s-2);
-  }
+  .site-nav { width: 100%; flex-wrap: wrap; }
+  .site-nav a { padding: 0 8px; }
 
-  .lightbox {
-    gap: var(--s-2);
-    padding: var(--s-2);
-  }
+  .mark button { width: 40px; height: 40px; }
+  .mark button span { width: 26px; height: 26px; font-size: var(--t-micro); }
+  .mark .tip { max-width: min(220px, 56vw); font-size: .875rem; }
 
-  .lightbox-bar {
-    align-items: stretch;
-    padding: var(--s-2);
-  }
-
+  .lightbox { gap: var(--s-2); padding: var(--s-2); }
+  .lightbox-bar { align-items: stretch; padding: var(--s-2); }
   .lightbox-caption { font-size: .9375rem; }
   .lightbox-close { width: 100%; }
 }

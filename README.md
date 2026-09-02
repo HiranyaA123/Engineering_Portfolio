@@ -2,7 +2,7 @@
 
 Static portfolio site for Hiranya Agarwal, a Mechanical Engineering (Honours) student at UNSW working across robotics, autonomous systems, space hardware and software.
 
-No build step, no dependencies. Every page is hand written HTML and CSS with about 30 lines of progressive enhancement JavaScript.
+No build step, no dependencies. Every page is hand written HTML and CSS with a small progressive enhancement script for the photo callouts and the lightbox.
 
 ## Local preview
 
@@ -17,13 +17,13 @@ Then open <http://localhost:8000>. Use the local server rather than opening `ind
 ```
 index.html                  landing page
 404.html                    error page
-projects/*/index.html       six case studies with clean, extension-free URLs
+projects/*/index.html       six case studies plus one legacy folder redirect
 assets/css/base.css         design tokens, typography, shared components
 assets/css/home.css         landing page layout
 assets/css/case.css         case study layout
-assets/js/site.js           current year, active nav section, photo lightbox
+assets/js/site.js           current year, active nav section, photo callouts, lightbox
 assets/img/vex/             robot and team photographs (600 / 1000 / 1600 wide)
-assets/img/primo-firle/     real product screenshots (800 / 1280 wide)
+assets/img/primo-firle/     CentralPass first-deployment screenshots (800 / 1280 wide)
 assets/img/favicon.svg      portfolio browser icon
 assets/docs/                the public resume PDF
 robots.txt                  crawler rules and sitemap location
@@ -35,7 +35,7 @@ DESIGN-NOTES.md             decisions made under those rules
 
 ## Design
 
-The site follows `DESIGN-RULES.md`. The direction is a technical drawing sheet: drafting paper ground, graphite ink, one oxide accent, and a title block carried on every page. `DESIGN-NOTES.md` records the palette, the type pairing, the signature element and the deliberate departures.
+The site follows `DESIGN-RULES.md`. The direction is a print magazine, engineering edition: a bone ground, ink, one competition red taken from the robot's number plate, navy for inverted panels, Bricolage Grotesque for display and Source Serif 4 for body. The signature element is a set of numbered callouts pinned to real photographs of the hardware. `DESIGN-NOTES.md` records the palette, the type pairing, the signature element, the deliberate risks and why the September 2026 rebuild happened.
 
 Change design tokens in `assets/css/base.css` under `:root`. Colour, type scale, spacing, radius and motion all live there, so a change propagates everywhere.
 

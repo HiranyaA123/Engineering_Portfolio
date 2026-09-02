@@ -1,27 +1,47 @@
 /* ==========================================================================
-   Case study sheets. Same drawing-set language as the landing page, but the
-   page itself becomes the sheet: header strip, title block, numbered notes.
+   Case studies. Same voice as the landing page: a big headline, a strip of
+   facts, then the story in ruled sections with a label down the left.
    ========================================================================== */
 
-.case-hero .shell { padding-block: clamp(48px, 6vw, 96px) var(--s-6); }
+.case-hero .shell { padding-block: clamp(40px, 6vw, 88px) var(--s-6); }
 
 .case-hero .data { margin: 0 0 var(--s-4); }
 
-.case-hero h1 { max-width: 18ch; margin-bottom: var(--s-4); }
+.case-hero h1 { max-width: 14ch; margin-bottom: var(--s-4); }
 
-.case-hero .lede { max-width: 62ch; }
+.case-hero .lede { max-width: 56ch; }
 
-.case-block {
-  border-top: 2px solid var(--oxide);
+/* Facts strip under every case title. */
+.case-block .shell { padding-block: 0; }
+
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--s-3) var(--s-5);
+  margin: 0;
+  padding-block: var(--s-4);
+  border-top: 2px solid var(--ink);
   border-bottom: 1px solid var(--rule);
-  background: var(--blueprint-wash);
 }
 
-.case-block .shell { padding-block: var(--s-4); }
+.titleblock > div { min-width: 0; }
 
-.case-block .titleblock { background: var(--blueprint-mid); border-color: var(--blueprint-mid); }
+.titleblock dt {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: var(--t-meta);
+  color: var(--red);
+  margin-bottom: 2px;
+}
 
-.case-block .titleblock > div { background: var(--paper); }
+.titleblock dd {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -.015em;
+  line-height: 1.25;
+}
 
 /* --------------------------------------------------------- body */
 
@@ -29,8 +49,8 @@
 
 .case-section {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: var(--s-4) var(--s-6);
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--s-4) var(--s-7);
   align-items: start;
   padding-block: clamp(32px, 4vw, 64px);
   border-top: 1px solid var(--rule);
@@ -40,22 +60,23 @@
 
 .case-label {
   margin: 0;
-  padding-top: .5em;
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  font-weight: 500;
-  font-stretch: 100%;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--oxide);
+  padding-top: .35em;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -.01em;
+  color: var(--red);
+  font-variation-settings: "opsz" 12, "wdth" 100;
 }
 
 .case-content h3 {
-  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem);
+  font-size: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem);
   margin-bottom: var(--s-3);
 }
 
-.case-content > p { color: var(--graphite-mid); }
+.case-content > p { color: var(--ink-2); }
+
+.case-content .case-subhead { margin-top: var(--s-6); }
 
 /* Signal chain. Numbered because the order is real. */
 .flow {
@@ -65,47 +86,44 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: var(--r-sm);
-  overflow: hidden;
+  gap: var(--s-2);
 }
 
 .flow li {
   counter-increment: step;
-  background: var(--paper);
+  background: var(--bone-2);
+  border-radius: var(--r-md);
   padding: var(--s-3) var(--s-3) var(--s-4);
 }
 
 .flow li::before {
   content: counter(step, decimal-leading-zero);
   display: block;
-  font-family: var(--mono);
-  font-size: var(--t-micro);
-  letter-spacing: .12em;
-  color: var(--blueprint);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -.04em;
+  color: var(--red);
   margin-bottom: var(--s-2);
 }
 
 .flow b {
   display: block;
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 104%;
+  font-weight: 700;
   font-size: 1.0625rem;
   margin-bottom: 4px;
 }
 
-.flow span { font-size: 0.9375rem; color: var(--graphite-soft); line-height: 1.5; }
+.flow span { font-size: 0.9375rem; color: var(--ink-3); line-height: 1.5; }
 
-/* Measured facts, presented the way a schedule of parts is. */
+/* Measured facts. */
 .facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 0 var(--s-5);
   margin: var(--s-5) 0 0;
-  border-top: 2px solid var(--blueprint);
+  border-top: 2px solid var(--ink);
 }
 
 .facts > div {
@@ -116,23 +134,22 @@
 }
 
 .facts dt {
-  font-family: var(--mono);
-  font-size: var(--t-micro);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--blueprint);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: var(--t-meta);
+  color: var(--red);
 }
 
 .facts dd {
   margin: var(--s-1) 0 0;
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 102%;
-  font-size: 1.0625rem;
+  font-weight: 700;
+  font-size: 1.125rem;
   line-height: 1.3;
+  letter-spacing: -.01em;
 }
 
-/* Drawing notes. */
+/* Numbered notes. */
 .notes {
   list-style: none;
   counter-reset: note;
@@ -147,52 +164,49 @@
   padding: var(--s-3) 0 var(--s-3) 60px;
   border-top: 1px solid var(--rule);
   font-size: 1.0625rem;
-  color: var(--graphite-mid);
+  color: var(--ink-2);
 }
 
 .notes li::before {
   content: counter(note, decimal-leading-zero);
   position: absolute;
-  top: calc(var(--s-3) + .35em);
+  top: calc(var(--s-3) + .1em);
   left: 0;
-  font-family: var(--mono);
-  font-size: var(--t-data);
-  letter-spacing: .1em;
-  color: var(--oxide);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  letter-spacing: -.04em;
+  color: var(--red);
 }
 
 .notes b {
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 103%;
-  color: var(--graphite);
+  font-weight: 700;
+  color: var(--ink);
 }
 
-/* Status panel. Inverted so it reads as a stamp on the sheet. */
+/* Status panel, inverted. */
 .callout {
-  background: var(--slate);
-  color: var(--on-slate);
+  background: var(--navy);
+  color: var(--on-navy);
   border-radius: var(--r-md);
   padding: clamp(20px, 2.6vw, 32px);
   margin-top: var(--s-5);
 }
 
-.callout .data { color: var(--oxide-lift); margin: 0 0 var(--s-2); }
+.callout .data { color: var(--red-lift); margin: 0 0 var(--s-2); }
 
 .callout .data.next { margin-top: var(--s-4); }
 
-.callout p { color: var(--on-slate); }
+.callout p { color: var(--on-navy); }
 
-.callout .text-link { color: var(--oxide-lift); }
+.callout .text-link { color: #fff; text-decoration-color: var(--red-lift); }
 
-.callout .text-link:hover { color: #fff; }
-
-/* Photographs and screenshots use the shared .photo / .photo-grid component
-   in base.css. */
+.callout .text-link:hover { color: var(--red-lift); }
 
 /* Case plate, for pages that lead with a drawing instead of a photo. */
 .case-plate {
-  background: var(--slate);
+  background: var(--navy);
   border-radius: var(--r-md);
   padding: clamp(16px, 2vw, 28px);
   margin: var(--s-5) 0 0;
@@ -203,7 +217,7 @@
 /* --------------------------------------------------------- sheet nav */
 
 .case-nav {
-  border-top: 1px solid var(--graphite);
+  border-top: 2px solid var(--ink);
   margin-top: var(--s-6);
 }
 
@@ -219,7 +233,7 @@
   flex-direction: column;
   gap: var(--s-2);
   padding: var(--s-5) var(--s-3);
-  color: var(--graphite);
+  color: var(--ink);
   text-decoration: none;
   transition: background var(--t-fast) var(--ease);
 }
@@ -233,18 +247,15 @@
   padding-right: 0;
 }
 
-.case-nav a:hover { background: var(--paper-raised); }
+.case-nav a:hover .case-nav-title { color: var(--red); }
 
-.case-nav a:hover .case-nav-title { color: var(--oxide-deep); }
-
-.case-nav .data { color: var(--graphite-soft); }
+.case-nav .data { color: var(--ink-3); }
 
 .case-nav-title {
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 106%;
-  font-size: 1.25rem;
-  letter-spacing: -.015em;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -.025em;
   transition: color var(--t-fast) var(--ease);
 }
 
@@ -252,7 +263,7 @@
 
 .notfound .shell {
   padding-block: clamp(64px, 10vw, 160px);
-  max-width: 720px;
+  max-width: 760px;
   margin-inline: 0;
   padding-left: var(--gutter);
 }
@@ -265,7 +276,7 @@
   list-style: none;
   margin: var(--s-5) 0 0;
   padding: 0;
-  border-top: 1px solid var(--graphite);
+  border-top: 2px solid var(--ink);
 }
 
 .notfound li { border-bottom: 1px solid var(--rule); }
@@ -276,15 +287,14 @@
   justify-content: space-between;
   gap: var(--s-3);
   min-height: 56px;
-  color: var(--graphite);
+  color: var(--ink);
   text-decoration: none;
   font-family: var(--display);
-  font-weight: 600;
-  font-stretch: 104%;
+  font-weight: 700;
   transition: color var(--t-fast) var(--ease), padding-left var(--t-fast) var(--ease);
 }
 
-.notfound li a:hover { color: var(--oxide-deep); padding-left: var(--s-2); }
+.notfound li a:hover { color: var(--red); padding-left: var(--s-2); }
 
 /* --------------------------------------------------------- responsive */
 

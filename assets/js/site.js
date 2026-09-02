@@ -33,6 +33,81 @@
     targets.forEach(function (target) { navObserver.observe(target); });
   }
 
+  /* --------------------------------------------------- photo callouts */
+  // Hover and focus already reveal a note through CSS. Tapping needs a
+  // toggle, and only one note should be open at a time.
+
+  var marks = Array.prototype.slice.call(document.querySelectorAll('.mark'));
+
+  function closeMarks(except) {
+    marks.forEach(function (mark) {
+      if (mark === except) return;
+      mark.classList.remove('is-open');
+      var b = mark.querySelector('button');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  marks.forEach(function (mark) {
+    var button = mark.querySelector('button');
+    if (!button) return;
+    button.addEventListener('click', function (event) {
+      event.stopPropagation();
+      var open = mark.classList.toggle('is-open');
+      button.setAttribute('aria-expanded', open ? 'true' : 'false');
+      closeMarks(mark);
+    });
+  });
+
+  if (marks.length) {
+    document.addEventListener('click', function () { closeMarks(null); });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeMarks(null);
+    });
+  }
+
+  /* -------------------------------------------------------- copy buttons */
+  // Anything carrying data-copy gets a button beside it. Only built when the
+  // clipboard API exists, so a button that cannot copy never ships.
+
+  var copyables = Array.prototype.slice.call(document.querySelectorAll('[data-copy]'));
+  if (copyables.length && navigator.clipboard && navigator.clipboard.writeText) {
+    var live = document.createElement('div');
+    live.className = 'copy-live';
+    live.setAttribute('aria-live', 'polite');
+    document.body.appendChild(live);
+
+    var icon = '<svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">' +
+      '<rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>';
+
+    copyables.forEach(function (el) {
+      var what = el.dataset.copyLabel || 'link';
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'copy-btn';
+      button.setAttribute('aria-label', 'Copy ' + what);
+      button.innerHTML = icon + '<span>Copy</span>';
+      el.insertAdjacentElement('afterend', button);
+
+      var timer = null;
+      button.addEventListener('click', function () {
+        navigator.clipboard.writeText(el.dataset.copy).then(function () {
+          button.classList.add('is-done');
+          button.querySelector('span').textContent = 'Copied';
+          live.textContent = 'Copied ' + what + ' to the clipboard.';
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            button.classList.remove('is-done');
+            button.querySelector('span').textContent = 'Copy';
+          }, 1800);
+        }, function () {
+          button.querySelector('span').textContent = 'Select and copy';
+          live.textContent = 'Copying failed. Select the text and copy it instead.';
+        });
+      });
+    });
+  }
+
   /* ------------------------------------------------------------ lightbox */
   // Photographs of hardware are worth looking at closely. Needs <dialog>, so
   // the enlarge control stays hidden unless the browser supports it.
@@ -54,8 +129,6 @@
     '</div>';
   document.body.appendChild(dialog);
 
-  // The image element is built on open, so the page never carries an <img>
-  // with no source.
   var stage = dialog.querySelector('.lightbox-stage');
   var caption = dialog.querySelector('.lightbox-caption');
   var closeBtn = dialog.querySelector('.lightbox-close');
@@ -65,7 +138,6 @@
     var figure = img.closest('figure');
     var label = figure ? figure.querySelector('figcaption') : null;
 
-    // Skip srcset in the lightbox: it is always the widest file we have.
     var full = document.createElement('img');
     full.src = img.dataset.full || img.currentSrc || img.src;
     full.alt = img.alt;
@@ -97,14 +169,10 @@
       '<span class="sr-only"> ' + what + '</span>';
     (caps || figure).appendChild(button);
 
-    // The button is the keyboard path. Clicking the image itself is a
-    // convenience for pointer users on top of it, not instead of it.
     button.addEventListener('click', function () { open(img); });
     img.addEventListener('click', function () { open(img); });
   });
 
-  // Cleanup is driven explicitly rather than from the dialog 'close' event,
-  // which does not fire reliably everywhere. Safe to run more than once.
   function cleanup() {
     stage.replaceChildren();
     if (opener && opener.focus) opener.focus();
@@ -118,20 +186,16 @@
 
   closeBtn.addEventListener('click', close);
 
-  // Close explicitly as well as relying on the dialog's native cancel event.
-  // Some embedded browsers expose <dialog> but do not dismiss it on Escape.
   dialog.addEventListener('keydown', function (event) {
     if (event.key !== 'Escape') return;
     event.preventDefault();
     close();
   });
 
-  // Click the backdrop (anywhere that is not the image or the bar) to close.
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) close();
   });
 
-  // Native cancellation remains a fallback and restores focus after dismissal.
   dialog.addEventListener('cancel', function () { setTimeout(cleanup, 0); });
   dialog.addEventListener('close', cleanup);
 })();

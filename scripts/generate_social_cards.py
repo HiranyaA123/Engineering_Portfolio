@@ -9,14 +9,14 @@ OUT = ROOT / "assets" / "img" / "social"
 OUT.mkdir(parents=True, exist_ok=True)
 
 W, H = 1200, 630
-PAPER = "#e7e8e3"
-SLATE = "#141f2a"
-SLATE_RAISED = "#1d2b38"
-RULE = "#2e4356"
-OXIDE = "#e0703f"
-BLUE = "#6fb6e8"
-INK = "#f1f3f1"
-QUIET = "#a9b4b9"
+PAPER = "#efede7"
+SLATE = "#0e1b2e"
+SLATE_RAISED = "#16273f"
+RULE = "#2a3d58"
+OXIDE = "#ff6b4e"
+BLUE = "#8e98a6"
+INK = "#f2f0ea"
+QUIET = "#b4bcc7"
 
 
 def font(name: str, size: int):
@@ -40,11 +40,7 @@ MONO_SMALL = font("mono", 16)
 def base():
     image = Image.new("RGB", (W, H), SLATE)
     draw = ImageDraw.Draw(image)
-    for x in range(0, W, 40):
-        draw.line((x, 0, x, H), fill=RULE, width=1)
-    for y in range(0, H, 40):
-        draw.line((0, y, W, y), fill=RULE, width=1)
-    draw.rectangle((38, 38, W - 38, H - 38), outline="#456077", width=2)
+    draw.rectangle((38, 38, W - 38, H - 38), outline="#2a3d58", width=2)
     return image, draw
 
 
@@ -54,7 +50,7 @@ def footer(draw):
 
 
 def headline(draw, sheet, category, title, subtitle):
-    draw.rounded_rectangle((70, 68, 205, 112), radius=4, fill="#a63a17")
+    draw.rounded_rectangle((70, 68, 205, 112), radius=4, fill="#c4301c")
     draw.text((88, 79), f"SHEET {sheet}", font=MONO_SMALL, fill=INK)
     draw.text((238, 80), category.upper(), font=MONO_SMALL, fill=BLUE)
 
@@ -74,8 +70,8 @@ def photo_card(filename, source, sheet, category, title, subtitle, focal=(0.5, 0
     od = ImageDraw.Draw(overlay)
     for x in range(780):
         alpha = int(225 * (1 - x / 780) ** 1.5)
-        od.line((x, 0, x, H), fill=(20, 31, 42, alpha))
-    od.rectangle((0, 0, W, H), outline=(20, 31, 42, 180), width=20)
+        od.line((x, 0, x, H), fill=(14, 27, 46, alpha))
+    od.rectangle((0, 0, W, H), outline=(14, 27, 46, 180), width=20)
     image = Image.alpha_composite(image.convert("RGBA"), overlay).convert("RGB")
     draw = ImageDraw.Draw(image)
     headline(draw, sheet, category, title, subtitle)
@@ -126,16 +122,16 @@ def technical_card(filename, sheet, category, title, subtitle, motif):
 
 photo_card(
     "portfolio.jpg", "assets/img/vex/worlds-pit-1600.jpg", "01-06", "Portfolio set",
-    "Engineering that has to work.", "Production software, autonomous flight and championship robotics.", (0.58, 0.48)
+    "I build things that have to work on the day.", "CentralPass, autonomous flight and championship robotics.", (0.58, 0.48)
 )
 photo_card(
-    "primo-firle.jpg", "assets/img/primo-firle/customer-site-1280.jpg", "01/06", "Full stack platform",
-    "Cafe Primo Firle", "One connected ordering and operations system running a working restaurant.", (0.58, 0.48)
+    "centralpass.jpg", "assets/img/primo-firle/customer-site-1280.jpg", "01/06", "Hospitality platform",
+    "CentralPass", "Direct ordering built to replace the marketplace apps.", (0.58, 0.48)
 )
 technical_card("adam-drone.jpg", "02/06", "Autonomy", "ADA2M autonomous drone", "A custom carbon fibre aircraft in flight testing.", "drone")
 photo_card(
     "vex-over-under.jpg", "assets/img/vex/over-under-robot-1600.jpg", "03/06", "Robotics",
-    "VEX Over Under", "Two national titles and a World Championship Sportsmanship Award.", (0.62, 0.5)
+    "VEX Over Under", "Two national titles and the 2023-24 season Worlds Sportsmanship Award.", (0.62, 0.5)
 )
 technical_card("bluesat-ground-station.jpg", "04/06", "Space systems", "BlueSat ground station", "Mechanical interfaces for a CubeSat antenna pointing assembly.", "antenna")
 technical_card("sculpt-showdown.jpg", "05/06", "Interactive systems", "Sculpt Showdown", "A real-time multiplayer voxel sculpting game.", "voxels")
