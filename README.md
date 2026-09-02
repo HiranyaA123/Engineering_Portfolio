@@ -63,7 +63,7 @@ python -c "from PIL import Image; im=Image.open('new.jpg').convert('RGB'); [im.r
 
 ## Social previews
 
-Canonical URLs and social preview images use the GitHub Pages production URL. If the site moves to a custom domain, update those values and the URLs in `robots.txt` and `sitemap.xml` together.
+Canonical URLs and social preview images use the custom domain `hiranyaagarwal.au` (set by the `CNAME` file, which the deploy workflow copies into the published site). If the domain ever changes, update those values and the URLs in `robots.txt` and `sitemap.xml` together.
 
 Dedicated 1200 x 630 social cards live in `assets/img/social/`. Regenerate them with `python scripts/generate_social_cards.py` after changing a project title or hero image.
 

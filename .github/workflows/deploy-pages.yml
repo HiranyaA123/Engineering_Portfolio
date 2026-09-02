@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: |
           mkdir _site
-          cp index.html 404.html robots.txt sitemap.xml .nojekyll _site/
+          cp index.html 404.html robots.txt sitemap.xml CNAME .nojekyll _site/
           cp -R assets projects _site/
       - name: Upload site
         uses: actions/upload-pages-artifact@v4

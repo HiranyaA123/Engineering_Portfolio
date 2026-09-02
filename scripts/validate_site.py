@@ -67,7 +67,7 @@ def resolve_local(page, ref):
     clean = parsed.path
     if not clean:
         return None
-    project_prefix = "/Engineering_Portfolio/"
+    project_prefix = "/"
     if clean.startswith(project_prefix):
         clean = clean[len(project_prefix):]
         target = (ROOT / clean).resolve()

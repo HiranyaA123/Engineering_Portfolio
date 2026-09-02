@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hiranyaa123.github.io/Engineering_Portfolio/sitemap.xml
+Sitemap: https://hiranyaagarwal.au/sitemap.xml
