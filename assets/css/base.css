@@ -665,6 +665,9 @@ a.btn-primary:hover,
 
 .photo-grid .wide { grid-column: 1 / -1; }
 
+/* Mixed portrait and landscape frames sit in one row, so non-wide photos share one aspect. */
+.photo-grid .photo:not(.wide) img { aspect-ratio: 4 / 3; object-fit: cover; }
+
 .photo .zoom { display: none; }
 
 .js-lightbox .photo img { cursor: zoom-in; }

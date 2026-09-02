@@ -106,7 +106,10 @@ photo_card(
     "VEX Over Under", "Two national titles and the 2023-24 season Worlds Sportsmanship Award.", (0.62, 0.5)
 )
 technical_card("bluesat-ground-station.jpg", "04/06", "Space systems", "BlueSat ground station", "Mechanical interfaces for a CubeSat antenna pointing assembly.", "antenna")
-technical_card("sculpt-showdown.jpg", "05/06", "Interactive systems", "Sculpt Showdown", "A real-time multiplayer voxel sculpting game.", "voxels")
+photo_card(
+    "sculpt-showdown.jpg", "assets/img/sculpt/landing-1280.jpg", "05/06", "Interactive software",
+    "Sculpt Showdown", "A multiplayer voxel sculpting game in a browser tab.", (0.7, 0.5)
+)
 technical_card("trading-platform.jpg", "06/06", "Software systems", "Day trading platform", "Backtesting and risk controls before live capital.", "trading")
 
 print(f"Generated 7 social cards in {OUT}")

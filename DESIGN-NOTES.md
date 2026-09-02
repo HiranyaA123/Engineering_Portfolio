@@ -100,9 +100,10 @@ The same five VEX photographs and three CentralPass screenshots as before, all a
 
 ## Things to add when the material exists
 
-- A photograph of Hiranya. There is a slot for it in the About section (left column, under the headline) and it is the single biggest remaining gap.
+- (Done, September 2026) A photograph of Hiranya now sits in the About section: the IAC 2025 portrait in `assets/img/portrait/`.
 - A photograph or short clip of ADA2M in the air. Replace the `.spread-media.is-plate` block on the landing page and add a `.case-lead` figure to the drone page.
 - Callouts on the CentralPass screenshots and the drone photograph, using `.annotated`.
+- A short clip of the robot's autonomous routine or the drone hovering. Video is the one thing the strongest hardware portfolios have that this one does not.
 
 ## Things not to do next time
 

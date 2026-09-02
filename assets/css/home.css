@@ -612,6 +612,28 @@
 
 .awards span { font-size: var(--t-meta); color: var(--on-navy-quiet); }
 
+.portrait {
+  margin: var(--s-6) 0 0;
+  max-width: 520px;
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border-radius: var(--r-lg);
+}
+
+.portrait figcaption {
+  margin-top: var(--s-3);
+  font-size: var(--t-meta);
+  color: var(--on-navy-quiet);
+  max-width: 44ch;
+}
+
 /* --------------------------------------------------------- contact */
 
 .contact .shell { padding-block: clamp(72px, 10vw, 160px) clamp(56px, 7vw, 104px); }

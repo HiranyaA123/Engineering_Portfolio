@@ -209,6 +209,8 @@
 
 .case-lead img { aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 45%; }
 
+.case-lead.is-tall img { aspect-ratio: 16 / 10; object-position: 50% 100%; }
+
 /* --------------------------------------------------------- project nav */
 
 .case-nav {

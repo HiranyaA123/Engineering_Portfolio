@@ -188,6 +188,9 @@ y = role(c, "Captain and Lead Programmer", "VEX Robotics Team 41103A", "2018 - 2
     "Led a seven-person team to back-to-back Australian National Championships, two World Championship qualifications and the 2023-24 season World Championship Sportsmanship Award in Dallas.",
     "Wrote autonomous and driver-control C++ using IMU, colour-sensor and encoder data; designed pneumatic intake, scoring and elevation mechanisms."
 ])
+y = role(c, "Volunteer", "Young Space Explorers NSW, 76th International Astronautical Congress, Sydney", "Sep - Oct 2025", y, [
+    "Supported the NSW Department of Education program at IAC 2025, including a CubeSat assembly and weather balloon workshop with Robinson Aerospace Systems."
+])
 y = role(c, "Volunteer", "Little Sisters of the Poor and Order of Malta outreach", "2024 - Present", y, [
     "Make weekly maintenance and companionship visits with elderly residents and distribute essential supplies through organised Sydney street outreach."
 ])
