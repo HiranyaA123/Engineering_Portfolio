@@ -1,5 +1,8 @@
 # Working documents and archives. Not tracked, so never published to Pages.
 _local/
+tmp/
+__pycache__/
+*.pyc
 
 # OS and editor noise
 .DS_Store

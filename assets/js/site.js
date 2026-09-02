@@ -118,12 +118,20 @@
 
   closeBtn.addEventListener('click', close);
 
+  // Close explicitly as well as relying on the dialog's native cancel event.
+  // Some embedded browsers expose <dialog> but do not dismiss it on Escape.
+  dialog.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    event.preventDefault();
+    close();
+  });
+
   // Click the backdrop (anywhere that is not the image or the bar) to close.
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) close();
   });
 
-  // Esc dismisses the dialog natively; catch it so focus still comes back.
+  // Native cancellation remains a fallback and restores focus after dismissal.
   dialog.addEventListener('cancel', function () { setTimeout(cleanup, 0); });
   dialog.addEventListener('close', cleanup);
 })();

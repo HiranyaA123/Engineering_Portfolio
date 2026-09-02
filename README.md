@@ -41,7 +41,13 @@ Change design tokens in `assets/css/base.css` under `:root`. Colour, type scale,
 
 ## Deployment
 
-`.github/workflows/deploy-pages.yml` publishes the repository root to GitHub Pages on every push to `main`. In the repository settings, set **Pages > Build and deployment > Source** to **GitHub Actions**.
+`.github/workflows/deploy-pages.yml` publishes the public site to GitHub Pages on every push to `main`. In the repository settings, set **Pages > Build and deployment > Source** to **GitHub Actions**.
+
+The workflow validates headings, metadata, structured data, local links, images, redirect shims and the sitemap before staging only public files. Run the same check locally with:
+
+```bash
+python scripts/validate_site.py
+```
 
 Files under `_local/` are gitignored, so working documents and archives stay out of the published site.
 
@@ -59,4 +65,8 @@ python -c "from PIL import Image; im=Image.open('new.jpg').convert('RGB'); [im.r
 
 Canonical URLs and social preview images use the GitHub Pages production URL. If the site moves to a custom domain, update those values and the URLs in `robots.txt` and `sitemap.xml` together.
 
+Dedicated 1200 x 630 social cards live in `assets/img/social/`. Regenerate them with `python scripts/generate_social_cards.py` after changing a project title or hero image.
+
 The legacy `projects/*.html` files are redirect shims for existing links and search results. New navigation and indexing use the clean `/projects/project-name/` routes.
+
+The public resume is generated from `scripts/build_resume.py`. Rebuild it with `python scripts/build_resume.py`, then render the PDF and inspect the page before publishing.
