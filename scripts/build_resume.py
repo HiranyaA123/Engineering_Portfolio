@@ -156,7 +156,7 @@ for label, detail in skills:
 
 y = section(c, "Experience", y - 2)
 y = role(c, "Co-Founder", "CentralPass", "2026 - Present", y, [
-    "Co-founded CentralPass and built its proprietary direct-ordering and operations platform over several months, so venues take orders and payments on their own site instead of through marketplace apps such as Uber Eats; first venue live at Caffe Primo Firle."
+    "Co-founded CentralPass and built its direct ordering and venue operations platform over several months: a branded customer website, Stripe payments, a live staff queue, owner tools and receipt printing. First venue live at Caffe Primo Firle."
 ])
 y = role(c, "Co-Founder and CFO", "Project Umbrella Labs, UNSW", "2025 - Present", y, [
     "Co-founded a student-led research and development lab running practical engineering projects across autonomous UAVs, neural interfaces and agricultural monitoring."

@@ -311,3 +311,32 @@
   }
   .notes li { padding-left: 46px; }
 }
+
+/* Case studies share the same compact phone scale. */
+.case-hero h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); max-width: 18ch; }
+.case-hero .lede { font-size: clamp(1.125rem, 2vw, 1.5rem); }
+.case-video { margin: 24px 0 0; }
+.case-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--navy); border-radius: var(--r-md); }
+.case-video figcaption { font-size: 1rem; margin-top: 16px; color: var(--ink-2); }
+.case-video figcaption b { display: block; font-family: var(--display); color: var(--ink); }
+.video-description { margin-top: 16px; font-size: 1rem; }
+.video-description summary { min-height: 44px; cursor: pointer; font-family: var(--display); font-weight: 600; color: var(--red); }
+@media (max-width: 600px) {
+  .case-hero .shell { padding-block: 32px 24px; }
+  .case-hero h1 { font-size: clamp(2.375rem, 9vw, 3.25rem); line-height: 1.06; }
+  .case-hero .data { font-size: .75rem; margin-bottom: 16px; letter-spacing: .025em; }
+  .case-hero .lede { font-size: 1.125rem; line-height: 1.5; }
+  .titleblock { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; padding-block: 20px; }
+  .titleblock dd { font-size: 1rem; line-height: 1.4; }
+  .titleblock dt { font-size: .875rem; }
+  .case-body { padding-block: 32px; }
+  .case-section { padding-block: 24px; gap: 12px; }
+  .case-content h3 { font-size: 1.75rem; line-height: 1.1; }
+  .case-content .case-subhead { margin-top: 32px; }
+  .notes li { padding-left: 40px; font-size: 1rem; }
+  .case-lead { margin-top: 24px; }
+  .case-lead img { aspect-ratio: 4 / 3; }
+  .case-nav { margin-top: 24px; }
+  .case-nav a { padding-block: 24px; }
+  .facts, .flow { margin-top: 24px; }
+}

@@ -1,6 +1,6 @@
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, unquote
 from datetime import date
 import json
 import re
@@ -10,7 +10,10 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER_REDIRECTS = [ROOT / "projects" / "primo-firle" / "index.html"]
+SECTION_NAMES = ("work", "now", "story", "press", "about", "contact")
 PUBLIC_HTML = [ROOT / "index.html", ROOT / "404.html"] + [
+    ROOT / section / "index.html" for section in SECTION_NAMES
+] + [
     page for page in sorted((ROOT / "projects").glob("*/index.html")) if page not in FOLDER_REDIRECTS
 ]
 
@@ -25,19 +28,31 @@ class AuditParser(HTMLParser):
         self.description = []
         self.images = []
         self.json_ld = []
+        self.primary_links = []
+        self.in_primary = False
         self._json_ld = False
         self._json_buffer = []
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
+        if tag == "nav" and values.get("aria-label") == "Primary":
+            self.in_primary = True
+        if tag == "a" and self.in_primary:
+            self.primary_links.append(values.get("href"))
         if "id" in values:
             self.ids.append(values["id"])
         if tag == "h1":
             self.h1 += 1
         if tag == "a" and values.get("href"):
             self.refs.append(("href", values["href"]))
-        if tag in {"img", "script"} and values.get("src"):
+        if tag in {"img", "script", "video", "source", "track"} and values.get("src"):
             self.refs.append(("src", values["src"]))
+        for attribute in ("poster", "data-full"):
+            if values.get(attribute):
+                self.refs.append((attribute, values[attribute]))
+        for attribute in ("srcset", "imagesrcset"):
+            if values.get(attribute):
+                self.refs.extend((attribute, candidate.strip().split()[0]) for candidate in values[attribute].split(","))
         if tag == "link" and values.get("href"):
             self.refs.append(("href", values["href"]))
             if values.get("rel") == "canonical":
@@ -55,6 +70,8 @@ class AuditParser(HTMLParser):
             self._json_buffer.append(data)
 
     def handle_endtag(self, tag):
+        if tag == "nav":
+            self.in_primary = False
         if tag == "script" and self._json_ld:
             self.json_ld.append("".join(self._json_buffer))
             self._json_ld = False
@@ -62,11 +79,11 @@ class AuditParser(HTMLParser):
 
 def resolve_local(page, ref):
     parsed = urlsplit(ref)
-    if parsed.scheme or parsed.netloc or ref.startswith("mailto:") or ref.startswith("tel:") or ref.startswith("#"):
+    if parsed.scheme or parsed.netloc:
         return None
     clean = parsed.path
     if not clean:
-        return None
+        return page if parsed.fragment else None
     project_prefix = "/"
     if clean.startswith(project_prefix):
         clean = clean[len(project_prefix):]
@@ -81,9 +98,15 @@ def resolve_local(page, ref):
 errors = []
 canonical_urls = []
 for page in PUBLIC_HTML:
+    if not page.exists():
+        errors.append(f"Missing public page: {page.relative_to(ROOT)}")
+        continue
     parser = AuditParser()
     parser.feed(page.read_text(encoding="utf-8"))
     label = page.relative_to(ROOT)
+    expected_navigation = {f"/{section}/" for section in SECTION_NAMES} | {"/assets/docs/Hiranya-Agarwal-Resume.pdf"}
+    if set(parser.primary_links) != expected_navigation:
+        errors.append(f"{label}: primary navigation must include all six sections and the resume")
 
     if parser.h1 != 1:
         errors.append(f"{label}: expected one h1, found {parser.h1}")
@@ -93,6 +116,9 @@ for page in PUBLIC_HTML:
         errors.append(f"{label}: expected one canonical URL")
     if page != ROOT / "404.html" and len(parser.canonical) == 1:
         canonical_urls.append(parser.canonical[0])
+        expected_path = page.relative_to(ROOT).as_posix().removesuffix("index.html")
+        if parser.canonical[0] != f"https://hiranyaagarwal.au/{expected_path}":
+            errors.append(f"{label}: canonical does not match its public route")
     if page.name == "index.html" and len(parser.description) != 1:
         errors.append(f"{label}: expected one meta description")
     if parser.description and len(parser.description[0]) > 160:
@@ -117,6 +143,11 @@ for page in PUBLIC_HTML:
             continue
         if not target.exists():
             errors.append(f"{label}: broken {attribute} {ref}")
+        elif target.suffix == ".html" and urlsplit(ref).fragment:
+            target_parser = AuditParser()
+            target_parser.feed(target.read_text(encoding="utf-8"))
+            if unquote(urlsplit(ref).fragment) not in target_parser.ids:
+                errors.append(f"{label}: missing fragment target {ref}")
 
 sitemap = ROOT / "sitemap.xml"
 try:
@@ -126,8 +157,8 @@ try:
     modified = [node.text for node in tree.findall("s:url/s:lastmod", namespace)]
     if len(locations) != len(set(locations)):
         errors.append("sitemap.xml: duplicate URLs")
-    if len(locations) != 7:
-        errors.append(f"sitemap.xml: expected 7 public URLs, found {len(locations)}")
+    if len(locations) != len(PUBLIC_HTML) - 1:
+        errors.append(f"sitemap.xml: expected {len(PUBLIC_HTML) - 1} public URLs, found {len(locations)}")
     if len(modified) != len(locations):
         errors.append("sitemap.xml: every URL must include lastmod")
     if set(locations) != set(canonical_urls):

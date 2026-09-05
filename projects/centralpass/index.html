@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CentralPass hospitality platform | Hiranya Agarwal</title>
-  <meta name="description" content="CentralPass case study: proprietary direct ordering and operations software Hiranya Agarwal built over several months so venues can replace Uber Eats.">
+  <meta name="description" content="CentralPass case study: direct ordering and venue operations software developed by co-founder Hiranya Agarwal, live at Caffe Primo Firle.">
   <meta name="author" content="Hiranya Agarwal">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:locale" content="en_AU">
-  <meta name="theme-color" content="#efede7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e1b2e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#efede7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Hiranya Agarwal engineering portfolio">
   <meta property="og:title" content="CentralPass hospitality platform | Hiranya Agarwal">
-  <meta property="og:description" content="Proprietary direct ordering and operations software, built by hand over several months, live at its first venue.">
+  <meta property="og:description" content="Direct ordering and venue operations software developed by co-founder Hiranya Agarwal, live at its first venue.">
   <meta property="og:url" content="https://hiranyaagarwal.au/projects/centralpass/">
   <meta property="og:image" content="https://hiranyaagarwal.au/assets/img/social/centralpass.jpg">
   <meta property="og:image:alt" content="CentralPass shown through the customer ordering interface of its first live venue deployment.">
@@ -21,7 +20,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CentralPass hospitality platform | Hiranya Agarwal">
-  <meta name="twitter:description" content="Proprietary direct ordering and operations software, built by hand over several months, live at its first venue.">
+  <meta name="twitter:description" content="Direct ordering and venue operations software developed by co-founder Hiranya Agarwal, live at its first venue.">
   <meta name="twitter:image" content="https://hiranyaagarwal.au/assets/img/social/centralpass.jpg">
   <meta name="twitter:image:alt" content="CentralPass shown through the customer ordering interface of its first live venue deployment.">
   <link rel="canonical" href="https://hiranyaagarwal.au/projects/centralpass/">
@@ -64,7 +63,7 @@
           "@id": "https://hiranyaagarwal.au/#hiranya-agarwal"
         },
         "inLanguage": "en-AU",
-        "dateModified": "2026-09-02",
+        "dateModified": "2026-09-05",
         "isPartOf": {
           "@id": "https://hiranyaagarwal.au/#website"
         },
@@ -82,6 +81,12 @@
           {
             "@type": "ListItem",
             "position": 2,
+            "name": "Work",
+            "item": "https://hiranyaagarwal.au/work/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
             "name": "CentralPass",
             "item": "https://hiranyaagarwal.au/projects/centralpass/"
           }
@@ -96,33 +101,36 @@
 
   <header class="site-header">
     <div class="shell">
-      <a class="brand" href="../../">
+      <a class="brand" href="/" aria-label="Hiranya Agarwal, home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Hiranya Agarwal</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../../#work">Work</a>
-        <a href="../../#story">Story</a>
-        <a href="../../#about">About</a>
-        <a href="../../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
-        <a class="nav-contact" href="../../#contact">Say hello</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <a href="/work/" aria-current="page">Work</a>
+        <a href="/now/">Now</a>
+        <a href="/story/">Story</a>
+        <a href="/press/">Press</a>
+        <a href="/about/">About</a>
+        <a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume <span class="sr-only">(PDF)</span></a>
+        <a class="nav-contact" href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="case-hero">
       <div class="shell">
         <p class="data">Project 01 of 06 / Hospitality software</p>
         <h1>CentralPass</h1>
-        <p class="lede">Proprietary software I built so a venue can take its own orders instead of handing them, and a cut of every sale, to Uber Eats. I co-founded the company and wrote the platform: ordering, payments, a live staff queue, an owner portal, customer records and receipt printing. It took several months and it is live at Caffe Primo Firle.</p>
+        <p class="lede">I co-founded CentralPass and developed its direct ordering and venue operations software. The platform connects a branded customer website, payments, a live staff queue, owner tools and receipt printing. Built over several months, it is live at Caffe Primo Firle.</p>
       </div>
     </section>
 
     <section class="case-block">
       <div class="shell">
         <dl class="titleblock">
-          <div><dt>Role</dt><dd>Co-founder, wrote the software</dd></div>
+          <div><dt>Role</dt><dd>Co-founder and developer</dd></div>
           <div><dt>Build time</dt><dd>Several months, alongside a full time degree</dd></div>
           <div><dt>Delivery</dt><dd>Isolated deployment per venue</dd></div>
           <div><dt>Status</dt><dd>First venue live in production</dd></div>
@@ -134,8 +142,8 @@
       <section class="case-section">
         <h2 class="case-label">The problem</h2>
         <div class="case-content">
-          <h3>Marketplace apps own the customer, the data and a slice of every order.</h3>
-          <p>A cafe on Uber Eats gets orders, but it also gets a commission taken off each one, a customer it never learns the name of, and a menu it does not fully control. CentralPass exists to give the venue those three things back. Each venue gets a website under its own brand and domain, payments into its own Stripe account and its own customer records, while the operational core underneath (API, owner portal, staff dashboard, printer bridge) is the product I built and reuse.</p>
+          <h3>Give venues a direct connection to their customers.</h3>
+          <p>CentralPass gives a venue its own branded ordering channel and connected operational tools. Customers order through the venue’s website, payments go into its Stripe account, and staff manage the order through preparation. The shared platform underneath includes the API, owner portal, staff dashboard and printer bridge.</p>
           <dl class="facts">
             <div><dt>Customer journey</dt><dd>Website, menu, ordering, checkout and bookings</dd></div>
             <div><dt>Operations</dt><dd>Live order queue, status flow and availability</dd></div>
@@ -148,7 +156,7 @@
       <section class="case-section">
         <h2 class="case-label">Live deployment</h2>
         <div class="case-content">
-          <h3>Caffe Primo Firle is the first production proof.</h3>
+          <h3>In use at Caffe Primo Firle.</h3>
           <p>These interfaces are from the CentralPass deployment built for Caffe Primo Firle. Customer and order identifying information was excluded from the images on purpose.</p>
           <div class="photo-grid">
             <figure class="photo wide" data-label="the live venue customer site">
@@ -157,7 +165,7 @@
                    sizes="(max-width: 900px) 100vw, 1000px"
                    width="1280" height="720" loading="lazy" decoding="async"
                    alt="The Caffe Primo Firle customer ordering website, the first live venue deployment of CentralPass.">
-              <figcaption><b>Bespoke customer site</b><span>Venue branded menu discovery, pickup ordering, checkout and bookings.</span></figcaption>
+              <figcaption><b>Venue-branded customer site</b><span>Venue branded menu discovery, pickup ordering, checkout and bookings.</span></figcaption>
             </figure>
             <figure class="photo" data-label="the live staff dashboard">
               <img src="../../assets/img/primo-firle/staff-dashboard-1280.jpg"
@@ -180,16 +188,16 @@
       </section>
 
       <section class="case-section">
-        <h2 class="case-label">Built by hand</h2>
+        <h2 class="case-label">My contribution</h2>
         <div class="case-content">
-          <h3>What several months of building actually consisted of.</h3>
-          <p>None of this is a template, a no-code tool or a wrapper around someone else's ordering product. Each piece below is a system I designed, wrote, tested against a real service and deployed, and each one had to keep working when the piece next to it changed.</p>
+          <h3>From customer checkout to the receipt printer.</h3>
+          <p>I designed, implemented and deployed the application and its integrations over several months. My work spans the customer interface, backend data model, payments, staff tools and the local printer service.</p>
           <ol class="notes">
             <li><b>The storefront.</b> A React and Vite site per venue, with menu browsing, modifiers, pickup ordering, checkout and bookings, built to the venue's brand rather than to a CentralPass look.</li>
             <li><b>The API and data model.</b> Node and Express on PostgreSQL: menus, modifiers, orders, customers, offers, opening hours, venue settings and role based access, with schema migrations that run before every deploy.</li>
             <li><b>Payments.</b> Stripe checkout with the payment confirmed server side by webhook before an order is allowed into the staff queue. The browser is never trusted to say that money arrived.</li>
             <li><b>The staff queue.</b> A tablet first dashboard, packaged with Capacitor, that receives new orders over Socket.io, moves them through preparation and marks items sold out for every other screen in real time.</li>
-            <li><b>The printer bridge.</b> A small Node service that lives beside the thermal receipt printer at the counter, takes jobs from the hosted API and prints them, so a cloud outage or a flaky cafe network degrades gracefully instead of silently losing tickets.</li>
+            <li><b>The printer bridge.</b> A small Node service that lives beside the thermal receipt printer at the counter, takes jobs from the hosted API and prints them, connecting the hosted order system to the venue’s printer. Outage recovery needs to be evaluated across the queue, network and printer together.</li>
             <li><b>The owner portal.</b> Menus, hours, offers, customer records, reporting and time clock workflows, so the owner can run the venue without calling me.</li>
             <li><b>Per venue infrastructure.</b> Each venue gets its own Railway project, database, R2 storage and configuration. Onboarding a new venue is a repeatable deployment, not a fork.</li>
           </ol>
@@ -206,7 +214,7 @@
       <section class="case-section">
         <h2 class="case-label">Engineering decisions</h2>
         <div class="case-content">
-          <h3>Decisions made for a busy service, not for a demo.</h3>
+          <h3>Designing for restaurant service.</h3>
           <ol class="notes">
             <li><b>Use real-time events where latency matters.</b> Socket.io pushes new orders, status changes and sold-out updates across customer, staff and owner interfaces.</li>
             <li><b>Keep uploads off ephemeral compute.</b> Menu images stream to Cloudflare R2 instead of living on a Railway container that can be replaced.</li>
@@ -215,7 +223,7 @@
           </ol>
           <div class="callout on-slate">
             <p class="data">Current scope</p>
-            <p>CentralPass is built and operating at its first venue. It covers direct ordering and payments, live staff order management, owner controls, customer and offer workflows, straightforward bookings, basic time clock workflows and receipt printing. It replaces the ordering and customer side of a marketplace app. It is not presented here as a full POS, payroll, advanced rostering or delivery logistics replacement.</p>
+            <p>CentralPass is built and operating at its first venue. It covers direct ordering and payments, live staff order management, owner controls, customer and offer workflows, straightforward bookings, basic time clock workflows and receipt printing. Its scope is direct ordering and connected venue operations. It does not provide a complete POS, payroll, advanced rostering, marketplace customer acquisition or delivery logistics system.</p>
           </div>
         </div>
       </section>
@@ -245,7 +253,7 @@
 
     <nav class="case-nav" aria-label="Other projects">
       <div class="shell">
-        <a href="../../#work">
+        <a href="/work/">
           <span class="data">Back to</span>
           <span class="case-nav-title">All six projects</span>
         </a>
@@ -260,8 +268,8 @@
   <footer class="site-footer">
     <div class="shell">
       <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
-      <span><a href="mailto:agarwalhiranya@gmail.com" data-copy="agarwalhiranya@gmail.com" data-copy-label="email address">agarwalhiranya@gmail.com</a></span>
       <span>Sydney and Adelaide, Australia</span>
+      <div class="footer-links"><a href="/">Home</a><a href="/contact/">Contact</a><a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume (PDF)</a></div>
     </div>
   </footer>
 

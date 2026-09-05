@@ -30,21 +30,24 @@
 
   <header class="site-header">
     <div class="shell">
-      <a class="brand" href="/">
+      <a class="brand" href="/" aria-label="Hiranya Agarwal, home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Hiranya Agarwal</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="/#work">Work</a>
-        <a href="/#story">Story</a>
-        <a href="/#about">About</a>
-        <a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
-        <a class="nav-contact" href="/#contact">Say hello</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <a href="/work/">Work</a>
+        <a href="/now/">Now</a>
+        <a href="/story/">Story</a>
+        <a href="/press/">Press</a>
+        <a href="/about/">About</a>
+        <a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume <span class="sr-only">(PDF)</span></a>
+        <a class="nav-contact" href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="notfound">
       <div class="shell">
         <p class="data">Error 404 / nothing at this address</p>
@@ -52,7 +55,7 @@
         <p class="lede">The address you followed does not match anything in this portfolio. It may have been renamed when the site was reorganised. Everything that does exist is one of these.</p>
         <ul>
           <li><a href="/">Portfolio home <span class="data">Index</span></a></li>
-          <li><a href="/#work">The six projects <span class="data">Work</span></a></li>
+          <li><a href="/work/">The six projects <span class="data">Work</span></a></li>
           <li><a href="/projects/centralpass/">CentralPass <span class="data">Project 01</span></a></li>
           <li><a href="/projects/adam-drone/">ADA&sup2;M autonomous drone <span class="data">Project 02</span></a></li>
           <li><a href="/projects/vex-over-under/">VEX Over Under <span class="data">Project 03</span></a></li>
@@ -69,6 +72,7 @@
     <div class="shell">
       <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
       <span>Sydney and Adelaide, Australia</span>
+      <div class="footer-links"><a href="/">Home</a><a href="/contact/">Contact</a><a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume (PDF)</a></div>
     </div>
   </footer>
 

@@ -8,8 +8,7 @@
   <meta name="author" content="Hiranya Agarwal">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:locale" content="en_AU">
-  <meta name="theme-color" content="#efede7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e1b2e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#efede7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Hiranya Agarwal engineering portfolio">
   <meta property="og:title" content="VEX Over Under | Hiranya Agarwal">
@@ -57,7 +56,7 @@
           "@id": "https://hiranyaagarwal.au/#hiranya-agarwal"
         },
         "inLanguage": "en-AU",
-        "dateModified": "2026-09-02",
+        "dateModified": "2026-09-05",
         "isPartOf": {
           "@id": "https://hiranyaagarwal.au/#website"
         },
@@ -75,6 +74,12 @@
           {
             "@type": "ListItem",
             "position": 2,
+            "name": "Work",
+            "item": "https://hiranyaagarwal.au/work/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
             "name": "VEX Over Under",
             "item": "https://hiranyaagarwal.au/projects/vex-over-under/"
           }
@@ -89,21 +94,24 @@
 
   <header class="site-header">
     <div class="shell">
-      <a class="brand" href="../../">
+      <a class="brand" href="/" aria-label="Hiranya Agarwal, home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Hiranya Agarwal</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../../#work">Work</a>
-        <a href="../../#story">Story</a>
-        <a href="../../#about">About</a>
-        <a href="../../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
-        <a class="nav-contact" href="../../#contact">Say hello</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <a href="/work/" aria-current="page">Work</a>
+        <a href="/now/">Now</a>
+        <a href="/story/">Story</a>
+        <a href="/press/">Press</a>
+        <a href="/about/">About</a>
+        <a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume <span class="sr-only">(PDF)</span></a>
+        <a class="nav-contact" href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="case-hero">
       <div class="shell">
         <p class="data">Project 03 of 06 / Competition robotics</p>
@@ -124,15 +132,20 @@
     </section>
 
     <div class="shell">
-        <figure class="photo case-lead" data-label="the Over Under robot in the pit">
-              <img src="../../assets/img/vex/over-under-robot-1000.jpg"
-                   srcset="../../assets/img/vex/over-under-robot-600.jpg 600w, ../../assets/img/vex/over-under-robot-1000.jpg 1000w, ../../assets/img/vex/over-under-robot-1600.jpg 1600w"
-                   sizes="(max-width: 1360px) 100vw, 1250px"
-                   width="1600" height="1067" fetchpriority="high" decoding="async"
-                   data-full="../../assets/img/vex/over-under-robot-1600.jpg"
-                   alt="The 41103A competition robot on its case in the pit, showing the intake rollers, the drivetrain and the folding wings, with the team number plate mounted on the frame.">
-              <figcaption><b>41103A in the pit</b><span>The competition robot between matches. The intake sits at the front, the pneumatic wings fold along each side, and the number plate rides on the frame.</span></figcaption>
-            </figure>
+        <figure class="annotated">
+        <div class="frame">
+          <img src="/assets/img/vex/over-under-robot-1000.jpg" srcset="/assets/img/vex/over-under-robot-600.jpg 600w, /assets/img/vex/over-under-robot-1000.jpg 1000w, /assets/img/vex/over-under-robot-1600.jpg 1600w" sizes="(max-width: 1360px) calc(100vw - 40px), 1250px" width="1600" height="1067" fetchpriority="high" decoding="async" alt="The 41103A competition robot on its case in the pit, with numbered markers identifying its mechanisms.">
+          <ol class="photo-pins" aria-hidden="true"><li style="--x: 6%; --y: 58%">1</li><li style="--x: 50%; --y: 33%">2</li><li style="--x: 57%; --y: 14%">3</li><li style="--x: 62%; --y: 46%">4</li><li style="--x: 36%; --y: 80%">5</li></ol>
+        </div>
+        <figcaption><b>The Over Under robot, 2023 to 2024 season.</b> Open the numbered notes below to explore the mechanisms.</figcaption>
+      </figure>
+      <div class="photo-notes" aria-label="Robot mechanisms">
+        <details><summary><span aria-hidden="true">1</span>Intake rollers</summary><p>Pull triballs off the floor and transfer them to the scoring mechanism.</p></details>
+        <details><summary><span aria-hidden="true">2</span>Team plate</summary><p>41103A, Team NextGen from Pedare Christian College in Adelaide.</p></details>
+        <details><summary><span aria-hidden="true">3</span>Gear train</summary><p>High-strength gears on the scoring mechanism, packaged around the intake.</p></details>
+        <details><summary><span aria-hidden="true">4</span>Pneumatics and wiring</summary><p>Air lines connect the folding wings and end-game climb to mechanisms driven by the C++ control code I wrote.</p></details>
+        <details><summary><span aria-hidden="true">5</span>Drivetrain</summary><p>Encoders and an inertial sensor feed the autonomous control software.</p></details>
+      </div>
     </div>
 
     <div class="case-body shell">
@@ -276,8 +289,8 @@
   <footer class="site-footer">
     <div class="shell">
       <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
-      <span><a href="mailto:agarwalhiranya@gmail.com" data-copy="agarwalhiranya@gmail.com" data-copy-label="email address">agarwalhiranya@gmail.com</a></span>
       <span>Sydney and Adelaide, Australia</span>
+      <div class="footer-links"><a href="/">Home</a><a href="/contact/">Contact</a><a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume (PDF)</a></div>
     </div>
   </footer>
 

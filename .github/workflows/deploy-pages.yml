@@ -36,7 +36,9 @@ jobs:
         run: |
           mkdir _site
           cp index.html 404.html robots.txt sitemap.xml CNAME .nojekyll _site/
-          cp -R assets projects _site/
+          cp -R projects work now story press about contact _site/
+          mkdir _site/assets
+          cp -R assets/css assets/js assets/img assets/docs assets/video _site/assets/
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:

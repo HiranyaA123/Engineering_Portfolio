@@ -8,22 +8,21 @@
   <meta name="author" content="Hiranya Agarwal">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:locale" content="en_AU">
-  <meta name="theme-color" content="#efede7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e1b2e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#efede7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Hiranya Agarwal engineering portfolio">
   <meta property="og:title" content="ADA2M autonomous drone | Hiranya Agarwal">
-  <meta property="og:description" content="A custom carbon fibre autonomous drone for agricultural environmental monitoring.">
+  <meta property="og:description" content="A custom carbon fibre agricultural drone in flight testing, with stability tuning and sensor integration in progress.">
   <meta property="og:url" content="https://hiranyaagarwal.au/projects/adam-drone/">
   <meta property="og:image" content="https://hiranyaagarwal.au/assets/img/social/adam-drone.jpg">
-  <meta property="og:image:alt" content="Technical social card for the ADA2M autonomous agricultural drone.">
+  <meta property="og:image:alt" content="ADA2M quadcopter during an outdoor flight test.">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ADA2M autonomous drone | Hiranya Agarwal">
-  <meta name="twitter:description" content="A custom carbon fibre autonomous drone for agricultural environmental monitoring.">
+  <meta name="twitter:description" content="A custom carbon fibre agricultural drone in flight testing, with stability tuning and sensor integration in progress.">
   <meta name="twitter:image" content="https://hiranyaagarwal.au/assets/img/social/adam-drone.jpg">
-  <meta name="twitter:image:alt" content="Technical social card for the ADA2M autonomous agricultural drone.">
+  <meta name="twitter:image:alt" content="ADA2M quadcopter during an outdoor flight test.">
   <link rel="canonical" href="https://hiranyaagarwal.au/projects/adam-drone/">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +38,7 @@
         "@context": "https://schema.org",
         "@type": "CreativeWork",
         "name": "ADA2M autonomous drone",
-        "description": "A custom carbon fibre autonomous drone for agricultural environmental monitoring.",
+        "description": "A custom carbon fibre agricultural drone in flight testing, with stability tuning and sensor integration in progress.",
         "url": "https://hiranyaagarwal.au/projects/adam-drone/",
         "image": "https://hiranyaagarwal.au/assets/img/social/adam-drone.jpg",
         "author": {
@@ -57,7 +56,7 @@
           "@id": "https://hiranyaagarwal.au/#hiranya-agarwal"
         },
         "inLanguage": "en-AU",
-        "dateModified": "2026-09-02",
+        "dateModified": "2026-09-05",
         "isPartOf": {
           "@id": "https://hiranyaagarwal.au/#website"
         },
@@ -75,6 +74,12 @@
           {
             "@type": "ListItem",
             "position": 2,
+            "name": "Work",
+            "item": "https://hiranyaagarwal.au/work/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
             "name": "ADA2M autonomous drone",
             "item": "https://hiranyaagarwal.au/projects/adam-drone/"
           }
@@ -89,26 +94,29 @@
 
   <header class="site-header">
     <div class="shell">
-      <a class="brand" href="../../">
+      <a class="brand" href="/" aria-label="Hiranya Agarwal, home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Hiranya Agarwal</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../../#work">Work</a>
-        <a href="../../#story">Story</a>
-        <a href="../../#about">About</a>
-        <a href="../../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
-        <a class="nav-contact" href="../../#contact">Say hello</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <a href="/work/" aria-current="page">Work</a>
+        <a href="/now/">Now</a>
+        <a href="/story/">Story</a>
+        <a href="/press/">Press</a>
+        <a href="/about/">About</a>
+        <a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume <span class="sr-only">(PDF)</span></a>
+        <a class="nav-contact" href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="case-hero">
       <div class="shell">
         <p class="data">Project 02 of 06 / Autonomy</p>
         <h1>ADA&sup2;M autonomous drone</h1>
-        <p class="lede">A two person aircraft built to fly a fixed route over farmland and log temperature, humidity and air quality without anyone walking the paddock.</p>
+        <p class="lede">A two-person project developing an agricultural monitoring drone. I work on the mechanical package and autonomy integration. The aircraft is flying, with stability tuning and sensor integration in progress.</p>
       </div>
     </section>
 
@@ -123,24 +131,50 @@
       </div>
     </section>
 
+    <div class="shell">
+      <figure class="photo case-lead" data-label="the ADA2M airframe outdoors">
+        <img src="/assets/img/drone/airframe-1000.jpg" srcset="/assets/img/drone/airframe-600.jpg 600w, /assets/img/drone/airframe-1000.jpg 1000w" sizes="(max-width: 1360px) calc(100vw - 40px), 1250px" width="1000" height="750" fetchpriority="high" decoding="async" data-full="/assets/img/drone/airframe-1000.jpg" alt="The assembled ADA2M quadcopter on grass during outdoor testing, showing its frame, battery and propellers.">
+        <figcaption><b>The assembled airframe</b><span>Outdoor testing of the current aircraft.</span></figcaption>
+      </figure>
+    </div>
+
     <div class="case-body shell">
+      <section class="case-section" id="flight-test">
+        <h2 class="case-label">Flight test</h2>
+        <div class="case-content">
+          <h3>From the workbench to short flights.</h3>
+          <p>The flight-test footage shows the aircraft lifting from the grass and flying close to the ground. It documents an early flight test, not a completed autonomous monitoring mission.</p>
+          <figure class="case-video">
+            <video controls playsinline preload="none" poster="/assets/img/drone/airframe-600.jpg" width="640" height="360" aria-label="ADA2M outdoor flight test, silent video" aria-describedby="flight-caption">
+              <source src="/assets/video/adam-flight-test.mp4" type="video/mp4">
+              <p><a href="/assets/video/adam-flight-test.mp4">Download the flight-test video</a>.</p>
+            </video>
+            <figcaption id="flight-caption"><b>Outdoor flight test, 25 seconds</b>Silent footage. Playback starts only when you choose to play.</figcaption>
+          </figure>
+          <details class="video-description"><summary>Read the video description</summary><p>The quadcopter lifts a short distance above a grass lawn. Several views show the aircraft moving close to the ground and resting on the grass between attempts. The video demonstrates take-off and low-level flight, without measured endurance or stability results.</p></details>
+          <figure class="photo case-lead" data-label="drone electronics work on the bench">
+            <img src="/assets/img/drone/bench-build-1000.jpg" srcset="/assets/img/drone/bench-build-600.jpg 600w, /assets/img/drone/bench-build-1000.jpg 1000w" sizes="(max-width: 900px) calc(100vw - 56px), 850px" width="1000" height="750" loading="lazy" decoding="async" data-full="/assets/img/drone/bench-build-1000.jpg" alt="Hiranya working on the drone electronics with a soldering iron at a workbench.">
+            <figcaption><b>Electronics integration on the bench</b><span>Working on the assembled airframe before outdoor testing.</span></figcaption>
+          </figure>
+        </div>
+      </section>
       <section class="case-section">
         <h2 class="case-label">The brief</h2>
         <div class="case-content">
           <h3>Collect useful environmental data without walking the whole property.</h3>
-          <p>Small scale farmers cannot instrument every corner of a paddock, and spot readings from one weather station do not describe a field. ADA&sup2;M sweeps a predefined coverage route and logs measurements along it. The engineering problem is packaging: an airframe, a flight controller, a long range link, onboard compute and a sensor payload all have to fit inside a mass and power budget that does not move.</p>
+          <p>Small scale farmers cannot instrument every corner of a paddock, and spot readings from one weather station do not describe a field. The goal is for ADA&sup2;M to follow a predefined coverage route and log environmental measurements along it. The engineering problem is packaging: an airframe, a flight controller, a long range link, onboard compute and a sensor payload all have to fit inside a mass and power budget that does not move.</p>
         </div>
       </section>
 
       <section class="case-section">
         <h2 class="case-label">Architecture</h2>
         <div class="case-content">
-          <h3>A compact autonomous stack, in the order the signal travels.</h3>
+          <h3>The intended monitoring and control stack.</h3>
           <ol class="flow">
-            <li><b>Flight path</b><span>A predefined coverage route over the target area.</span></li>
+            <li><b>Flight path</b><span>Target capability: a predefined coverage route over the monitoring area.</span></li>
             <li><b>Flight control</b><span>A SpeedyBee F405 V4 stabilises the aircraft and executes commands.</span></li>
-            <li><b>Onboard compute</b><span>A Jetson Nano runs inference for in flight decisions.</span></li>
-            <li><b>Payload</b><span>Temperature, humidity and air quality measurements, logged along the route.</span></li>
+            <li><b>Onboard compute</b><span>Jetson Nano compute for the autonomy integration work.</span></li>
+            <li><b>Payload</b><span>Sensor integration in progress for temperature, humidity and air quality logging.</span></li>
           </ol>
           <dl class="facts">
             <div><dt>Airframe</dt><dd>Custom carbon fibre frame</dd></div>
@@ -154,12 +188,12 @@
       <section class="case-section">
         <h2 class="case-label">Engineering work</h2>
         <div class="case-content">
-          <h3>Build the platform, then make it behave.</h3>
+          <h3>Mechanical packaging and staged integration.</h3>
           <ol class="notes">
             <li><b>Package the flight stack.</b> Design the carbon fibre frame around the propulsion, control and compute hardware rather than fitting the hardware to a stock frame.</li>
             <li><b>Connect autonomy to flight.</b> Integrate Jetson Nano inference with onboard decision making so the aircraft can act on what it sees.</li>
-            <li><b>Design for range.</b> Use a TBS Crossfire link so control and telemetry survive the distance a coverage route needs.</li>
-            <li><b>Test in steps.</b> Move from short hops to stability tuning before expanding sensor and autonomy capability, so one failure only has one cause.</li>
+            <li><b>Design for range.</b> Use a TBS Crossfire link for long-range control and telemetry. The operating envelope still requires flight validation.</li>
+            <li><b>Test in steps.</b> Move from short hops to stability tuning before expanding sensor and autonomy capability, so changes can be evaluated incrementally.</li>
           </ol>
         </div>
       </section>
@@ -167,7 +201,7 @@
       <section class="case-section">
         <h2 class="case-label">Programme</h2>
         <div class="case-content">
-          <h3>Built inside a student lab, not on a bench alone.</h3>
+          <h3>Developed with Project Umbrella Labs.</h3>
           <p>ADA&sup2;M runs under Project Umbrella Labs, the student led research and development group I co-founded at UNSW. The lab works across autonomous UAVs, neural interfaces and agricultural monitoring, and runs its projects as rapid prototype, test, revise cycles.</p>
           <p><a class="text-link" href="https://www.projectumbrellalabs.com/" rel="noopener">projectumbrellalabs.com <span aria-hidden="true">&#8599;</span></a></p>
         </div>
@@ -202,8 +236,8 @@
   <footer class="site-footer">
     <div class="shell">
       <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
-      <span><a href="mailto:agarwalhiranya@gmail.com" data-copy="agarwalhiranya@gmail.com" data-copy-label="email address">agarwalhiranya@gmail.com</a></span>
       <span>Sydney and Adelaide, Australia</span>
+      <div class="footer-links"><a href="/">Home</a><a href="/contact/">Contact</a><a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume (PDF)</a></div>
     </div>
   </footer>
 

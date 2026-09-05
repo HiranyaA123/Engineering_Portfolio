@@ -1,6 +1,6 @@
 # Hiranya Agarwal, engineering portfolio
 
-Static portfolio site for Hiranya Agarwal, a Mechanical Engineering (Honours) student at UNSW working across robotics, autonomous systems, space hardware and software.
+Static portfolio site for Hiranya Agarwal, a Mechanical Engineering (Honours) student at UNSW working across robotics, autonomous systems, space hardware and software. Seven top-level pages plus six case studies, all hand written.
 
 No build step, no dependencies. Every page is hand written HTML and CSS with a small progressive enhancement script for the photo callouts and the lightbox.
 
@@ -15,17 +15,30 @@ Then open <http://localhost:8000>. Use the local server rather than opening `ind
 ## Structure
 
 ```
-index.html                  landing page
+index.html                  home: hero, three featured projects, links onward
+work/index.html             all six projects
+now/index.html              what is running this month
+story/index.html            year by year, 2018 to now
+press/index.html            coverage and affiliations
+about/index.html            about, toolbox, awards
+contact/index.html          email, links and copy buttons
 404.html                    error page
 projects/*/index.html       six case studies plus one legacy folder redirect
 assets/css/base.css         design tokens, typography, shared components
-assets/css/home.css         landing page layout
+assets/css/home.css         layout for the seven top-level pages
 assets/css/case.css         case study layout
-assets/js/site.js           current year, active nav section, photo callouts, lightbox
+assets/js/site.js           year, mobile menu, copy buttons, photo lightbox
 assets/img/vex/             robot and team photographs (600 / 1000 / 1600 wide)
+assets/img/drone/           ADA2M airframe and bench build (600 / 1000 wide)
 assets/img/primo-firle/     CentralPass first-deployment screenshots (800 / 1280 wide)
+assets/img/portrait/        portrait photographs
+assets/img/sculpt/          Sculpt Showdown screenshots
+assets/img/bluesat/         CubeSat assembly photograph
+assets/img/iac/             International Astronautical Congress photographs
 assets/img/favicon.svg      portfolio browser icon
+assets/video/               flight-test footage (muted, h264, faststart)
 assets/docs/                the public resume PDF
+assets/new/                 original uploads, gitignored and never deployed
 robots.txt                  crawler rules and sitemap location
 sitemap.xml                 public pages submitted for indexing
 _local/                     not deployed, not tracked (see .gitignore)

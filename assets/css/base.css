@@ -98,7 +98,6 @@ body {
   font-size: var(--t-body);
   line-height: 1.6;
   font-optical-sizing: auto;
-  overflow-x: hidden;
 }
 
 img { max-width: 100%; height: auto; }
@@ -310,7 +309,7 @@ a.btn-primary:hover,
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 36px;
+  min-height: 44px;
   padding: 0 12px;
   margin-left: var(--s-2);
   border: 1.5px solid var(--rule);
@@ -430,7 +429,7 @@ a.btn-primary:hover,
 
 .site-nav a:hover { color: var(--ink); background: var(--bone-2); }
 
-.site-nav a.is-current { color: var(--red); }
+.site-nav a[aria-current="page"] { color: var(--red); background: var(--red-wash); }
 
 .site-nav .nav-contact {
   margin-left: var(--s-2);
@@ -465,165 +464,23 @@ a.btn-primary:hover,
 
 .site-footer a:hover { color: var(--red); text-decoration: underline; }
 
-/* --------------------------------------------------------- annotated photo */
-/* The signature. A real photograph with numbered markers pinned to the real
-   parts. Each marker is a button, so it works on keyboard and touch; the
-   legend underneath repeats the notes so nobody has to hover to read them. */
-
-.annotated {
-  position: relative;
-  margin: 0;
-}
-
-.annotated .frame {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--r-lg);
-  background: var(--bone-2);
-  line-height: 0;
-}
-
-.annotated .frame img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.marks {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.mark {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.mark button {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  border-radius: var(--r-full);
-}
-
-.mark button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--r-full);
-  border: 2px solid rgba(255, 255, 255, .55);
-  transition: transform var(--t-mid) var(--ease), opacity var(--t-mid) var(--ease);
-  opacity: 0;
-  transform: scale(.6);
-}
-
-.mark button span {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: var(--r-full);
-  background: var(--red);
-  color: #fff;
-  font-family: var(--mono);
-  font-weight: 600;
-  font-size: var(--t-data);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, .85), 0 4px 14px rgba(0, 0, 0, .35);
-  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
-}
-
-.mark:hover button span,
-.mark.is-open button span,
-.mark button:focus-visible span { transform: scale(1.12); background: var(--red-deep); }
-
-.mark:hover button::before,
-.mark.is-open button::before { opacity: 1; transform: scale(1); }
-
-.mark .tip {
-  position: absolute;
-  left: calc(100% + 6px);
-  top: 50%;
-  transform: translateY(-50%) translateX(-6px);
-  width: max-content;
-  max-width: min(260px, 60vw);
-  padding: 10px 14px;
-  border-radius: var(--r-sm);
-  background: var(--ink);
-  color: var(--bone);
-  font-family: var(--body);
-  font-size: var(--t-meta);
-  line-height: 1.4;
-  box-shadow: var(--lift-2);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
-}
-
-.mark .tip b {
-  display: block;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 2px;
-}
-
-.mark.flip .tip {
-  left: auto;
-  right: calc(100% + 6px);
-  transform: translateY(-50%) translateX(6px);
-}
-
-.mark:hover .tip,
-.mark:focus-within .tip,
-.mark.is-open .tip {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
-  pointer-events: auto;
-}
-
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-2) var(--s-4);
-  list-style: none;
-  margin: var(--s-3) 0 0;
-  padding: 0;
-  font-size: var(--t-meta);
-  color: var(--ink-3);
-}
-
-.legend li {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-}
-
-.legend i {
-  font-style: normal;
-  font-family: var(--mono);
-  font-weight: 600;
-  font-size: var(--t-micro);
-  color: var(--red);
-}
-
-.annotated figcaption {
-  margin-top: var(--s-3);
-  font-size: var(--t-meta);
-  color: var(--ink-3);
-}
-
-.annotated figcaption b { color: var(--ink); font-weight: 600; }
+/* Numbered photo notes stay in normal flow, including when expanded. */
+.annotated { margin: var(--s-6) 0 0; }
+.annotated .frame { position: relative; aspect-ratio: 16 / 8.5; border-radius: var(--r-lg); overflow: hidden; }
+.annotated .frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+.photo-pins { list-style: none; margin: 0; padding: 0; }
+.photo-pins li { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); display: grid; place-items: center; width: 28px; height: 28px; border-radius: var(--r-full); background: var(--red); color: #fff; box-shadow: 0 0 0 3px var(--bone); font: 600 14px var(--mono); }
+.annotated > figcaption { margin-top: var(--s-3); font-size: 1rem; color: var(--ink-2); }
+.photo-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); margin: var(--s-4) 0 0; }
+.photo-notes details { border-radius: var(--r-sm); background: var(--bone-2); min-width: 0; }
+.photo-notes summary { display: flex; align-items: center; gap: var(--s-2); min-height: 48px; padding: 12px 16px; cursor: pointer; font: 600 1rem/1.4 var(--display); list-style: none; }
+.photo-notes summary::-webkit-details-marker { display: none; }
+.photo-notes summary::after { content: "+"; margin-left: auto; color: var(--red); }
+.photo-notes details[open] summary::after { content: "−"; }
+.photo-notes summary:hover { color: var(--red); }
+.photo-notes summary span { color: var(--red); font-family: var(--mono); }
+.photo-notes p { padding: 0 16px 16px; font-size: 1rem; line-height: 1.6; margin: 0; }
+.photo-notes details[open] { background: var(--bone-3); }
 
 /* --------------------------------------------------------- photographs */
 
@@ -783,32 +640,47 @@ a.btn-primary:hover,
   }
 }
 
-/* --------------------------------------------------------- small screens */
+/* Navigation expands without JavaScript; a button progressively enhances it. */
+[hidden] { display: none !important; }
+body { min-height: 100svh; display: flex; flex-direction: column; }
+main { flex: 1; min-width: 0; }
+.brand { flex: none; }
+.menu-toggle { align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; padding: 8px 16px; background: transparent; border: 1px solid var(--ink); border-radius: var(--r-full); font: 600 1rem var(--display); color: var(--ink); cursor: pointer; }
+.menu-toggle:hover, .menu-toggle[aria-expanded="true"] { background: var(--ink); color: var(--bone); }
+.menu-toggle span { font-size: 1.25rem; }
+.site-header .shell { min-height: 80px; }
+.site-nav .nav-contact[aria-current="page"] { background: var(--red); color: #fff; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.site-footer .shell { align-items: center; }
+.site-footer span, .site-footer a { overflow-wrap: anywhere; min-width: 0; }
+.site-footer .copy-btn { margin-left: 0; }
 
-@media (max-width: 900px) {
-  .site-nav a { padding: 0 10px; font-size: var(--t-meta); }
-  .site-nav .nav-contact { padding: 0 14px; }
+@media (max-width: 1080px) {
+  .site-header { position: relative; }
+  .site-header .shell { flex-wrap: wrap; min-height: 72px; gap: 0 16px; padding-block: 12px; }
+  .js-nav .menu-toggle:not([hidden]) { display: inline-flex; }
+  .site-nav { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-top: 12px; }
+  .js-nav .site-nav:not(.is-open) { display: none; }
+  .site-nav a { padding: 12px 16px; min-height: 48px; border-radius: var(--r-sm); font-size: 1rem; }
+  .site-nav .nav-contact { margin-left: 0; padding: 12px 16px; }
 }
-
-@media (max-width: 720px) {
-  .site-header { position: static; }
-  .site-header .shell {
-    flex-wrap: wrap;
-    padding-block: var(--s-2);
-  }
-  .site-nav { width: 100%; flex-wrap: wrap; }
-  .site-nav a { padding: 0 8px; }
-
-  .mark button { width: 40px; height: 40px; }
-  .mark button span { width: 26px; height: 26px; font-size: var(--t-micro); }
-  .mark .tip { max-width: min(220px, 56vw); font-size: .875rem; }
-
+@media (min-width: 1081px) {
+  .menu-toggle { display: none !important; }
+  .site-nav { display: flex !important; }
+}
+@media (max-width: 600px) {
+  :root { --gutter: 20px; --t-body: 1.0625rem; --t-lede: 1.1875rem; --t-h1: clamp(2.375rem, 9vw, 3.25rem); --t-h2: clamp(1.875rem, 7vw, 2.5rem); }
+  h1, h2 { line-height: 1.06; letter-spacing: -.03em; }
+  .brand { font-size: 1.0625rem; gap: 8px; }
+  .brand-mark { width: 10px; height: 10px; }
+  .menu-toggle { padding-inline: 12px; gap: 12px; }
+  .btn { min-height: 48px; padding-inline: 18px; }
+  .photo-notes { grid-template-columns: minmax(0, 1fr); }
+  .photo-pins li { width: 22px; height: 22px; font-size: 12px; box-shadow: 0 0 0 2px var(--bone); }
+  .site-footer .shell { flex-direction: column; align-items: flex-start; gap: 8px; padding-block: 24px; }
+  .photo-grid { gap: 24px; }
   .lightbox { gap: var(--s-2); padding: var(--s-2); }
-  .lightbox-bar { align-items: stretch; padding: var(--s-2); }
+  .lightbox-bar { align-items: stretch; padding: var(--s-2); max-height: 40svh; overflow-y: auto; }
   .lightbox-caption { font-size: .9375rem; }
   .lightbox-close { width: 100%; }
-}
-
-@media (max-width: 380px) {
-  .brand-text { display: none; }
 }

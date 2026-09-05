@@ -7,64 +7,55 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ------------------------------------------------- active nav section */
-
-  var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll('.site-nav a[href^="#"]')
-  );
-
-  if (navLinks.length && 'IntersectionObserver' in window) {
-    var targets = navLinks
-      .map(function (link) { return document.querySelector(link.getAttribute('href')); })
-      .filter(Boolean);
-
-    var navObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(function (link) {
-          link.classList.toggle(
-            'is-current',
-            link.getAttribute('href') === '#' + entry.target.id
-          );
-        });
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-
-    targets.forEach(function (target) { navObserver.observe(target); });
+  /* ------------------------------------------------- legacy section links */
+  // Old bookmarks such as /#about now lead to the corresponding real page.
+  var sectionRoutes = { work: '/work/', now: '/now/', story: '/story/', press: '/press/', about: '/about/', contact: '/contact/' };
+  function followOldSectionLink() {
+    if (location.pathname !== '/' && location.pathname !== '/index.html') return;
+    var route = sectionRoutes[location.hash.slice(1)];
+    if (route) location.replace(route);
   }
+  followOldSectionLink();
+  window.addEventListener('hashchange', followOldSectionLink);
 
-  /* --------------------------------------------------- photo callouts */
-  // Hover and focus already reveal a note through CSS. Tapping needs a
-  // toggle, and only one note should be open at a time.
-
-  var marks = Array.prototype.slice.call(document.querySelectorAll('.mark'));
-
-  function closeMarks(except) {
-    marks.forEach(function (mark) {
-      if (mark === except) return;
-      mark.classList.remove('is-open');
-      var b = mark.querySelector('button');
-      if (b) b.setAttribute('aria-expanded', 'false');
+  /* ------------------------------------------------- mobile navigation */
+  var menuButton = document.querySelector('.menu-toggle');
+  var primaryNav = document.getElementById('primary-nav');
+  if (menuButton && primaryNav) {
+    menuButton.hidden = false;
+    document.documentElement.classList.add('js-nav');
+    function setMenu(open, restoreFocus) {
+      primaryNav.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.querySelector('span').textContent = open ? '−' : '+';
+      if (restoreFocus) menuButton.focus();
+    }
+    menuButton.addEventListener('click', function () {
+      setMenu(menuButton.getAttribute('aria-expanded') !== 'true', false);
     });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && primaryNav.classList.contains('is-open')) setMenu(false, true);
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.site-header')) setMenu(false, false);
+    });
+    primaryNav.addEventListener('click', function (event) {
+      if (event.target.closest('a')) setMenu(false, false);
+    });
+    window.matchMedia('(min-width: 1081px)').addEventListener('change', function () { setMenu(false, false); });
   }
 
-  marks.forEach(function (mark) {
-    var button = mark.querySelector('button');
-    if (!button) return;
-    button.addEventListener('click', function (event) {
-      event.stopPropagation();
-      var open = mark.classList.toggle('is-open');
-      button.setAttribute('aria-expanded', open ? 'true' : 'false');
-      closeMarks(mark);
+  /* --------------------------------------------------- photo notes */
+  // Native disclosures stay readable and work without JavaScript. Escape
+  // closes a focused note without moving the visitor away from its control.
+  document.querySelectorAll('.photo-notes details').forEach(function (note) {
+    note.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape' || !note.open) return;
+      event.preventDefault();
+      note.open = false;
+      note.querySelector('summary').focus();
     });
   });
-
-  if (marks.length) {
-    document.addEventListener('click', function () { closeMarks(null); });
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') closeMarks(null);
-    });
-  }
 
   /* -------------------------------------------------------- copy buttons */
   // Anything carrying data-copy gets a button beside it. Only built when the

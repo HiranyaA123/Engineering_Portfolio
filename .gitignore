@@ -6,6 +6,11 @@ __pycache__/
 
 # Local tooling
 .claude/
+.playwright-cli/
+output/playwright/
+
+# Original uploads stay local. Only selected, optimised derivatives are public.
+assets/new/
 
 # OS and editor noise
 .DS_Store

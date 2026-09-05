@@ -113,3 +113,42 @@ The same five VEX photographs and three CentralPass screenshots as before, all a
 - Do not put `--red-lift` on the bone surface. It fails contrast there.
 - Do not add a hamburger menu. Five links wrap fine at 320px.
 - Do not add invented metrics, anecdotes or quotes to fill space.
+
+## Revision, September 2026: one page became seven
+
+Hiranya asked for each section on its own page, and an external review found the
+single-page landing at roughly 16,000px on a phone. The site is now:
+
+`/` home, `/work/`, `/now/`, `/story/`, `/press/`, `/about/`, `/contact/`, plus the
+six case studies. The header carries the same seven links on every page, marked
+with `aria-current="page"`, and collapses behind a Menu disclosure below 1080px.
+`site.js` adds the button and the `js-nav` class, so no dead control ships without
+JavaScript.
+
+**The home page keeps three featured projects.** A landing page with only a
+headline and three text links gave a recruiter nothing to look at, so `.featured`
+carries VEX, CentralPass and the drone with photographs, above a four link
+`.elsewhere` row. Everything else moved to its own page.
+
+**Three defects fixed, all found at phone widths.**
+
+1. The contact list overflowed the viewport at 390px, clipped by `overflow-x`.
+   It is a one column grid now and wraps.
+2. The hero callout tooltip could not be dismissed with Escape while focus stayed
+   on its button, because `:focus-within` kept it visible. The pattern is gone:
+   the callouts are `details` elements under the photograph, which are dismissible,
+   keyboard operable and readable without hover. This is the WCAG 1.4.13 fix.
+3. The brand link lost its accessible name below 380px because the name was
+   `display: none` beside an `aria-hidden` dot. The name is always rendered now.
+
+**New photographs, September 2026.** A studio portrait on `/about/`, the ADA2M
+airframe on grass and the bench build on the drone case study and the home page,
+and 25 seconds of muted flight-test footage at 640x360, h264, faststart,
+`preload="none"` behind a poster. Original uploads live in `assets/new/`, which is
+gitignored and excluded from the deploy.
+
+**Wording.** CentralPass is described as direct ordering and venue operations
+software throughout. The marketplace comparison stays in the case study where it
+is explained, and is out of the resume, the meta descriptions and the landing copy.
+"Bugs get found during service" is gone: running a live venue is described as what
+informs the next improvement.

@@ -8,8 +8,7 @@
   <meta name="author" content="Hiranya Agarwal">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:locale" content="en_AU">
-  <meta name="theme-color" content="#efede7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e1b2e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#efede7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Hiranya Agarwal engineering portfolio">
   <meta property="og:title" content="BlueSat ground station | Hiranya Agarwal">
@@ -57,7 +56,7 @@
           "@id": "https://hiranyaagarwal.au/#hiranya-agarwal"
         },
         "inLanguage": "en-AU",
-        "dateModified": "2026-09-02",
+        "dateModified": "2026-09-05",
         "isPartOf": {
           "@id": "https://hiranyaagarwal.au/#website"
         },
@@ -75,6 +74,12 @@
           {
             "@type": "ListItem",
             "position": 2,
+            "name": "Work",
+            "item": "https://hiranyaagarwal.au/work/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
             "name": "BlueSat ground station",
             "item": "https://hiranyaagarwal.au/projects/bluesat-ground-station/"
           }
@@ -89,21 +94,24 @@
 
   <header class="site-header">
     <div class="shell">
-      <a class="brand" href="../../">
+      <a class="brand" href="/" aria-label="Hiranya Agarwal, home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Hiranya Agarwal</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../../#work">Work</a>
-        <a href="../../#story">Story</a>
-        <a href="../../#about">About</a>
-        <a href="../../assets/docs/Hiranya-Agarwal-Resume.pdf">Resume</a>
-        <a class="nav-contact" href="../../#contact">Say hello</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <a href="/work/" aria-current="page">Work</a>
+        <a href="/now/">Now</a>
+        <a href="/story/">Story</a>
+        <a href="/press/">Press</a>
+        <a href="/about/">About</a>
+        <a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume <span class="sr-only">(PDF)</span></a>
+        <a class="nav-contact" href="/contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="case-hero">
       <div class="shell">
         <p class="data">Project 04 of 06 / Space systems</p>
@@ -204,8 +212,8 @@
   <footer class="site-footer">
     <div class="shell">
       <span>&copy; <span id="year">2026</span> Hiranya Agarwal</span>
-      <span><a href="mailto:agarwalhiranya@gmail.com" data-copy="agarwalhiranya@gmail.com" data-copy-label="email address">agarwalhiranya@gmail.com</a></span>
       <span>Sydney and Adelaide, Australia</span>
+      <div class="footer-links"><a href="/">Home</a><a href="/contact/">Contact</a><a href="/assets/docs/Hiranya-Agarwal-Resume.pdf">Resume (PDF)</a></div>
     </div>
   </footer>
 
